@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import UserModal from "../models/user.js";
 import mongoose from "mongoose"
+import organizerP from "../models/organizerP.js";
 
 const secret = 'test';
 
@@ -27,7 +28,7 @@ export const signin = async(req, res) => {
 };
 
 export const signup = async(req, res) => {
-    const { email, password, firstName, lastName } = req.body;
+    const { email, password, firstName, lastName, gender, phone } = req.body;
 
     try {
         const oldUser = await UserModal.findOne({ email });
@@ -36,7 +37,7 @@ export const signup = async(req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, 12);
 
-        const result = await UserModal.create({ email, password: hashedPassword, name: `${firstName} ${lastName}` });
+        const result = await UserModal.create({ email, password: hashedPassword, name: `${firstName} ${lastName}`, gender, phone });
 
         const token = jwt.sign({ email: result.email, id: result._id }, secret, { expiresIn: "1h" });
 
@@ -50,13 +51,17 @@ export const signup = async(req, res) => {
 
 export const ChangeRole = async(req, res) => {
     const { id } = req.params;
-    const { role } = req.body;
+    const { role, event } = req.body;
+    const { org } = req.body;
 
     if (!mongoose.Types.ObjectId.isValid(id))
         return res.status(404).send("No Task Found ! ");
+    const updatedUser = await UserModal.findById(id);
+    const organizer = await organizerP.create({ event, user: updatedUser._id })
+    updatedUser.role = role
+    updatedUser.organizer = organizer._id
+    updatedUser.save()
 
-    const updated = await UserModal.findByIdAndUpdate(
-        id, { role: role }, { new: true }
-    );
-    res.status(200).send(updated);
+
+    res.status(200).send(organizer);
 };

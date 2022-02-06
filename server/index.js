@@ -2,9 +2,11 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import userRoute from './routes/user.js'
-import dotenv from 'dotenv';
 dotenv.config();
+import userRoute from './routes/user.js'
+import contactRoute from './routes/contact.js'
+import eventRoute from './routes/event.js'
+import dotenv from 'dotenv';
 
 const app = express();
 
@@ -14,6 +16,8 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/user", userRoute);
+app.use("/contact", contactRoute);
+app.use("/event", eventRoute);
 
 
 
