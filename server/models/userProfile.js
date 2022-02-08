@@ -1,9 +1,11 @@
-import mongoose, { mongo } from 'mongoose'
+import mongoose from 'mongoose'
 
 const userPSchema = mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'User',
+        required: true,
+
     },
     nickname: {
         type: String

@@ -9,9 +9,22 @@ const userSchema = mongoose.Schema({
     role: { type: Number, required: true, default: 0 },
     organizer: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Organizer',
+        ref: 'organizerP',
         required: false,
     },
+    userP: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'userP',
+        required: false,
+
+    },
+    event: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Event',
+        required: false,
+    }],
+
+
 });
 
 export default mongoose.model("User", userSchema);

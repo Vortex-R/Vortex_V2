@@ -2,7 +2,12 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import UserModal from "../models/user.js";
 import mongoose from "mongoose"
-import organizerP from "../models/organizerP.js";
+import organizerP from "../models/organizerProfile.js";
+import Profile from "../models/userProfile.js";
+import userP from "../models/userProfile.js";
+import Event from "../models/event.js";
+import user from "../models/user.js";
+
 
 const secret = 'test';
 
@@ -19,7 +24,7 @@ export const signin = async(req, res) => {
 
         if (!isPasswordCorrect) return res.status(400).json({ message: "Invalid credentials" });
 
-        const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, { expiresIn: "1h" });
+        const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, { expiresIn: "5h" });
 
         res.status(200).json({ result: oldUser, token });
     } catch (err) {
@@ -39,9 +44,11 @@ export const signup = async(req, res) => {
 
         const result = await UserModal.create({ email, password: hashedPassword, name: `${firstName} ${lastName}`, gender, phone });
 
-        const token = jwt.sign({ email: result.email, id: result._id }, secret, { expiresIn: "1h" });
+        const profile = await userP.create({ user: result._id })
 
-        res.status(201).json({ result, token });
+        const token = jwt.sign({ email: result.email, id: result._id }, secret, { expiresIn: "5h" });
+
+        res.status(201).json({ result, token, profile });
     } catch (error) {
         res.status(500).json({ message: "Something went wrong" });
 
@@ -61,7 +68,57 @@ export const ChangeRole = async(req, res) => {
     updatedUser.role = role
     updatedUser.organizer = organizer._id
     updatedUser.save()
-
-
     res.status(200).send(organizer);
+};
+
+
+
+export const getProfile = async(req, res) => {
+    try {
+        const profile = await UserModal.find();
+        res.status(200).send(profile);
+    } catch (error) {
+        res.status(404).json({ message: error });
+    }
+};
+
+/* export const updateProfile = async(req, res) => {
+
+    const id = req.user.id;
+    console.log(id);
+    const { nickname, age, education, status, hobbies, VrHead } = req.body;
+
+    if (!mongoose.Types.ObjectId.isValid(id))
+        return res.status(404).send("No Event Found ! ");
+
+    const updatedProfile = { nickname, age, education, status, hobbies, VrHead, _id: id };
+
+    await UserModal.findByIdAndUpdate(id, updatedProfile, { new: true });
+    res.json(req.user);
+};
+ */
+
+
+
+
+
+
+export const affectUserToEvent = async(req, res) => {
+    try {
+        const { idUser, idEvent } = req.body;
+        /* console.log(idUser + "  " + idEvent) */
+        const updatedUser = { event: idEvent }
+        const updatedEvent = { users: idUser, $inc: { attendees: -1 } }
+        const getEvent = await Event.findById(idEvent);
+        /* console.log(getEvent); */
+        if (getEvent.attendees > 0) {
+            const getUser = await UserModal.findByIdAndUpdate(idUser, updatedUser);
+            let getEvent = await Event.findByIdAndUpdate(idEvent, updatedEvent);
+            /* console.log(getUser + " " + getEvent) */
+            res.status(200).send(getUser);
+
+        }
+    } catch (error) {
+        res.send(error);
+    }
 };

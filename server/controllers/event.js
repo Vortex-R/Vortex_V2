@@ -14,7 +14,7 @@ export const getEvent = async(req, res) => {
 
         res.status(200).json(allEvents);
     } catch (error) {
-        res.status(404).json({ message: error.message() });
+        res.status(404).json({ message: error });
     }
 };
 

@@ -1,8 +1,9 @@
 import jwt from "jsonwebtoken";
-import User from "../models/user";
+import User from "../models/user.js";
+
 const secret = "test";
 
-const auth = async(req, res, next) => {
+export const auth = async(req, res, next) => {
     let token
 
     if (
@@ -19,8 +20,8 @@ const auth = async(req, res, next) => {
             next()
         } catch (error) {
             console.error(error)
-            res.status(401)
             throw new Error('Not authorized, token failed')
+
         }
     }
 
@@ -30,32 +31,22 @@ const auth = async(req, res, next) => {
     }
 };
 
-const admin = (req, res, next) => {
-    if (req.user && req.user.role === 3) {
-        console.log(req);
+
+export const admin = (req, res, next) => {
+    if (req.user && req.user.role === 2) {
         next()
-        res.send("you're user")
+            /* res.send("you're admin") */
     } else {
         res.status(401)
-        res.send("Not authorized as an admin")
+        res.send("Not authorized")
     }
 }
-const organizer = (req, res, next) => {
+export const organizer = (req, res, next) => {
     if (req.user && req.user.role === 1) {
         next()
+        res.send("you're organizer")
     } else {
         res.status(401)
-        res.send("Not authorized as an admin")
+        res.send("Not authorized ")
     }
 }
-const user = (req, res, next) => {
-    if (req.user && req.user.role === 0) {
-        next()
-    } else {
-        res.status(401)
-        res.send("Not authorized as an admin")
-    }
-}
-
-
-export default { auth, admin, moderator, organizer, user };
