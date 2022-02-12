@@ -59,7 +59,6 @@ export const signup = async(req, res) => {
 export const ChangeRole = async(req, res) => {
     const { id } = req.params;
     const { role, event } = req.body;
-    const { org } = req.body;
 
     if (!mongoose.Types.ObjectId.isValid(id))
         return res.status(404).send("No Task Found ! ");
