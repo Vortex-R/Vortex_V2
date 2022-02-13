@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 import UserModal from "../models/user.js";
 import mongoose from "mongoose"
 import organizerP from "../models/organizerProfile.js";
-import Profile from "../models/userProfile.js";
 import userP from "../models/userProfile.js";
 import Event from "../models/event.js";
 import user from "../models/user.js";
