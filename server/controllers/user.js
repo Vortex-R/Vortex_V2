@@ -80,21 +80,6 @@ export const getProfile = async(req, res) => {
     }
 };
 
-/* export const updateProfile = async(req, res) => {
-
-    const id = req.user.id;
-    console.log(id);
-    const { nickname, age, education, status, hobbies, VrHead } = req.body;
-
-    if (!mongoose.Types.ObjectId.isValid(id))
-        return res.status(404).send("No Event Found ! ");
-
-    const updatedProfile = { nickname, age, education, status, hobbies, VrHead, _id: id };
-
-    await UserModal.findByIdAndUpdate(id, updatedProfile, { new: true });
-    res.json(req.user);
-};
- */
 
 
 
