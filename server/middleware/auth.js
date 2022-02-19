@@ -4,6 +4,7 @@ import User from "../models/user.js";
 const secret = "test";
 
 export const auth = async(req, res, next) => {
+    // console.log(req.user);
     let token
 
     if (
@@ -12,7 +13,7 @@ export const auth = async(req, res, next) => {
     ) {
         try {
             token = req.headers.authorization.split(' ')[1]
-
+                console.log("token: "+token);
             const decoded = jwt.verify(token, secret)
 
             req.user = await User.findById(decoded.id).select('-password')

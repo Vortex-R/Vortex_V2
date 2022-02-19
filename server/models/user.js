@@ -7,17 +7,30 @@ const userSchema = mongoose.Schema({
     gender: { type: String },
     phone: { type: Number },
     role: { type: Number, required: true, default: 0 },
+    nickname: {
+        type: String, required: false
+    },
+    age: {
+        type: Number, required: false
+    },
+    education: {
+        type: String, required: false
+    },
+    status: {
+        type: String, required: false
+    },
+    hobbies: {
+        type: String, required: false
+    },
+    VrHead: {
+        type: String, required: false
+    },
     organizer: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'organizerP',
         required: false,
     },
-    userP: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'userP',
-        required: false,
-
-    },
+   
     event: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Event',

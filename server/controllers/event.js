@@ -11,7 +11,7 @@ const router = express.Router();
 export const getEvent = async(req, res) => {
     try {
         const allEvents = await Event.find();
-
+        // console.log(allEvents);
         res.status(200).json(allEvents);
     } catch (error) {
         res.status(404).json({ message: error });

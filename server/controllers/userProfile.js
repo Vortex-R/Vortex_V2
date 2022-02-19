@@ -10,7 +10,10 @@ const router = express.Router();
 
 export const getProfile = async(req, res) => {
     try {
-        const allProfiles = await userP.find().populate('user')
+    const id = req.user.id;
+
+        // const allProfiles = await userP.findById().populate('user')
+        const allProfiles = await userP.findById(id).populate('User')
 
         res.status(200).send(allProfiles);
     } catch (error) {
@@ -21,10 +24,11 @@ export const getProfile = async(req, res) => {
 
 
 export const updateProfile = async(req, res) => {
-    const id = req.user.id;
-    console.log(id);
+    // const id = req.user.id;
+    // console.log(id);
 
-    const { nickname, age, education, status, hobbies, VrHead } = req.body;
+    const { nickname, age, education, status, hobbies, VrHead, id } = req.body;
+    // console.log(req.body);
 
     if (!mongoose.Types.ObjectId.isValid(id))
         return res.status(404).send("No Profile Found ! ");

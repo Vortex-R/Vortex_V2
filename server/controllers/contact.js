@@ -10,6 +10,7 @@ const router = express.Router();
 export const getContact = async(req, res) => {
     try {
         const allContacts = await Contact.find();
+        console.log(allContacts);
         res.status(200).send(allContacts);
     } catch (error) {
         res.status(404).json({ message: error })
@@ -20,7 +21,7 @@ export const createContact = async(req, res) => {
     var newContact = new Contact();
     newContact.email = req.body.email;
     newContact.subject = req.body.subject;
-    newContact.message = req.body.message;
+    newContact.messages = req.body.messages;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
