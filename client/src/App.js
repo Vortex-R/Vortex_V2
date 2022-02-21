@@ -6,6 +6,7 @@ import Dashbord from "./pages/Dashbord";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
+import Organizer from "./pages/Organizer";
 import Users from "./pages/Users";
 import Register from "./pages/Register";
 
@@ -22,6 +23,7 @@ function App() {
     <Route path='/login' element={ <Login/> } />
     <Route path='/register' element={ <Register/> } />
     <Route path='/profile' element={ <Profile/> } />
+    <Route path='/organizer' element={ <Organizer/> } />
     <Route path='/users' element={ <Users/> } />
 </Routes>
   </div>

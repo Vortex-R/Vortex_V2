@@ -18,6 +18,18 @@ export const getEvent = async(req, res) => {
     }
 };
 
+
+export const showEvent = async(req, res) => {
+    try {
+        console.log(Event);
+        const event = await Event.findOne();
+        // console.log(allEvents);
+        res.status(200).json(event);
+    } catch (error) {
+        res.status(404).json({ message: error });
+    }
+};
+
 export const createEvent = async(req, res) => {
     var newEvent = new Event();
     newEvent.name = req.body.name;

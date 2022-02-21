@@ -55,7 +55,7 @@ function GoalForm() {
       </div>
 
       <div className="form-group">
-      <input type="text" 
+      <input type="textarea" 
       className="form-control" 
       id="messages" name="messages" value={messages}
       placeholder='Enter your message' onChange={onChange} />

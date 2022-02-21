@@ -13,6 +13,7 @@ function Header() {
   const onLogout = () => {
     dispatch(logout())
     dispatch(reset())
+    window.location.reload();
     navigate('/login')
   }
 
@@ -43,8 +44,23 @@ function Header() {
           </button>
           </li>
           </>
-         ):(
+         ) : user.result.role == 1 ? (
            <>
+     
+          <li>
+          <Link to='/organizer'>
+              <FaUserAlt/> Profile
+          </Link>
+           </li>
+         
+          <li>
+          <button className='btn' onClick={onLogout}>
+            <FaSignOutAlt /> Logout
+          </button>
+          </li>
+           </>
+         ) : (
+          <>
      
           <li>
           <Link to='/profile'>
@@ -58,7 +74,8 @@ function Header() {
           </button>
           </li>
            </>
-         )}
+         )
+        }
          </>
       ): (
         <>

@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const API_URL = 'http://localhost:5000/user/'
+const API_URL_EVENT = 'http://localhost:5000/event/'
 
 
 // update profile
@@ -67,6 +68,37 @@ const getUsers = async (token) => {
   
     return response.data
   }
+  // show event by id
+const showEvent = async (token,id) => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  
+    const response = await axios.get(API_URL_EVENT+"/show/"+id , config)
+  
+    return response.data
+  }
+
+
+  // update user role to organizer
+  const updateUserToOrganizer = async (token, data) => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+    const body = {
+      role: data.role,
+      event: data.event
+    }
+    const id = data.userId;
+    console.log("hello: "+body.event);
+    const response = await axios.patch(API_URL+"/role/"+id, body, config)
+  
+    return response.data
+  }
 
 const profileService = {
   updateProfile,
@@ -74,6 +106,8 @@ const profileService = {
 //   deleteGoal,
 //   chooseEvent,
   getUsers,
+  updateUserToOrganizer,
+  showEvent
 }
 
 export default profileService

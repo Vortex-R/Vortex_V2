@@ -73,8 +73,8 @@ export const ChangeRole = async (req, res) => {
   const { role, event } = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(id))
-    return res.status(404).send("No Task Found ! ");
-  const updatedUser = await UserModal.findById(id);
+    return res.status(404).send("Not Found ! ");
+  const updatedUser = await UserModal.findByIdAndUpdate(id,{event});
   const organizer = await organizerP.create({ event, user: updatedUser._id });
   updatedUser.role = role;
   updatedUser.organizer = organizer._id;

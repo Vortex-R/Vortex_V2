@@ -28,9 +28,10 @@ function Home() {
 
     dispatch(getGoals())
 
-    /* return () => {
+
+     return () => {
       dispatch(reset())
-    } */
+    } 
   }, [user, navigate, isError, message, dispatch, flag])
   if (isLoading) {
     return <Spinner />

@@ -27,6 +27,7 @@ function Dashboard() {
   const { contacts } = useSelector(
     (state) => state.contacts
   )
+  // 52 214 296
 
   
 // const response = axios.get(API_URL_CONTACT)
@@ -72,6 +73,7 @@ function Dashboard() {
         <p>Admin Dashboard</p>
       </section>
         <GoalForm />
+
         <section className='content'> 
         {goals.length > 0 ? (
           <div className='goals'>
@@ -85,8 +87,8 @@ function Dashboard() {
       </section>
 
       <section className="footer">
-    <FaPaperPlane/> <p> Reclamation </p>
-  </section>
+         <FaPaperPlane/> <p> Reclamation </p>
+       </section>
 
       <section className='content'> 
         {contacts.length > 0 ? (

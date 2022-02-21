@@ -21,15 +21,16 @@ function GoalItem({ goal,setFlag,flag }) {
       {/* <h2> Event: {goal.subject}</h2> */}
       <h2> Event: {goal.name}</h2>
       <h5>Available Tickets: {goal.attendees} </h5>
-
+      <br />
       </div>
       { user.result.role == 2 ? (
-      <button onClick={() => dispatch(deleteGoal(goal._id))} className='close'>
+  
+  <button onClick={() => {dispatch(deleteGoal(goal._id)); window.location.reload();}} className='close'>
         <FaTimesCircle/>
       </button>
       ):(
-        <button  onClick={() => { setFlag(!flag); dispatch(chooseEvent(goal._id))  } }  className='close'>
-          <FaExternalLinkAlt/>
+        <button  onClick={() => { setFlag(!flag); dispatch(chooseEvent(goal._id))  } }  className='btn btn-block'>
+          <FaExternalLinkAlt/> Participate
       </button>
 
       )}
