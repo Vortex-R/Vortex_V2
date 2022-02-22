@@ -9,6 +9,11 @@ const eventSchema = mongoose.Schema({
         ref: 'User',
         required: false,
     }],
+    organizer: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'organizerP',
+        required: false,
+    }],
 });
 
 export default mongoose.model("Event", eventSchema);

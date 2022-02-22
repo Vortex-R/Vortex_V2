@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Spinner from "../components/Spinner";
-import { getGoals } from "../features/goals/goalSlice";
+// import { getGoals } from "../features/goals/goalSlice";
 import {
     reset,
-    showEvent
+    showEvent,getOrganizer
 } from "../features/profiles/profileSlice";
   
   toast.configure();
@@ -19,22 +19,25 @@ import {
 
     
     const { user } = useSelector((state) => state.auth);
-    // const { goals } = useSelector((state) => state.goals);
-    const [eventId, setEventId] = useState("");
     const { profiles, isLoading, isError, message } = useSelector(
       (state) => state.profiles
     );
-    const { event } = useSelector((state) => state.event);
+    console.log(profiles);
+    // console.log(typeof event);
     useEffect(() => {
       if (!user) {
         navigate('/login')
 
       }
 
+
+      // dispatch(getOrganizer());
+
       
-    dispatch(getGoals());
-    dispatch(showEvent());
-    console.log(event);
+    // dispatch(getGoals());
+    // dispatch(showEvent());
+    dispatch(getOrganizer());
+    // console.log(event);
     // dispatch(getUsers());
  
 //   console.log(user.result);
@@ -44,6 +47,7 @@ import {
       };
     }, [user, message, dispatch]);
   
+
     if (isLoading) {
       return <Spinner />;
     }
@@ -62,50 +66,31 @@ import {
           <p>{user.result.name} Profile</p>
         </section>
         <section className="content">
-          {/* {user.result.length  ? ( */}
-            <div className="card-body">
-              {/* {user.result.map((profile) => ( */}
-                <div >
-                  <div className="goal">
-                    <div>
-                      <h4> Name : {user.result.name} </h4>
-                      <p> Email : {user.result.email} </p>
-                      <p> Phone : {user.result.phone} </p>
-                      <h5> Role : {role(user.result.role)} </h5>
-                      {/* <p> Event : {event.name} </p>
-                      <date> Date : {event.date} </date>
-                      <p> Available Tickets : {event.attendees} </p> */}
 
-                      {/* Events : <select onChange={(e) => setEventId(e.target.value)}>
-                          <option
-                            value={''}  
-                            >
-                            - Select -
-                          </option>
-                            {goals.map((goal) => (
-                          <option
-                          key={goals._id}
-                            value={goal._id}
-                          >
-                            {goal.name}
-                          </option>
-                        ))}
-                      </select> */}
+                  <div className="goal">
+            {profiles.map((organizer) => (
+              <div>
+                      <p> Email : {organizer.user.email} </p>
+                      <p> Phone : {organizer.user.phone} </p>
+                    <h5> Role : {role(organizer.user.role)} </h5>
+                    <hr />
                     </div>
-                    {/* <button
-                      type="submit"
-                      className="btn btn-block"
-                      onClick={() => updateToOrganizer(profile._id)}
-                    >
-                      Submit
-                    </button> */}
-                  </div>
-                </div>
-            {/*  ))} */} 
-            </div>
-     {/*      ) : (
-            <h3>You have not set any Event</h3>
-          )} */}
+                     ))} 
+
+                    {profiles.map((e) => (
+                        <div>
+
+                      <p> Event : {e.event.name} </p>
+                      <date> Date : {e.event.date} </date>
+                    <p> Available Tickets : {e.event.attendees} </p> 
+                    <hr />
+                        </div> 
+                    ))}
+ 
+              </div>
+    
+          
+     
         </section>
       </>
     );

@@ -3,12 +3,13 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 import Header from "./components/Header";
 import Dashbord from "./pages/Dashbord";
-import Home from "./pages/Home";
+import Event from "./pages/Event";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Organizer from "./pages/Organizer";
 import Users from "./pages/Users";
 import Register from "./pages/Register";
+import Home from "./pages/Home";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
 <Header/>
 <Routes>
     <Route path='/' element={ <Home/> } />
+    <Route path='/event' element={ <Event/> } />
     <Route path='/dashbord' element={ <Dashbord/> } />
     <Route path='/login' element={ <Login/> } />
     <Route path='/register' element={ <Register/> } />

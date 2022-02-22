@@ -7,7 +7,9 @@ const organizerPSchema = mongoose.Schema({
         required: true,
     },
     event: {
-        type: String
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Event',
+        required: false,
     },
 })
 

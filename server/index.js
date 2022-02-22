@@ -21,7 +21,7 @@ app.use(cors());
 app.use("/user", userRoute);
 app.use("/contact", auth, contactRoute);
 app.use("/event", eventRoute);
-app.use("/organizerP", auth, organizer, organizerPRoute);
+app.use("/organizerP", auth, organizerPRoute);
 app.use("/userP", auth, userPRoute);
 
 

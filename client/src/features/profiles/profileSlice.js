@@ -107,6 +107,25 @@ export const updateProfile = createAsyncThunk(
     }
   )
 
+  // get all contacts
+  export const getOrganizer = createAsyncThunk(
+    'profiles/getOrganizer',
+    async (_,thunkAPI) => {
+      try {
+        const token = thunkAPI.getState().auth.user.token
+        return await profileService.getOrganizer(token)
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString()
+        return thunkAPI.rejectWithValue(message)
+      }
+    }
+  )
+
 
   // showEvent
   export const showEvent = createAsyncThunk(
@@ -222,6 +241,19 @@ export const profileSlice = createSlice({
       state.profiles = action.payload
     })
     .addCase(getUsers.rejected, (state, action) => {
+      state.isLoading = false
+      state.isError = true
+      state.message = action.payload
+    })
+    .addCase(getOrganizer.pending, (state) => {
+      state.isLoading = true
+    })
+    .addCase(getOrganizer.fulfilled, (state, action) => {
+      state.isLoading = false
+      state.isSuccess = true
+      state.profiles = action.payload
+    })
+    .addCase(getOrganizer.rejected, (state, action) => {
       state.isLoading = false
       state.isError = true
       state.message = action.payload

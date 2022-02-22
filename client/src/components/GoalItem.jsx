@@ -19,7 +19,7 @@ function GoalItem({ goal,setFlag,flag }) {
       <div>
 
       {/* <h2> Event: {goal.subject}</h2> */}
-      <h2> Event: {goal.name}</h2>
+      <h5> Event: {goal.name}</h5>
       <h5>Available Tickets: {goal.attendees} </h5>
       <br />
       </div>

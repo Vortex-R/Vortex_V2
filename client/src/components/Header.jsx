@@ -21,7 +21,8 @@ function Header() {
   <header className='header'>
 
     <div className='logo'>
-      <Link to='/' ><FaHome/> BiGEvent</Link>
+      <Link to='/' >
+      <img src="./Images/MainLogo.png" alt="Logo"/></Link>
     </div>
     <ul>
       { user ? (

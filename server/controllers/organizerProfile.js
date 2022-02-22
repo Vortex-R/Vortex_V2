@@ -10,9 +10,12 @@ const router = express.Router();
 
 export const getProfile = async(req, res) => {
     try {
-        const allProfiles = await organizerP.findById().populate('user');
-
-        res.status(200).send(allProfiles);
+        const id= req.user.id
+        const profiles = await organizerP.find({user: req.user.id}).populate('event').populate('user')
+       // const profile = profiles.find({ user: req.user.id })
+         console.log( 'idd' +req.user.id);
+        console.log('profile' +profiles);
+        res.status(200).send(profiles);
     } catch (error) {
         res.status(404).json({ message: error });
     }

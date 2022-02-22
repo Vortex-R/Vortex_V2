@@ -16,7 +16,7 @@ export const auth = async(req, res, next) => {
                 console.log("token: "+token);
             const decoded = jwt.verify(token, secret)
 
-            req.user = await User.findById(decoded.id).select('-password')
+            req.user = await User.findById(decoded.id).select('-password').populate('event')
 
             next()
         } catch (error) {

@@ -7,7 +7,7 @@ const router = express.Router();
 
 
 
-router.get("/profile", getProfile);
+router.get("/profile",auth, getProfile);
 router.patch("/profile/:id", updateProfile);
 
 export default router;

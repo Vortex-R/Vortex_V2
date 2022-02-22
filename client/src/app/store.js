@@ -12,5 +12,6 @@ export const store = configureStore({
     contacts: contactReducer,
     profiles: profileReducer,
     event: profileReducer,
+    organizer: profileReducer,
   },
 });

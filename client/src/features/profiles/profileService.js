@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const API_URL = 'http://localhost:5000/user/'
 const API_URL_EVENT = 'http://localhost:5000/event/'
+const API_URL_ORGANIZER = 'http://localhost:5000/organizerP/'
 
 
 // update profile
@@ -56,18 +57,7 @@ const updateProfile = async (token,goalData) => {
 //     return response.data
 //   }
 
-  // Get contats
-const getUsers = async (token) => {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  
-    const response = await axios.get(API_URL+"/profiles", config)
-  
-    return response.data
-  }
+ 
   // show event by id
 const showEvent = async (token,id) => {
     const config = {
@@ -77,6 +67,33 @@ const showEvent = async (token,id) => {
     }
   
     const response = await axios.get(API_URL_EVENT+"/show/"+id , config)
+  
+    return response.data
+
+  }
+
+
+    // Get USERS
+const getUsers = async (token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+
+  const response = await axios.get(API_URL+"/profiles", config)
+
+  return response.data
+}
+  // show Organizer data
+const getOrganizer = async (token,id) => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  
+    const response = await axios.get(API_URL_ORGANIZER+"profile" , config)
   
     return response.data
   }
@@ -107,7 +124,8 @@ const profileService = {
 //   chooseEvent,
   getUsers,
   updateUserToOrganizer,
-  showEvent
+  showEvent,
+  getOrganizer
 }
 
 export default profileService

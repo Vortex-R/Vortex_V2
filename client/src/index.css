@@ -8,11 +8,12 @@
 body {
     font-family: 'Poppins', sans-serif;
     height: 100vh;
+    margin-bottom: 5rem;
 }
 
 a {
     text-decoration: none;
-    color: #000;
+    color: #fff;
 }
 
 p {
@@ -32,11 +33,12 @@ h2,
 h3 {
     font-weight: 600;
     margin-bottom: 10px;
+    color: #fff !important
 }
 
 .container {
     width: 100%;
-    max-width: 960px;
+    /* max-width: 960px; */
     margin: 0 auto;
     padding: 0 20px 70px;
     text-align: center;
@@ -46,9 +48,10 @@ h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
-    border-bottom: 1px solid #e6e6e6;
-    margin-bottom: 60px;
+    padding: 20px 20px;
+    /* border-bottom: 1px solid #e6e6e6; */
+    /* margin-bottom: 60px; */
+    /* margin-bottom: 3rem; */
 }
 
 .header ul {
@@ -59,6 +62,7 @@ h3 {
 
 .header ul li {
     margin-left: 20px;
+    font-style: unset;
 }
 
 .header ul li a {
@@ -67,7 +71,7 @@ h3 {
 }
 
 .header ul li a:hover {
-    color: #777;
+    color: #777 !
 }
 
 .header ul li a svg {
@@ -87,16 +91,22 @@ h3 {
     margin-bottom: 10px;
     margin-top: 100px;
     padding: 0 20px;
+    color: #fff
+}
+
+.footer2 {
+    margin-bottom: 50px;
+    padding-bottom: 50px;
 }
 
 .heading p {
-    color: #828282;
+    color: #fff
 }
 
 .goals {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 15px;
 }
 
 .goal {
@@ -104,6 +114,7 @@ h3 {
     margin: 10px 0;
     padding: 20px 0 10px;
     position: relative;
+    border-radius: 5px;
 }
 
 .goal .close {
@@ -115,9 +126,13 @@ h3 {
     background: none;
 }
 
-.form,
+.form {
+    width: 35%;
+    margin: 0 auto;
+}
+
 .content {
-    width: 70%;
+    width: 60%;
     margin: 0 auto;
 }
 
@@ -151,6 +166,7 @@ form-group2 {
     font-family: inherit;
     display: flex;
     justify-content: space-evenly;
+    align-items: unset;
 }
 
 .btn {
@@ -240,4 +256,352 @@ form-group2 {
     text-align: center;
     margin-top: 35px;
     margin-bottom: 35px;
+}
+
+
+/* ***********new design maquette ********** */
+
+@font-face {
+    font-family: NavFont;
+    src: url(./assets/Fonts/NotoSans-Bold.ttf);
+}
+
+body {
+    overflow-x: hidden;
+    background-image: url(./assets/Images//background\ 2.png);
+    background-size: cover;
+    /* height: 6000px; */
+}
+
+
+/* .logo img {
+    width: 10%;
+} */
+
+
+/* 
+.nav ul {
+    list-style: none;
+    position: absolute;
+    left: 50%;
+    top: 2.5%;
+}
+
+.nav ul li {
+    display: inline-block;
+    padding-left: 50px;
+    font-family: NavFont;
+    color: white;
+} */
+
+
+/* #searchbox {
+    width: 120px;
+    height: 12px;
+    border-radius: 10px;
+    background: transparent;
+    border-color: white;
+    position: absolute;
+    left: 85%;
+    top: 5.5%;
+}
+
+#search {
+    width: 1.5%;
+    position: absolute;
+    left: 93%;
+    top: 5.5%;
+} */
+
+.firstsection {
+    background-image: url(./assets/Images/premierslide.png);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    /* left: 0%; */
+    /* top: -0.3%; */
+}
+
+.firstsection button {
+    position: absolute;
+    left: 4.5%;
+    top: 75%;
+    width: 150px;
+    height: 50px;
+    background-image: url(./assets/Images/bouton\get\in\touch.png);
+    background-size: cover;
+    border: hidden;
+}
+
+.firstsection button:hover,
+.secondsection button:hover {
+    cursor: pointer;
+}
+
+.secondsection h1 {
+    position: absolute;
+    top: 140%;
+    left: 4.5%;
+    color: white;
+    font-family: NavFont;
+    font-size: 50px;
+}
+
+.secondsection article {
+    position: absolute;
+    left: 4.7%;
+    top: 160%;
+    width: 500px;
+    color: white;
+    font-size: 100%;
+    font-family: NavFont;
+}
+
+.secondsection button {
+    position: absolute;
+    left: 4.5%;
+    top: 170%;
+    width: 150px;
+    height: 50px;
+    background-image: url(./assets/Images/boutongetintouch.png);
+    background-size: cover;
+    border: hidden;
+}
+
+#first {
+    position: absolute;
+    left: 50%;
+    top: 142%;
+    width: 22%;
+}
+
+#second {
+    position: absolute;
+    left: 74%;
+    top: 128%;
+    width: 22%;
+}
+
+.thirdsection h1 {
+    position: absolute;
+    top: 100%;
+    left: 9%;
+    color: white;
+    font-family: NavFont;
+    font-size: 90%;
+}
+
+.icons img {
+    position: absolute;
+    width: 10%;
+    top: 240%;
+    left: 16%;
+}
+
+#money {
+    left: 44.5%;
+}
+
+#distance {
+    left: 77%;
+}
+
+#time {
+    width: 7%;
+}
+
+#timee,
+#moneyy,
+#distancee,
+#unavailability,
+#lack,
+#transport {
+    width: 200px;
+    height: 30px;
+    position: absolute;
+    top: 262%;
+    left: 12%;
+    background-size: cover;
+    border: hidden;
+}
+
+#timee,
+#moneyy,
+#distancee:hover,
+.fifthsection button:hover {
+    cursor: pointer;
+}
+
+#timee {
+    background-image: url(./assets/Images/boutontime.png);
+}
+
+#moneyy {
+    background-image: url(./assets/Images/boutonmoney.png);
+    left: 41.5%;
+}
+
+#distancee {
+    background-image: url(./assets/Images/boutondistance.png);
+    left: 74.5%;
+}
+
+#imgtime,
+#imgmoney,
+#imgdistance {
+    position: absolute;
+    top: 274%;
+    left: 18%;
+    width: 3%;
+}
+
+#imgmoney {
+    left: 48%;
+}
+
+#imgdistance {
+    left: 81%;
+}
+
+#unavailability {
+    background-image: url(./assets/Images/BoutonUnavailibility.png);
+    top: 287%;
+}
+
+#lack {
+    background-image: url(./assets/Images/BoutonLackoffinancialresources.png);
+    top: 287%;
+    left: 41.5%;
+}
+
+#transport {
+    background-image: url(./assets/Images//BoutonTransportcosts.png);
+    top: 287%;
+    left: 74.5%;
+}
+
+#lastinsection {
+    position: absolute;
+    left: 43.5%;
+    top: 307%;
+    width: 150px;
+    height: 50px;
+    background-image: url(./assets/Images/boutongetintouch.png);
+    background-size: cover;
+    border: hidden;
+}
+
+.fourthsection {
+    background-image: url(./assets/Images//let_sgovirtual.png);
+    background-size: cover;
+    width: 105%;
+    height: 600px;
+    position: absolute;
+    left: 0%;
+    top: 300%;
+}
+
+#text {
+    position: absolute;
+    left: 1.5%;
+    top: 415%;
+    width: 100%;
+}
+
+.fifthsection button {
+    position: absolute;
+    left: 45%;
+    top: 480%;
+    width: 180px;
+    height: 60px;
+    background-image: url(./assets/Images/boutongetintouch.png);
+    background-size: cover;
+    border: hidden;
+}
+
+.textimage img {
+    position: absolute;
+    left: 1.5%;
+    top: 515%;
+    width: 100%;
+}
+
+#firstpic,
+#secondpic,
+#thirdpic {
+    position: absolute;
+    left: 10%;
+    top: 575%;
+    width: 26%;
+}
+
+#secondpic {
+    left: 37.5%;
+}
+
+#thirdpic {
+    left: 65%;
+}
+
+.sixthsection button {
+    position: absolute;
+    left: 44%;
+    top: 658%;
+    width: 180px;
+    height: 60px;
+    background-image: url(./assets/Images/bouton\get\in\touch.png);
+    background-size: cover;
+    border: hidden;
+}
+
+.titleimg img {
+    position: absolute;
+    left: 0%;
+    top: 682%;
+    width: 100%;
+}
+
+#creative,
+#unique,
+#authentic {
+    position: absolute;
+    left: 8%;
+    top: 737%;
+    width: 25%;
+}
+
+#unique {
+    left: 37.5%;
+}
+
+#authentic {
+    left: 67%;
+}
+
+
+/* .titletext img {
+    position: absolute;
+    left: 1.5%;
+    top: 810%;
+    width: 100%;
+} */
+
+#basic,
+#ultumio,
+#partners {
+    position: absolute;
+    left: 5%;
+    top: 838%;
+    width: 28%;
+    padding-bottom: 10rem;
+}
+
+#ultumio {
+    left: 37%;
+}
+
+#partners {
+    left: 69%;
 }
