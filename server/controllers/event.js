@@ -21,7 +21,7 @@ export const getEvent = async(req, res) => {
 
 export const showEvent = async(req, res) => {
     try {
-        console.log(Event);
+        // console.log(Event);
         const event = await Event.findOne();
         // console.log(allEvents);
         res.status(200).json(event);

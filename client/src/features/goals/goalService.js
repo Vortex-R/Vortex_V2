@@ -30,6 +30,8 @@ const getGoals = async (token) => {
   return response.data
 }
 
+
+
 // Delete user goal
 const deleteGoal = async (goalId, token) => {
   const config = {

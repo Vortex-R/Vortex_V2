@@ -1,41 +1,37 @@
-import {
-  ArrowDownward,
-  ChevronRight,
-  Clear,
-  Edit,
-  FilterList,
-  Remove,
-  SaveAlt,
-  Search,
-  ViewColumn,
-} from "@material-ui/icons";
-import axios from "axios";
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Spinner from "../components/Spinner";
+import { getGoals } from "../features/goals/goalSlice";
 import {
   getUsers,
   reset,
-  updateOrganizerRole,
+  updateOrganizerRole
 } from "../features/profiles/profileSlice";
-import { getGoals } from "../features/goals/goalSlice";
 
 toast.configure();
 
 function Users() {
+
+  const navigate = useNavigate()
   const dispatch = useDispatch();
+
   const { user } = useSelector((state) => state.auth);
+
+
   const [eventId, setEventId] = useState("");
   const { profiles, isLoading, isError, message } = useSelector(
     (state) => state.profiles
   );
   const { goals } = useSelector((state) => state.goals);
   useEffect(() => {
+    if (isError) {
+      console.log(message)
+    }
     if (!user) {
-      Navigate("/login");
+      navigate('/login')
     }
 
     dispatch(getGoals());
@@ -44,7 +40,7 @@ function Users() {
     return () => {
       dispatch(reset());
     };
-  }, [user, message, dispatch]);
+  }, [user, navigate, isError, message, dispatch]);
 
   if (isLoading) {
     return <Spinner />;

@@ -11,7 +11,7 @@ export const store = configureStore({
     goals: goalReducer,
     contacts: contactReducer,
     profiles: profileReducer,
-    event: profileReducer,
+    // event: profileReducer,
     organizer: profileReducer,
   },
 });

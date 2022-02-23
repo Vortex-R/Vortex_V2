@@ -10,7 +10,7 @@ const router = express.Router();
 export const getContact = async(req, res) => {
     try {
         const allContacts = await Contact.find();
-        console.log(allContacts);
+        // console.log(allContacts);
         res.status(200).send(allContacts);
     } catch (error) {
         res.status(404).json({ message: error })

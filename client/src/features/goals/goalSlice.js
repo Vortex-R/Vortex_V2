@@ -127,6 +127,9 @@ export const goalSlice = createSlice({
         state.isError = true
         state.message = action.payload
       })
+
+
+      
       .addCase(getGoals.pending, (state) => {
         state.isLoading = true
       })
@@ -140,6 +143,9 @@ export const goalSlice = createSlice({
         state.isError = true
         state.message = action.payload
       })
+
+
+      
       .addCase(deleteGoal.pending, (state) => {
         state.isLoading = true
       })
@@ -162,6 +168,7 @@ export const goalSlice = createSlice({
       .addCase(chooseEvent.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
+       // state.goals.push(action.payload)
         state.goals = state.goals.filter(
           (goal) => goal._id !== action.payload.id
         )

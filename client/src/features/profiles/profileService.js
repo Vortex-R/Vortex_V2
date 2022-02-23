@@ -12,7 +12,6 @@ const updateProfile = async (token,goalData) => {
       Authorization: `Bearer ${token}`,
     },
   }
-  console.log("body: "+ goalData);
   const response = await axios.patch(API_URL +'profile/update', goalData,config)
 
   return response.data
@@ -111,7 +110,7 @@ const getOrganizer = async (token,id) => {
       event: data.event
     }
     const id = data.userId;
-    console.log("hello: "+body.event);
+    // console.log("hello: "+body.event);
     const response = await axios.patch(API_URL+"/role/"+id, body, config)
   
     return response.data

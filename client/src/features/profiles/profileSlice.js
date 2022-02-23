@@ -151,7 +151,7 @@ export const updateProfile = createAsyncThunk(
       'profiles/updateOrganizer',
       async (data,thunkAPI) => {
         try {
-          console.log("slice: "+data.event);
+          // console.log("slice: "+data.event);
           const token = thunkAPI.getState().auth.user.token
           return await profileService.updateUserToOrganizer(token, data)
         } catch (error) {
@@ -245,6 +245,9 @@ export const profileSlice = createSlice({
       state.isError = true
       state.message = action.payload
     })
+
+
+
     .addCase(getOrganizer.pending, (state) => {
       state.isLoading = true
     })
@@ -259,19 +262,22 @@ export const profileSlice = createSlice({
       state.message = action.payload
     })
     
-    .addCase(showEvent.pending, (state) => {
-      state.isLoading = true
-    })
-    .addCase(showEvent.fulfilled, (state, action) => {
-      state.isLoading = false
-      state.isSuccess = true
-      state.event = action.payload
-    })
-    .addCase(showEvent.rejected, (state, action) => {
-      state.isLoading = false
-      state.isError = true
-      state.message = action.payload
-    })
+
+
+
+    // .addCase(showEvent.pending, (state) => {
+    //   state.isLoading = true
+    // })
+    // .addCase(showEvent.fulfilled, (state, action) => {
+    //   state.isLoading = false
+    //   state.isSuccess = true
+    //   state.event = action.payload
+    // })
+    // .addCase(showEvent.rejected, (state, action) => {
+    //   state.isLoading = false
+    //   state.isError = true
+    //   state.message = action.payload
+    // })
       
   },
 })

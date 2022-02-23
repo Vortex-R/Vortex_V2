@@ -1,6 +1,6 @@
 import { FaExternalLinkAlt, FaTimesCircle } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteGoal, chooseEvent, getGoals } from '../features/goals/goalSlice'
+import { deleteGoal, chooseEvent } from '../features/goals/goalSlice'
 
 function GoalItem({ goal,setFlag,flag }) {
 
@@ -16,16 +16,16 @@ function GoalItem({ goal,setFlag,flag }) {
   return (
     <div className='goal'>
       <div>{new Date(goal.date).toLocaleString('en-US')}</div>
-      <div>
 
       {/* <h2> Event: {goal.subject}</h2> */}
       <h5> Event: {goal.name}</h5>
       <h5>Available Tickets: {goal.attendees} </h5>
       <br />
-      </div>
+    
       { user.result.role == 2 ? (
   
-  <button onClick={() => {dispatch(deleteGoal(goal._id)); window.location.reload();}} className='close'>
+    
+    <button onClick={() => {dispatch(deleteGoal(goal._id)); window.location.reload() }} className='close'>
         <FaTimesCircle/>
       </button>
       ):(

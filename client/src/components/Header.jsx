@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-undef */
-import {  FaDharmachakra, FaHome, FaSignInAlt, FaSignOutAlt, FaUser, FaUserAlt, FaUserEdit, FaUsersCog } from 'react-icons/fa'
+import {  FaDharmachakra, FaFireAlt, FaHome, FaSignInAlt, FaSignOutAlt, FaUser, FaUserAlt, FaUserEdit, FaUsersCog } from 'react-icons/fa'
 import { Link, useNavigate  } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
@@ -29,6 +29,11 @@ function Header() {
          <>
          { user.result.role == 2 ? (
            <>
+             <li>
+          <Link to='/event'>
+          <FaFireAlt/> Event
+          </Link>
+           </li>
                   <li>
           <Link to='/users'>
               <FaUsersCog/> Users
@@ -49,6 +54,11 @@ function Header() {
            <>
      
           <li>
+          <Link to='/event'>
+          <FaFireAlt/> Event
+          </Link>
+           </li>
+          <li>
           <Link to='/organizer'>
               <FaUserAlt/> Profile
           </Link>
@@ -62,7 +72,11 @@ function Header() {
            </>
          ) : (
           <>
-     
+       <li>
+          <Link to='/event'>
+               <FaFireAlt/> Event
+          </Link>
+           </li>
           <li>
           <Link to='/profile'>
               <FaUserAlt/> Profile

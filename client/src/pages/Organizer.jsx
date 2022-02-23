@@ -1,51 +1,37 @@
-
-  import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Spinner from "../components/Spinner";
 // import { getGoals } from "../features/goals/goalSlice";
-import {
-    reset,
-    showEvent,getOrganizer
-} from "../features/profiles/profileSlice";
+import { getOrganizer, reset } from "../features/profiles/profileSlice";
   
   toast.configure();
   
   function Organizer() {
+    const navigate = useNavigate()
     const dispatch = useDispatch();
-  const navigate = useNavigate()
 
     
     const { user } = useSelector((state) => state.auth);
     const { profiles, isLoading, isError, message } = useSelector(
       (state) => state.profiles
     );
-    console.log(profiles);
-    // console.log(typeof event);
     useEffect(() => {
+      if (isError) {
+        console.log(message)
+      }
       if (!user) {
         navigate('/login')
-
       }
 
-
-      // dispatch(getOrganizer());
-
-      
-    // dispatch(getGoals());
-    // dispatch(showEvent());
     dispatch(getOrganizer());
-    // console.log(event);
-    // dispatch(getUsers());
- 
-//   console.log(user.result);
-//   console.log(user.result.event[0]);
+
       return () => {
         dispatch(reset());
       };
-    }, [user, message, dispatch]);
+    }, [user, navigate,isError, message, dispatch]);
   
 
     if (isLoading) {
@@ -63,7 +49,7 @@ import {
     return (
       <>
       <section className='heading'>
-          <p>{user.result.name} Profile</p>
+          <p>{user && user.result.name} Profile</p>
         </section>
         <section className="content">
 
@@ -76,9 +62,10 @@ import {
                     <hr />
                     </div>
                      ))} 
+                    <div>
 
-                    {profiles.map((e) => (
-                        <div>
+                    {profiles && profiles.map((e) => (
+                      <div>
 
                       <p> Event : {e.event.name} </p>
                       <date> Date : {e.event.date} </date>
@@ -86,6 +73,7 @@ import {
                     <hr />
                         </div> 
                     ))}
+                    </div>
  
               </div>
     

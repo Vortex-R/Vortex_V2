@@ -85,7 +85,6 @@ export const ChangeRole = async (req, res) => {
 export const getProfile = async (req, res) => {
   try {
     const profile = await UserModal.find();
-    console.log(profile);
     res.status(200).send(profile);
   } catch (error) {
     res.status(404).json({ message: error });
@@ -116,13 +115,13 @@ export const affectUserToEvent = async (req, res) => {
 };
 
 export const updateProfile = async (req, res) => {
-  console.log("hello");
+  // console.log("hello");
   const id = req.user.id;
-  console.log(id);
+  // console.log(id);
 
   const { nickname, age, education, status, hobbies, VrHead  } = req.body;
 //   console.log(req.body);
-  console.log("body: "+req.body);
+  // console.log("body: "+req.body);
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No Profile Found ! ");
 
