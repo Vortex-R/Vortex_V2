@@ -167,6 +167,12 @@ form-group2 {
     display: flex;
     justify-content: space-evenly;
     align-items: unset;
+    color: #e6e6e6;
+}
+
+.gender {
+    color: #fff;
+    padding: 1rem
 }
 
 .btn {

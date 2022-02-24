@@ -78,9 +78,24 @@ function Users() {
                     <p> Email : {profile.email} </p>
                     <p> Phone : {profile.phone} </p>
                     <h5> Role : {role(profile.role)} </h5>
-                    </div>
-                    { profile.event && (profile.role == 0 || profile.role == 1) ? (
+                     </div>
+                    
+                     {/* {profiles.map((e) => (
+                      <div>
 
+                      <p> Event : {e.event.map((a) => (
+                        <div>
+                          <h4> {a.name} </h4>
+                        </div>
+                      ) )} </p>
+                    
+                    <hr />
+                        </div> 
+                    ))} */}
+                    
+                   
+                    { profile.event && profile.role == 0  ? (
+                      <>
                       
                        <select onChange={(e) => setEventId(e.target.value)}>
                         <option
@@ -97,14 +112,14 @@ function Users() {
                         </option>
                       ))}
                     </select>
-                  ) : ( <br /> )}
                   <button
                   type="submit"
                   className="btn btn-block"
-                    onClick={() => {updateToOrganizer(profile._id)/*  ; window.location.reload() */} }
-                  >
+                    onClick={() => {updateToOrganizer(profile._id)/*  ; window.location.reload() */} }>
                     Submit
                   </button>
+                    </>
+                  ) : ( <br /> )}
                 </div>
               </div>
             ))}
