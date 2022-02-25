@@ -18,98 +18,95 @@ function Header() {
   }
 
   return (
-  <header className='header'>
-
-    <div className='logo'>
-      <Link to='/' >
-      <img src="./Images/MainLogo.png" alt="Logo"/></Link>
-    </div>
-    <ul>
-      { user ? (
-         <>
-         { user.result.role == 2 ? (
-           <>
-             <li>
-          <Link to='/event'>
-          <FaFireAlt/> Event
-          </Link>
-           </li>
-                  <li>
-          <Link to='/users'>
-              <FaUsersCog/> Users
-          </Link>
-           </li>
-        <li>
-        <Link to='/dashbord'>
-            <FaDharmachakra/> Dashbord
+    <header className="header">
+      <div className="logo">
+        <Link to="/">
+          <img src={require("../assets/Images/MainLogo.png")} alt="Logo" />
         </Link>
-         </li>
-          <li>
-          <button className='btn' onClick={onLogout}>
-            <FaSignOutAlt /> Logout
-          </button>
-          </li>
-          </>
-         ) : user.result.role == 1 ? (
-           <>
-     
-          <li>
-          <Link to='/event'>
-          <FaFireAlt/> Event
-          </Link>
-           </li>
-          <li>
-          <Link to='/organizer'>
-              <FaUserAlt/> Profile
-          </Link>
-           </li>
-         
-          <li>
-          <button className='btn' onClick={onLogout}>
-            <FaSignOutAlt /> Logout
-          </button>
-          </li>
-           </>
-         ) : (
+      </div>
+      <ul>
+        {user ? (
           <>
-       <li>
-          <Link to='/event'>
-               <FaFireAlt/> Event
-          </Link>
-           </li>
-          <li>
-          <Link to='/profile'>
-              <FaUserAlt/> Profile
-          </Link>
-           </li>
-         
-          <li>
-          <button className='btn' onClick={onLogout}>
-            <FaSignOutAlt /> Logout
-          </button>
-          </li>
-           </>
-         )
-        }
-         </>
-      ): (
-        <>
-         <li>
-            <Link to='/login'>
-                <FaSignInAlt/> Login 
-            </Link>
-        </li>
-        <li>
-            <Link to='/register'>
-                <FaUser/> Register 
-            </Link>
-        </li>
-        </>
-      ) }
-       
-    </ul>
-  </header>
-  )
+            {user.result.role == 2 ? (
+              <>
+                <li>
+                  <Link to="/event">
+                    <FaFireAlt /> Event
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/users">
+                    <FaUsersCog /> Users
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashbord">
+                    <FaDharmachakra /> Dashbord
+                  </Link>
+                </li>
+                <li>
+                  <button className="btn" onClick={onLogout}>
+                    <FaSignOutAlt /> Logout
+                  </button>
+                </li>
+              </>
+            ) : user.result.role == 1 ? (
+              <>
+                <li>
+                  <Link to="/event">
+                    <FaFireAlt /> Event
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/organizer">
+                    <FaUserAlt /> Profile
+                  </Link>
+                </li>
+
+                <li>
+                  <button className="btn" onClick={onLogout}>
+                    <FaSignOutAlt /> Logout
+                  </button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to="/event">
+                    <FaFireAlt /> Event
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/profile">
+                    <FaUserAlt /> Profile
+                  </Link>
+                </li>
+
+                <li>
+                  <button className="btn" onClick={onLogout}>
+                    <FaSignOutAlt /> Logout
+                  </button>
+                </li>
+              </>
+            )}
+          </>
+        ) : (
+          <>
+            <li>
+              <Link to="/login">
+                <FaSignInAlt /> Login
+              </Link>
+            </li>
+            <li>
+              <Link to="/register">
+                <FaUser /> Register
+              </Link>
+            </li>
+          </>
+        )}
+      </ul>
+    </header>
+  );
 }
 
 export default Header;

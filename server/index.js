@@ -1,3 +1,5 @@
+import path from "path";
+const __dirname = path.resolve();
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
@@ -37,3 +39,13 @@ mongoose
     )
   )
   .catch((error) => console.log(`${error} did not connect`));
+
+// Serve frontend
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.resolve(process.cwd(), "client/build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(process.cwd(), "client/build/index.html"));
+  });
+} else {
+  app.get("/", (req, res) => res.send("Please set to production"));
+}
