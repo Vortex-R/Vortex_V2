@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.11f42b03.css",
+    "main.js": "/static/js/main.3eaf726e.js",
+    "static/media/background 2.png": "/static/media/background 2.1db46ef71860fb6290ad.png",
+    "static/media/premierslide.png": "/static/media/premierslide.ae52ee344e70345fb04e.png",
+    "static/media/let_sgovirtual.png": "/static/media/let_sgovirtual.9b30c15adc7a1225364e.png",
+    "static/media/Getready.png": "/static/media/Getready.4c2f9068ae3967479f64.png",
+    "static/media/freeyourmind.png": "/static/media/freeyourmind.c8eec667fc67ae5183eb.png",
+    "static/media/NotoSans-Bold.ttf": "/static/media/NotoSans-Bold.d6c5c03d5fce9c8441bc.ttf",
+    "static/media/Liveit.png": "/static/media/Liveit.34c602f0d11a0ff3df14.png",
+    "static/media/1.png": "/static/media/1.7d28eb0ba1867e4eedc7.png",
+    "static/media/2.png": "/static/media/2.de8605222efc709ac4fa.png",
+    "static/media/creative.png": "/static/media/creative.22b75ddd3ebbd9ffcf71.png",
+    "static/media/authentic.png": "/static/media/authentic.b4056d62d16bf1e2f7e3.png",
+    "static/media/unique.png": "/static/media/unique.bc113850626f013eeb30.png",
+    "static/media/ultumio.png": "/static/media/ultumio.b7fd6d0b13590f58a349.png",
+    "static/media/texte2.png": "/static/media/texte2.3a1f4076292175df031a.png",
+    "static/media/partner_splan.png": "/static/media/partner_splan.90d966dd4487aee363b0.png",
+    "static/media/texte4.png": "/static/media/texte4.7e16d28b1ab3824bcbb8.png",
+    "static/media/BoutonLackoffinancialresources.png": "/static/media/BoutonLackoffinancialresources.7ab95de1c5ee00c51cf9.png",
+    "static/media/BoutonTransportcosts.png": "/static/media/BoutonTransportcosts.2d6f29d0cfdc041ea4ed.png",
+    "static/media/basic_o.png": "/static/media/basic_o.2fc7a7ce8819ad3f9f21.png",
+    "static/media/BoutonUnavailibility.png": "/static/media/BoutonUnavailibility.05cb5df10427f8c7143c.png",
+    "static/media/boutondistance.png": "/static/media/boutondistance.2560de7c2d3d26ea7ff9.png",
+    "static/media/boutonmoney.png": "/static/media/boutonmoney.299eb290a0ee9e223f04.png",
+    "static/media/boutontime.png": "/static/media/boutontime.088edb24a4c138f7e1e6.png",
+    "static/media/texte3.png": "/static/media/texte3.4b34a799d873eab61efb.png",
+    "index.html": "/index.html",
+    "main.11f42b03.css.map": "/static/css/main.11f42b03.css.map",
+    "main.3eaf726e.js.map": "/static/js/main.3eaf726e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.11f42b03.css",
+    "static/js/main.3eaf726e.js"
+  ]
+}
