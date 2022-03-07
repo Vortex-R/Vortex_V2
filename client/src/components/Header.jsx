@@ -45,7 +45,7 @@ function Header() {
                   </Link>
                 </li>
                 <li>
-                  <button className="btn" onClick={onLogout}>
+                  <button className="btn btn-secondary" onClick={onLogout}>
                     <FaSignOutAlt /> Logout
                   </button>
                 </li>
@@ -64,7 +64,7 @@ function Header() {
                 </li>
 
                 <li>
-                  <button className="btn" onClick={onLogout}>
+                  <button className="btn btn-secondary" onClick={onLogout}>
                     <FaSignOutAlt /> Logout
                   </button>
                 </li>
@@ -83,7 +83,7 @@ function Header() {
                 </li>
 
                 <li>
-                  <button className="btn" onClick={onLogout}>
+                  <button className="btn btn-secondary" onClick={onLogout}>
                     <FaSignOutAlt /> Logout
                   </button>
                 </li>

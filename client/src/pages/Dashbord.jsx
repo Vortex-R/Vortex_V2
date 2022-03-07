@@ -48,7 +48,7 @@ function Dashboard() {
       </section>
       <GoalForm />
 
-      <section className="content">
+      {/* <section className="content">
         {goals.length > 0 ? (
           <div className="goals">
             {goals.map((goal) => (
@@ -58,7 +58,7 @@ function Dashboard() {
         ) : (
           <h3>You have not set any Event</h3>
         )}
-      </section>
+      </section> */}
 
       <section className="footer">
         <FaPaperPlane /> <p> Reclamation </p>
@@ -75,6 +75,7 @@ function Dashboard() {
           <h3>You have not set any Event</h3>
         )}
       </section>
+      
     </>
   );
 }

@@ -11,26 +11,27 @@ import Users from "./pages/Users";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 
+import "./assets/scss/themes.scss";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
-<Router>
-  <div className="container">
-<Header/>
-<Routes>
-    <Route path='/' element={ <Home/> } />
-    <Route path='/event' element={ <Event/> } />
-    <Route path='/dashbord' element={ <Dashbord/> } />
-    <Route path='/login' element={ <Login/> } />
-    <Route path='/register' element={ <Register/> } />
-    <Route path='/profile' element={ <Profile/> } />
-    <Route path='/organizer' element={ <Organizer/> } />
-    <Route path='/users' element={ <Users/> } />
-</Routes>
-  </div>
-</Router>
-<ToastContainer/>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/event" element={<Event />} />
+          <Route path="/dashbord" element={<Dashbord />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/organizer" element={<Organizer />} />
+          <Route path="/users" element={<Users />} />
+        </Routes>
+        {/* <Footer /> */}
+      </Router>
+      <ToastContainer />
     </>
   );
 }

@@ -1,62 +1,187 @@
-import { useState, useEffect } from 'react'
-import { FaSignInAlt } from 'react-icons/fa'
-import { useSelector, useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
-import { login, reset } from '../features/auth/authSlice'
-import Spinner from '../components/Spinner'
+import React, { useState, useEffect } from "react";
+import { FaSignInAlt } from "react-icons/fa";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { login, reset } from "../features/auth/authSlice";
+import Spinner from "../components/Spinner";
+import {
+  Col,
+  Container,
+  Form,
+  FormGroup,
+  Row,
+  Button,
+  Input,
+  Label,
+} from "reactstrap";
+import { Link } from "react-router-dom";
+import Feature4 from "../assets/Images/features/img-4.png";
+import LogoDark from "../assets/Images/MainLogo.png";
 
 function Login() {
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  })
+    email: "",
+    password: "",
+  });
 
-  const { email, password } = formData
+  const { email, password } = formData;
 
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
-  )
+  );
 
   useEffect(() => {
     if (isError) {
-      toast.error(message)
+      toast.error(message);
     }
 
-    if (isSuccess || user ) {
-      navigate('/')
+    if (isSuccess || user) {
+      navigate("/event");
     }
 
-    dispatch(reset())
-  }, [user, isError, isSuccess, message, navigate, dispatch])
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
 
-
-  const onChange = (e) => { 
+  const onChange = (e) => {
     setFormData((prevSate) => ({
-    ...prevSate, [e.target.name]: e.target.value,
-  })) }
+      ...prevSate,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   const onSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const userData = {
       email,
       password,
-    }
+    };
 
-    dispatch(login(userData))
-  }
+    dispatch(login(userData));
+  };
 
   if (isLoading) {
-    return <Spinner />
+    return <Spinner />;
   }
-
 
   return (
     <>
-      <section className="heading">
+      <React.Fragment>
+        <section className="bg-account-pages vh-100 text-white">
+          <div className="display-table">
+            <div className="display-table-cell">
+              <Container>
+                <Row>
+                  <Col lg={12}>
+                    <div className="login-box">
+                      <Row className="align-items-center no-gutters">
+                        <Col lg={6}>
+                          <div className="bg-transparent">
+                            <div className="row justify-content-center">
+                              <div className="col-lg-10">
+                                <div className="home-img login-img text-center d-none d-lg-inline-block">
+                                  <div className="animation-2"></div>
+                                  <div className="animation-3"></div>
+                                  <img
+                                    src={Feature4}
+                                    className="img-fluid"
+                                    alt=""
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </Col>
+                        <Col lg={6}>
+                          <Row className="justify-content-center">
+                            <Col lg={11}>
+                              <div className="p-4">
+                                <div className="text-center mt-3">
+                                  <Link to="#">
+                                    <img src={LogoDark} alt="" height="33" />
+                                  </Link>
+                                  <p className="text-muted mt-3">
+                                    Sign in to continue to Vortex.
+                                  </p>
+                                </div>
+                                <div className="p-3 custom-form">
+                                  <Form onSubmit={onSubmit}>
+                                    <FormGroup>
+                                      <Label for="email">Email</Label>
+                                      <Input
+                                        type="email"
+                                        className="form-control"
+                                        id="email"
+                                        name="email"
+                                        value={email}
+                                        placeholder="Enter your email"
+                                        onChange={onChange}
+                                      />
+                                    </FormGroup>
+                                    <FormGroup>
+                                      <Label for="password">Password</Label>
+                                      <Input
+                                        type="password"
+                                        className="form-control"
+                                        id="password"
+                                        name="password"
+                                        value={password}
+                                        placeholder="Enter your password"
+                                        onChange={onChange}
+                                      />
+                                    </FormGroup>
+                                    <div className="custom-control custom-checkbox">
+                                      <Input
+                                        type="checkbox"
+                                        className="custom-control-input"
+                                        id="customControlInline"
+                                      />
+                                      <Label
+                                        className="custom-control-label"
+                                        for="customControlInline"
+                                      >
+                                        Remember me
+                                      </Label>
+                                    </div>
+                                    <div className="mt-3">
+                                      <Button
+                                        color="primary"
+                                        className="btn btn-primary btn-block"
+                                        block
+                                        type="submit"
+                                      >
+                                        Log In
+                                      </Button>{" "}
+                                    </div>
+                                    <div className="mt-4 pt-1 mb-0 text-center">
+                                      <Link
+                                        to="/ForgotPassword"
+                                        className="text-white"
+                                      >
+                                        <i className="mdi mdi-lock"></i> Forgot
+                                        your password?
+                                      </Link>
+                                    </div>
+                                  </Form>
+                                </div>
+                              </div>
+                            </Col>
+                          </Row>
+                        </Col>
+                      </Row>
+                    </div>
+                  </Col>
+                </Row>
+              </Container>
+            </div>
+          </div>
+        </section>
+      </React.Fragment>
+
+      {/* <section className="heading">
         <h1>
           <FaSignInAlt /> Login
         </h1>
@@ -94,9 +219,9 @@ function Login() {
             </button>
           </div>
         </form>
-      </section>
+      </section> */}
     </>
   );
 }
 
-export default Login
+export default Login;

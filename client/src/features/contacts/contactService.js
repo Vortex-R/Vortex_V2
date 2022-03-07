@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = "https://vr-event.herokuapp.com/contact/";
+const API_URL = "http://localhost:5000/contact/";
 
 
 // Create new goal
