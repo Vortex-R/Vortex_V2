@@ -46,6 +46,24 @@ export const getGoals = createAsyncThunk(
     }
   }
 )
+// Get event by id
+export const getGoal = createAsyncThunk(
+  'goals/getgoal',
+  async (id, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token
+      return await goalService.getGoal(id,token)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
 
 // Delete user goal
 export const deleteGoal = createAsyncThunk(
@@ -68,24 +86,40 @@ export const deleteGoal = createAsyncThunk(
 
 // user participate to event
 export const chooseEvent = createAsyncThunk(
-  'goals/choose',
+  "goals/choose",
   async (id, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token
-      return await goalService.chooseEvent(id, token)
-      
+      const token = thunkAPI.getState().auth.user.token;
+      return await goalService.chooseEvent(id, token);
     } catch (error) {
       const message =
         (error.response &&
           error.response.data &&
           error.response.data.message) ||
         error.message ||
-        error.toString()
-      return thunkAPI.rejectWithValue(message)
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
     }
   }
-
-)
+);
+// edit event
+export const editEvent = createAsyncThunk(
+  "goals/edit",
+  async (data, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token;
+      return await goalService.editEvent(data, token);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
 
   // get all contacts
   export const getContacts = createAsyncThunk(

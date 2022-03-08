@@ -73,11 +73,15 @@ h3 {
   margin-right: 5px;
 }
 
-.heading {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 50px;
-  padding: 0 20px;
+
+.heading9 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    padding: 0 20px;
+
+
+
 }
 
 /*
@@ -95,26 +99,27 @@ h3 {
     padding-bottom: 50px;
 }
 */
-.heading p {
-  color: #fff;
-}
-/*
 
-.goals {
+.heading9 p {
+    color: #fff
+}
+
+
+.goals9 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
 }
 
-.goal {
+.goal9 {
     background-color: #f4f4f4;
     margin: 10px 0;
-    padding: 20px 0 10px;
+    padding: 20px 10px 10px;
     position: relative;
     border-radius: 5px;
 }
 
-.goal .close {
+.goal9 .close {
     position: absolute;
     top: 10px;
     right: 15px;
@@ -123,23 +128,23 @@ h3 {
     background: none;
 }
 
-.form {
-    width: 35%;
-    margin: 0 auto;
-}
-
-.content {
+.form9 {
     width: 60%;
     margin: 0 auto;
 }
 
-.form-group {
+.content9 {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.form9-group {
     margin-bottom: 10px;
 }
 
-.form-group input,
-.form-group textarea,
-.form-group select {
+.form9-group input,
+.form9-group textarea,
+.form9-group select {
     width: 100%;
     padding: 10px;
     border: 1px solid #e6e6e6;
@@ -148,13 +153,13 @@ h3 {
     font-family: inherit;
 }
 
-.form-group label {
+.form9-group label {
     text-align: left;
     display: block;
     margin: 0 0 5px 3px;
 }
 
-form-group2 {
+form9-group2 {
     width: 100%;
     padding: 10px;
     border: 1px solid #e6e6e6;
@@ -166,7 +171,7 @@ form-group2 {
     align-items: unset;
     color: #e6e6e6;
 }
-
+/*
 .gender {
     color: #fff;
     padding: 1rem
@@ -238,15 +243,16 @@ form-group2 {
 }
 
 @media (max-width: 600px) {
-  .form {
-    width: 90%;
-  }
-  .heading h1 {
-    font-size: 2rem;
-  }
-  .heading p {
-    font-size: 1.5rem;
-  }
+
+    .form {
+        width: 90%;
+    }
+    .heading9 h1 {
+        font-size: 2rem;
+    }
+    .heading9 p {
+        font-size: 1.5rem;
+    }
 }
 /*
 .tablediv {

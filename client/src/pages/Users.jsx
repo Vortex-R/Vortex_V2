@@ -64,23 +64,23 @@ function Users() {
 
   return (
     <>
-    <section className='heading'>
+      <section className="heading9">
         <p>USERS DETAILS</p>
       </section>
-      <section className="content">
+      <section className="content9">
         {profiles.length > 0 ? (
-          <div className="goals">
+          <div className="goals9">
             {profiles.map((profile) => (
               <div key={profile._id}>
-                <div className="goal">
+                <div className="goal9">
                   <div>
                     <h4> Name : {profile.name} </h4>
                     <p> Email : {profile.email} </p>
                     <p> Phone : {profile.phone} </p>
                     <h5> Role : {role(profile.role)} </h5>
-                     </div>
-                    
-                     {/* {profiles.map((e) => (
+                  </div>
+
+                  {/* {profiles.map((e) => (
                       <div>
 
                       <p> Event : {e.event.map((a) => (
@@ -92,34 +92,32 @@ function Users() {
                     <hr />
                         </div> 
                     ))} */}
-                    
-                   
-                    { profile.event && profile.role == 0  ? (
-                      <>
-                      
-                       <select onChange={(e) => setEventId(e.target.value)}>
-                        <option
-                          value={''}
-                          >
-                          - Select -
-                        </option>
-                          {goals.map((goal) => (
-                            <option
-                            key={goals._id}
-                            value={goal._id}
-                            >
-                          {goal.name}
-                        </option>
-                      ))}
-                    </select>
-                  <button
-                  type="submit"
-                  className="btn btn-block"
-                    onClick={() => {updateToOrganizer(profile._id)/*  ; window.location.reload() */} }>
-                    Submit
-                  </button>
+
+                  {profile.event && profile.role == 0 ? (
+                    <>
+                      <select onChange={(e) => setEventId(e.target.value)}>
+                        <option value={""}>- Select -</option>
+                        {goals.map((goal) => (
+                          <option key={goals._id} value={goal._id}>
+                            {goal.name}
+                          </option>
+                        ))}
+                      </select>
+                      <button
+                        type="submit"
+                        className="btn-out btn-block mt-3"
+                        onClick={() => {
+                          updateToOrganizer(
+                            profile._id
+                          ); /*  ; window.location.reload() */
+                        }}
+                      >
+                        Submit
+                      </button>
                     </>
-                  ) : ( <br /> )}
+                  ) : (
+                    <br />
+                  )}
                 </div>
               </div>
             ))}

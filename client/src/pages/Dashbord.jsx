@@ -42,7 +42,7 @@ function Dashboard() {
 
   return (
     <>
-      <section className="heading">
+      <section className="heading9 text-center">
         <h1>Welcome {user && user.result.name}</h1>
         <p>Admin Dashboard</p>
       </section>
@@ -60,7 +60,7 @@ function Dashboard() {
         )}
       </section> */}
 
-      <section className="footer">
+      {/* <section className="footer">
         <FaPaperPlane /> <p> Reclamation </p>
       </section>
 
@@ -75,7 +75,7 @@ function Dashboard() {
           <h3>You have not set any Event</h3>
         )}
       </section>
-      
+       */}
     </>
   );
 }

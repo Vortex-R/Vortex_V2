@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
-import { FaTicketAlt } from "react-icons/fa";
+import { FaPlayCircle, FaTicketAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { chooseEvent } from "../features/goals/goalSlice";
 function Home({ goal }) {
@@ -17,15 +17,15 @@ function Home({ goal }) {
           />
 
           <Carousel.Caption>
-            <div className="mt-4 pt-2 btn-book">
+            <div className="mt-4 btn-book">
               <a
                 href="/event"
-                className="btn btn-primary btn-round btn-rounded w-25"
+                className="btn f-20 btn-rounded btn-primary"
                 // onClick={() => {
                 //   dispatch(chooseEvent(goal._id));
                 // }}
               >
-                <FaTicketAlt /> Buy a Ticket
+                <h5> Register now</h5>
               </a>
             </div>
             <h3>First slide label</h3>
@@ -40,12 +40,9 @@ function Home({ goal }) {
           />
           <Carousel.Caption>
             <div className="mt-4 pt-2 btn-book">
-              <a
-                href="https://vimeo.com/99025203"
-                className="video-play-icon text-white"
-              >
-                <i className="mdi mdi-play-circle-outline text-white mr-2"></i>
-                Watch With VR Box
+              <a href="/event" className="btn f-20 text-white mx-2">
+                <FaPlayCircle />
+                Register now
               </a>
             </div>
             <h3>Second slide label</h3>
