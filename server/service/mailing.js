@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-export const sendmail = async () => {
+export const sendmail = async (mail) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -10,7 +10,7 @@ export const sendmail = async () => {
 
   const mailOptions = {
     from: "mehdihrairi6@gmail.com",
-    to: "mehdi.hrairi@esprit.tn",
+    to: mail,
     subject: "Event Ticket",
     text: "Hello mehdi, welcome on board.",
   };
