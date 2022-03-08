@@ -6,7 +6,8 @@ import organizerP from "../models/organizerProfile.js";
 import userP from "../models/userProfile.js";
 import Event from "../models/event.js";
 import user from "../models/user.js";
-
+import { sendmail } from "../service/mailing.js";
+import { IfUserParticipated } from "../service/userService.js";
 const secret = "test";
 
 export const signin = async (req, res) => {
@@ -91,23 +92,21 @@ export const getProfile = async (req, res) => {
 
 export const affectUserToEvent = async (req, res) => {
   try {
-   
     const idUser = req.user;
     const { idEvent } = req.body;
-
     const updatedUser = { event: idEvent };
     const updatedEvent = { users: idUser, $inc: { attendees: -1 } };
     const getEvent = await Event.findById(idEvent);
-
-    // fonction de button ya boy mahdi
-    // fonction mail awka louta 
-
-    if (getEvent.attendees > 0) {
-      const getUser = await UserModal.findByIdAndUpdate(idUser, updatedUser);
-      let getEvent = await Event.findByIdAndUpdate(idEvent, updatedEvent);
-
-      res.status(200).send(getUser);
-    }
+    const userId = req.user._id;
+    const eventParticipation = await IfUserParticipated(userId, idEvent);
+    if (eventParticipation == true) {
+      if (getEvent.attendees > 0) {
+        sendmail();
+        const getUser = await UserModal.findByIdAndUpdate(idUser, updatedUser);
+        let getEvent = await Event.findByIdAndUpdate(idEvent, updatedEvent);
+        res.status(200).send(getUser);
+      }
+    } else res.status(500).send("you are already participated");
   } catch (error) {
     res.send(error);
   }
@@ -118,8 +117,8 @@ export const updateProfile = async (req, res) => {
   const id = req.user.id;
   // console.log(id);
 
-  const { nickname, age, education, status, hobbies, VrHead  } = req.body;
-//   console.log(req.body);
+  const { nickname, age, education, status, hobbies, VrHead } = req.body;
+  //   console.log(req.body);
   // console.log("body: "+req.body);
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No Profile Found ! ");
@@ -142,9 +141,6 @@ export const updateProfile = async (req, res) => {
 
   res.status(200).send(profile);
 };
-
-
-
 
 // export const updateUser = async (req, res) => {
 
@@ -171,7 +167,6 @@ export const updateProfile = async (req, res) => {
 //   }
 // };
 
-
 /* 
  const output = `
     <p>You have a new contact request</p>
@@ -185,42 +180,4 @@ export const updateProfile = async (req, res) => {
     
   `;
 
-
-
-
-
-
-
-    // create reusable transporter object using the default SMTP transport
-      // let transporter = await nodemailer.createTransport({
-      //   host: "mail.esprit.com",
-      //   port: 587,
-      //   secure: false, // true for 465, false for other ports
-      //   auth: {
-      //     user: "malek.haddar1@esprit.tn", // generated ethereal user
-      //     pass: "hanover97", // generated ethereal password
-      //   },
-      //   tls: {
-      //     rejectUnauthorized: false,
-      //   },
-      // });
-      // // setup email data with unicode symbols
-      // let mailOptions = {
-      //   from: '"Nodemailer Contact" <malek.haddar1@esprit.tn>', // sender address
-      //   to: "malekhaddar8@gmail.com", // list of receivers
-      //   subject: "Node Contact Request", // Subject line
-      //   text: "Hello world?", // plain text body
-      //   html: output, // html body
-      // };
-
-      // // send mail with defined transport object
-      // await transporter.sendMail(mailOptions, (error, info) => {
-      //   if (error) {
-      //     return console.log(error);
-      //   }
-      //   console.log("Message sent: %s", info.messageId);
-      //   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-
-      //   res.render("contact", { msg: "Email has been sent" });
-      // });
-*/
+/*/
