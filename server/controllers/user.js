@@ -101,8 +101,6 @@ export const affectUserToEvent = async (req, res) => {
     const userId = req.user._id;
     const eventParticipation = await IfUserParticipated(userId, idEvent);
 
-    var segs = [{ data: req.user.name.toUpperCase(), mode: "alphanumeric" }];
-
     if (eventParticipation == true) {
       if (getEvent.attendees > 0) {
         const qr = await qrcode.toDataURL(req.user.name.toUpperCase());

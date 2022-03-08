@@ -23,4 +23,3 @@ export const sendmail = async (user, qr) => {
     }
   });
 };
-export const qrCodeGenerator = async (data) => {};
