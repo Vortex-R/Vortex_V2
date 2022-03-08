@@ -8,6 +8,7 @@ import Event from "../models/event.js";
 import user from "../models/user.js";
 import { sendmail } from "../service/mailing.js";
 import { IfUserParticipated } from "../service/userService.js";
+import qrcode from "qrcode";
 const secret = "test";
 
 export const signin = async (req, res) => {
@@ -100,9 +101,12 @@ export const affectUserToEvent = async (req, res) => {
     const userId = req.user._id;
     const eventParticipation = await IfUserParticipated(userId, idEvent);
 
+    var segs = [{ data: req.user.name.toUpperCase(), mode: "alphanumeric" }];
+
     if (eventParticipation == true) {
       if (getEvent.attendees > 0) {
-        sendmail(req.user.email);
+        const qr = await qrcode.toDataURL(req.user.name.toUpperCase());
+        sendmail(req.user, qr);
         const getUser = await UserModal.findByIdAndUpdate(idUser, updatedUser);
         let getEvent = await Event.findByIdAndUpdate(idEvent, updatedEvent);
         res.status(200).send(getUser);

@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-export const sendmail = async (mail) => {
+export const sendmail = async (user, qr) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -7,14 +7,14 @@ export const sendmail = async (mail) => {
       pass: "lol06061997mhlol",
     },
   });
-
   const mailOptions = {
     from: "mehdihrairi6@gmail.com",
-    to: mail,
+    to: user.email,
+    attachDataUrls: true,
     subject: "Event Ticket",
-    text: "Hello mehdi, welcome on board.",
+    text: "Hello, " + user.name,
+    html: 'This is your QRCode, Have fun!</br> <img src="' + qr + '">',
   };
-
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       console.log(error);
@@ -23,3 +23,4 @@ export const sendmail = async (mail) => {
     }
   });
 };
+export const qrCodeGenerator = async (data) => {};
