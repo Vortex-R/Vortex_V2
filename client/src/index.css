@@ -1,8 +1,7 @@
- @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 /*
 body {
@@ -12,28 +11,28 @@ body {
 }
 */
 a {
-    text-decoration: none;
-    color: #fff !important;
+  text-decoration: none;
+  color: #fff !important;
 }
 
 p {
-    line-height: 1.7;
+  line-height: 1.7;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 li {
-    line-height: 2.2;
+  line-height: 2.2;
 }
 
 h1,
 h2,
 h3 {
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #fff !important
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #fff !important;
 }
 /*
 .container {
@@ -44,42 +43,41 @@ h3 {
 }
 */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
 .header ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .header ul li {
-    margin-left: 20px;
-    font-style: unset;
+  margin-left: 20px;
+  font-style: unset;
 }
 
 .header ul li a {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .header ul li a:hover {
-    color: #777 !
+  color: #777 !;
 }
 
 .header ul li a svg {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .heading {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 50px;
-    padding: 0 20px;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  padding: 0 20px;
 }
 
 /*
@@ -98,7 +96,7 @@ h3 {
 }
 */
 .heading p {
-    color: #fff
+  color: #fff;
 }
 /*
 
@@ -175,80 +173,80 @@ form-group2 {
 }
 */
 .btn-out {
-    padding: 10px 20px;
-    border: 1px solid #000;
-    border-radius: 5px;
-    background: #000;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    text-align: center;
-    appearance: button;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  padding: 10px 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  appearance: button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn svg {
-    margin-right: 8px;
+  margin-right: 8px;
 }
 
 .btn-reverse {
-    background: #fff;
-    color: #000;
+  background: #fff;
+  color: #000;
 }
 
 .btn-block {
-    width: 100%;
-    margin-bottom: 20px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .btn:hover {
-    transform: scale(0.98);
+  transform: scale(0.98);
 }
 
 .loadingSpinnerContainer {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 5000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .loadingSpinner {
-    width: 64px;
-    height: 64px;
-    border: 8px solid;
-    border-color: rgb(0, 0, 0) transparent rgb(255, 255, 255) transparent;
-    border-radius: 50%;
-    animation: spin 1.2s linear infinite;
+  width: 64px;
+  height: 64px;
+  border: 8px solid;
+  border-color: rgb(0, 0, 0) transparent rgb(255, 255, 255) transparent;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 600px) {
-    .form {
-        width: 90%;
-    }
-    .heading h1 {
-        font-size: 2rem;
-    }
-    .heading p {
-        font-size: 1.5rem;
-    }
+  .form {
+    width: 90%;
+  }
+  .heading h1 {
+    font-size: 2rem;
+  }
+  .heading p {
+    font-size: 1.5rem;
+  }
 }
 /*
 .tablediv {
@@ -264,37 +262,34 @@ form-group2 {
 } */
 
 .carousel-caption {
-    width: 100%;
+  width: 100%;
 }
 
 .btn-book {
-    margin-right: 80%;
-    margin-bottom: 10%;
-    display: flex;
-    width: 100%;
-    font-size: x-large;
+  margin-right: 80%;
+  margin-bottom: 10%;
+  display: flex;
+  width: 100%;
+  font-size: x-large;
 }
-
 
 /* ***********new design maquette ********** */
-
+/* 
 @font-face {
-    font-family: NavFont;
-    src: url(./assets/fonts/NotoSans-Bold.ttf);
-}
+  font-family: NavFont;
+  src: url(./assets/fonts/NotoSans-Bold.ttf);
+} */
 
 body {
-    overflow-x: hidden;
-    background-image: url(./assets/Images//background\ 2.png);
-    background-size: auto;
-    /* height: 6000px; */
+  overflow-x: hidden;
+  background-image: url(./assets/Images//background\ 2.png);
+  background-size: auto;
+  /* height: 6000px; */
 }
-
 
 /* .logo img {
     width: 10%;
 } */
-
 
 /* 
 .nav ul {
@@ -310,7 +305,6 @@ body {
     font-family: NavFont;
     color: white;
 } */
-
 
 /* #searchbox {
     width: 120px;
@@ -330,107 +324,105 @@ body {
     top: 5.5%;
 } */
 
-
-
 .firstsection {
-    background-image: url(./assets/Images/premierslide.png);
-    /* width: 83.2%; */
-    /* height: 85%; */
-    background-size: cover;
-    margin: auto;
-    margin-top: -7.5%;
-    /* background-repeat: no-repeat; */
-    /* position: absolute; */
-    /* left: 0%; */
-    /* left: 10rem; */
+  background-image: url(./assets/Images/premierslide.png);
+  /* width: 83.2%; */
+  /* height: 85%; */
+  background-size: cover;
+  margin: auto;
+  margin-top: -7.5%;
+  /* background-repeat: no-repeat; */
+  /* position: absolute; */
+  /* left: 0%; */
+  /* left: 10rem; */
 }
 
 .firstsection button {
-    position: absolute;
-    left: 4.5%;
-    top: 75%;
-    width: 150px;
-    height: 50px;
-    background-image: url(./assets/Images/bouton\get\in\touch.png);
-    background-size: cover;
-    border: hidden;
+  position: absolute;
+  left: 4.5%;
+  top: 75%;
+  width: 150px;
+  height: 50px;
+  background-image: url(./assets/Images/bouton\get\in\touch.png);
+  background-size: cover;
+  border: hidden;
 }
 
 .firstsection button:hover,
 .secondsection button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .secondsection h1 {
-    position: absolute;
-    top: 140%;
-    left: 4.5%;
-    color: white;
-    font-family: NavFont;
-    font-size: 50px;
+  position: absolute;
+  top: 140%;
+  left: 4.5%;
+  color: white;
+  font-family: NavFont;
+  font-size: 50px;
 }
 
 .secondsection article {
-    position: absolute;
-    left: 4.7%;
-    top: 160%;
-    width: 500px;
-    color: white;
-    font-size: 100%;
-    font-family: NavFont;
+  position: absolute;
+  left: 4.7%;
+  top: 160%;
+  width: 500px;
+  color: white;
+  font-size: 100%;
+  font-family: NavFont;
 }
 
 .secondsection button {
-    position: absolute;
-    left: 4.5%;
-    top: 180%;
-    width: 150px;
-    height: 50px;
-    background-image: url(./assets/Images/boutongetintouch.png);
-    background-size: cover;
-    border: hidden;
+  position: absolute;
+  left: 4.5%;
+  top: 180%;
+  width: 150px;
+  height: 50px;
+  background-image: url(./assets/Images/boutongetintouch.png);
+  background-size: cover;
+  border: hidden;
 }
 
 #first {
-    position: absolute;
-    left: 50%;
-    top: 142%;
-    width: 22%;
+  position: absolute;
+  left: 50%;
+  top: 142%;
+  width: 22%;
 }
 
 #second {
-    position: absolute;
-    left: 74%;
-    top: 128%;
-    width: 22%;
+  position: absolute;
+  left: 74%;
+  top: 128%;
+  width: 22%;
 }
 
 .thirdsection h1 {
-    position: absolute;
-    top: 100%;
-    left: 9%;
-    color: white;
-    font-family: NavFont;
-    font-size: 90%;
+  position: absolute;
+  top: 100%;
+  left: 9%;
+  color: white;
+  font-family: NavFont;
+  font-size: 90%;
 }
 
 .icons img {
-    position: absolute;
-    width: 10%;
-    top: 240%;
-    left: 16%;
+  position: absolute;
+  width: 10%;
+  top: 240%;
+  left: 16%;
 }
 
 #money {
-    left: 44.5%;
+  left: 44.5%;
 }
 
 #distance {
-    left: 77%;
+  left: 77%;
 }
 
 #time {
-    width: 7%;
+  width: 7%;
 }
 
 #timee,
@@ -439,168 +431,167 @@ body {
 #unavailability,
 #lack,
 #transport {
-    width: 200px;
-    height: 30px;
-    position: absolute;
-    top: 262%;
-    left: 12%;
-    background-size: cover;
-    border: hidden;
+  width: 200px;
+  height: 30px;
+  position: absolute;
+  top: 262%;
+  left: 12%;
+  background-size: cover;
+  border: hidden;
 }
 
 #timee,
 #moneyy,
 #distancee:hover,
 .fifthsection button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #timee {
-    background-image: url(./assets/Images/boutontime.png);
+  background-image: url(./assets/Images/boutontime.png);
 }
 
 #moneyy {
-    background-image: url(./assets/Images/boutonmoney.png);
-    left: 41.5%;
+  background-image: url(./assets/Images/boutonmoney.png);
+  left: 41.5%;
 }
 
 #distancee {
-    background-image: url(./assets/Images/boutondistance.png);
-    left: 74.5%;
+  background-image: url(./assets/Images/boutondistance.png);
+  left: 74.5%;
 }
 
 #imgtime,
 #imgmoney,
 #imgdistance {
-    position: absolute;
-    top: 274%;
-    left: 18%;
-    width: 3%;
+  position: absolute;
+  top: 274%;
+  left: 18%;
+  width: 3%;
 }
 
 #imgmoney {
-    left: 48%;
+  left: 48%;
 }
 
 #imgdistance {
-    left: 81%;
+  left: 81%;
 }
 
 #unavailability {
-    background-image: url(./assets/Images/BoutonUnavailibility.png);
-    top: 287%;
+  background-image: url(./assets/Images/BoutonUnavailibility.png);
+  top: 287%;
 }
 
 #lack {
-    background-image: url(./assets/Images/BoutonLackoffinancialresources.png);
-    top: 287%;
-    left: 41.5%;
+  background-image: url(./assets/Images/BoutonLackoffinancialresources.png);
+  top: 287%;
+  left: 41.5%;
 }
 
 #transport {
-    background-image: url(./assets/Images//BoutonTransportcosts.png);
-    top: 287%;
-    left: 74.5%;
+  background-image: url(./assets/Images//BoutonTransportcosts.png);
+  top: 287%;
+  left: 74.5%;
 }
 
 #lastinsection {
-    position: absolute;
-    left: 43.5%;
-    top: 307%;
-    width: 150px;
-    height: 50px;
-    background-image: url(./assets/Images/boutongetintouch.png);
-    background-size: cover;
-    border: hidden;
+  position: absolute;
+  left: 43.5%;
+  top: 307%;
+  width: 150px;
+  height: 50px;
+  background-image: url(./assets/Images/boutongetintouch.png);
+  background-size: cover;
+  border: hidden;
 }
 
 .fourthsection {
-    background-image: url(./assets/Images//let_sgovirtual.png);
-    background-size: cover;
-    width: 105%;
-    height: 600px;
-    position: absolute;
-    left: -68px;
-    top: 300%;
+  background-image: url(./assets/Images//let_sgovirtual.png);
+  background-size: cover;
+  width: 105%;
+  height: 600px;
+  position: absolute;
+  left: -68px;
+  top: 300%;
 }
 
 #text {
-    position: absolute;
-    left: 1.5%;
-    top: 415%;
-    width: 100%;
+  position: absolute;
+  left: 1.5%;
+  top: 415%;
+  width: 100%;
 }
 
 .fifthsection button {
-    position: absolute;
-    left: 45%;
-    top: 480%;
-    width: 180px;
-    height: 60px;
-    background-image: url(./assets/Images/boutongetintouch.png);
-    background-size: cover;
-    border: hidden;
+  position: absolute;
+  left: 45%;
+  top: 480%;
+  width: 180px;
+  height: 60px;
+  background-image: url(./assets/Images/boutongetintouch.png);
+  background-size: cover;
+  border: hidden;
 }
 
 .textimage img {
-    position: absolute;
-    left: 1.5%;
-    top: 515%;
-    width: 100%;
+  position: absolute;
+  left: 1.5%;
+  top: 515%;
+  width: 100%;
 }
 
 #firstpic,
 #secondpic,
 #thirdpic {
-    position: absolute;
-    left: 10%;
-    top: 575%;
-    width: 26%;
+  position: absolute;
+  left: 10%;
+  top: 575%;
+  width: 26%;
 }
 
 #secondpic {
-    left: 37.5%;
+  left: 37.5%;
 }
 
 #thirdpic {
-    left: 65%;
+  left: 65%;
 }
 
 .sixthsection button {
-    position: absolute;
-    left: 44%;
-    top: 658%;
-    width: 180px;
-    height: 60px;
-    background-image: url(./assets/Images/bouton\get\in\touch.png);
-    background-size: cover;
-    border: hidden;
+  position: absolute;
+  left: 44%;
+  top: 658%;
+  width: 180px;
+  height: 60px;
+  background-image: url(./assets/Images/bouton\get\in\touch.png);
+  background-size: cover;
+  border: hidden;
 }
 
 .titleimg img {
-    position: absolute;
-    left: 0%;
-    top: 682%;
-    width: 100%;
+  position: absolute;
+  left: 0%;
+  top: 682%;
+  width: 100%;
 }
 
 #creative,
 #unique,
 #authentic {
-    position: absolute;
-    left: 8%;
-    top: 737%;
-    width: 25%;
+  position: absolute;
+  left: 8%;
+  top: 737%;
+  width: 25%;
 }
 
 #unique {
-    left: 37.5%;
+  left: 37.5%;
 }
 
 #authentic {
-    left: 67%;
+  left: 67%;
 }
-
 
 /* .titletext img {
     position: absolute;
@@ -612,17 +603,17 @@ body {
 #basic,
 #ultumio,
 #partners {
-    position: absolute;
-    left: 5%;
-    top: 838%;
-    width: 28%;
-    padding-bottom: 10rem;
+  position: absolute;
+  left: 5%;
+  top: 838%;
+  width: 28%;
+  padding-bottom: 10rem;
 }
 
 #ultumio {
-    left: 37%;
+  left: 37%;
 }
 
 #partners {
-    left: 69%;
+  left: 69%;
 }
