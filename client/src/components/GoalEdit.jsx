@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaEdit } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import {
   createGoal,
@@ -87,11 +88,15 @@ function GoalEdit({ goal }) {
             onChange={onChange}
           />
         </div>
-        <div className="form9-group">
-          <button className="btn btn-primary" type="submit">
-            Edit Event
-          </button>
-        </div>
+
+        <a
+          href="/edit/:id"
+          className="btn btn-transparent"
+          onClick={() => dispatch}
+        >
+          <FaEdit />
+          EDIT
+        </a>
       </form>
     </section>
   );

@@ -101,11 +101,11 @@ function Login() {
                               <div className="p-4">
                                 <div className="text-center mt-3">
                                   <Link to="#">
-                                    <img src={LogoDark} alt="" height="33" />
+                                    <img src={LogoDark} alt="" height="99" />
                                   </Link>
-                                  <p className="text-muted mt-3">
+                                  {/* <p className="text-muted mt-3">
                                     Sign in to continue to Vortex.
-                                  </p>
+                                  </p> */}
                                 </div>
                                 <div className="p-3 custom-form">
                                   <Form onSubmit={onSubmit}>
@@ -157,6 +157,18 @@ function Login() {
                                       </Button>{" "}
                                     </div>
                                     <div className="mt-4 pt-1 mb-0 text-center">
+                                      <p className="mb-0">
+                                        Don't have an account ?
+                                        <Link
+                                          to="/register"
+                                          className="text-success"
+                                        >
+                                          {" "}
+                                          Sign Up
+                                        </Link>
+                                      </p>
+                                    </div>
+                                    {/* <div className="mt-4 pt-1 mb-0 text-center">
                                       <Link
                                         to="/ForgotPassword"
                                         className="text-white"
@@ -164,7 +176,7 @@ function Login() {
                                         <i className="mdi mdi-lock"></i> Forgot
                                         your password?
                                       </Link>
-                                    </div>
+                                    </div> */}
                                   </Form>
                                 </div>
                               </div>

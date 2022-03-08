@@ -84,21 +84,23 @@ h3 {
 
 }
 
-/*
-.footer {
+
+.footer10 {
     font-size: 2rem;
     font-weight: 300;
     margin-bottom: 10px;
     margin-top: 100px;
     padding: 0 20px;
-    color: #fff
+    color: #fff;
+    margin-left: 35%;
+
 }
 
 .footer2 {
     margin-bottom: 50px;
     padding-bottom: 50px;
 }
-*/
+
 
 .heading9 p {
     color: #fff
@@ -277,6 +279,8 @@ form9-group2 {
   display: flex;
   width: 100%;
   font-size: x-large;
+  height: 3rem;
+  
 }
 
 /* ***********new design maquette ********** */

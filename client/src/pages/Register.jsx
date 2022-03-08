@@ -113,11 +113,11 @@ function Register() {
                               <div className="p-4">
                                 <div className="text-center mt-3">
                                   <Link to="#">
-                                    <img src={LogoDark} alt="" height="33" />
+                                    <img src={LogoDark} alt="" height="99" />
                                   </Link>
-                                  <p className="text-muted mt-3">
+                                  {/* <p className="text-muted mt-3">
                                     Sign up for a new Account
-                                  </p>
+                                  </p> */}
                                 </div>
                                 <div className="p-3 custom-form">
                                   <Form onSubmit={onSubmit}>
@@ -240,7 +240,7 @@ function Register() {
                                     </div>
                                     <div className="mt-4 pt-1 mb-0 text-center">
                                       <p className="mb-0">
-                                        Don't have an account ?
+                                        Already have account ?
                                         <Link
                                           to="/Login"
                                           className="text-success"

@@ -48,7 +48,7 @@ function Event() {
     <>
       {/* {user && (user.result.role == 0 || user.result.role == 1) ? (
         <> */}
-      <section>
+      <section className="mb-4">
         {goals.map((goal) => (
           <>
             <GoalItem
@@ -57,7 +57,11 @@ function Event() {
               key={goal._id}
               goal={goal}
             />
-            <GoalEdit key={goal.name} goal={goal} />
+            {user.result.role === 2 ? (
+              <GoalEdit key={goal.name} goal={goal} />
+            ) : (
+              ""
+            )}
           </>
         ))}
       </section>

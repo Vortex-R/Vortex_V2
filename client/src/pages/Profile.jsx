@@ -50,79 +50,114 @@ function Profile() {
 
 
   const onSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-      const userData = {
-        nickname, age, education, status, hobbies, VrHead
-      }
-      // dispatch(profile(userData))
-    dispatch(updateProfile(userData))
-      
-  }
+    const userData = {
+      nickname,
+      age,
+      education,
+      status,
+      hobbies,
+      VrHead,
+    };
+    // dispatch(profile(userData))
+    dispatch(updateProfile(userData));
+    setFormData("");
+  };
 
   return (
-      <>
-    <section className="footer">
-    <FaUserEdit/> <p> Complete your Profile please!</p>
-  </section>
+    <>
+      <section className="footer10">
+        <span>
+          <FaUserEdit className="mb-2" />
+          {"  "}
+          Complete your Profile please!
+        </span>
+      </section>
 
-  <section className="form">
-    <form onSubmit={onSubmit} >
-      
-     
-      <div className="form-group">
-      <input type="text" 
-      className="form-control" 
-      id="nickname" name="nickname" value={nickname}
-      placeholder='Enter your nickname' onChange={onChange} />
-      </div>
+      <section className="form9">
+        <form onSubmit={onSubmit}>
+          <div className="form9-group">
+            <input
+              type="text"
+              className="form-control9"
+              id="nickname"
+              name="nickname"
+              value={nickname}
+              placeholder="Enter your nickname"
+              onChange={onChange}
+            />
+          </div>
 
-      <div className="form-group">
-      <input type="number" 
-      className="form-control" 
-      id="age" name="age" value={age}
-      placeholder='Enter your age' onChange={onChange} />
-      </div>
+          <div className="form9-group">
+            <input
+              type="number"
+              className="form9-control"
+              id="age"
+              name="age"
+              value={age}
+              placeholder="Enter your age"
+              onChange={onChange}
+            />
+          </div>
 
-      
-      <div className="form-group">
-      <input type="text" 
-      className="form-control" 
-      id="education" name="education" value={education}
-      placeholder='Enter your education' onChange={onChange} />
-      </div>
+          <div className="form9-group">
+            <input
+              type="text"
+              className="form9-control"
+              id="education"
+              name="education"
+              value={education}
+              placeholder="Enter your education"
+              onChange={onChange}
+            />
+          </div>
 
-      
-      <div className="form-group">
-      <input type="text" 
-      className="form-control" 
-      id="status" name="status" value={status}
-      placeholder='Enter your status' onChange={onChange} />
-      </div>
+          <div className="form9-group">
+            <input
+              type="text"
+              className="form9-control"
+              id="status"
+              name="status"
+              value={status}
+              placeholder="Enter your status"
+              onChange={onChange}
+            />
+          </div>
 
-      
-      <div className="form-group">
-      <input type="text" 
-      className="form-control" 
-      id="hobbies" name="hobbies" value={hobbies}
-      placeholder='Enter your hobbies' onChange={onChange} />
-      </div>
+          <div className="form9-group">
+            <input
+              type="text"
+              className="form9-control"
+              id="hobbies"
+              name="hobbies"
+              value={hobbies}
+              placeholder="Enter your hobbies"
+              onChange={onChange}
+            />
+          </div>
 
-      
-      <div className="form-group">
-      <input type="text" 
-      className="form-control" 
-      id="VrHead" name="VrHead" value={VrHead}
-      placeholder='Enter your VrHead' onChange={onChange} />
-      </div>
+          <div className="form9-group">
+            <input
+              type="text"
+              className="form9-control"
+              id="VrHead"
+              name="VrHead"
+              value={VrHead}
+              placeholder="Enter your VrHead"
+              onChange={onChange}
+            />
+          </div>
 
-      <div className="form-groupe">
-        <button type="submit" className="btn btn-block">Submit</button>
-      </div>
-    </form>
-  </section>
-      </>
-  )
+          <div className="form9-groupe">
+            <button type="submit" className="btn btn-primary">
+              Submit
+            </button>
+          </div>
+        </form>
+      </section>
+    </>
+  );
 }
 
 export default Profile

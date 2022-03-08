@@ -17,6 +17,8 @@ import React from "react";
 function GoalItem({ goal, setFlag, flag }) {
   const dispatch = useDispatch();
 
+  console.log(goal.date);
+
   const { user } = useSelector((state) => state.auth);
   return (
     <div className="goal">
@@ -28,16 +30,17 @@ function GoalItem({ goal, setFlag, flag }) {
                 <Row className="align-items-center">
                   <Col lg={6}>
                     <div className="home-content">
-                      <h5 className="mb-0"> {goal.name} Event</h5>
+                      <h5 className="mb-0">
+                        {" "}
+                        Something Big is Coming Your Way
+                      </h5>
                       <img src={HomeUrl} height="15" alt="" />
-                      <h1 className="home-title mt-4">
-                        Something Big <br /> is Coming Your Way
-                      </h1>
+                      <h1 className="home-title mt-4">{goal.name}`s Event</h1>
                       <p className="text-muted mt-4 f-20">
                         But all that really matters is what happens when the
                         audience is watching. This is a truth all troupers know.{" "}
                         <br />
-                        Date : {goal.date}
+                        Date :{new Date(goal.date).toLocaleString("en-US")}
                       </p>
                       <p>
                         {" "}
@@ -52,7 +55,7 @@ function GoalItem({ goal, setFlag, flag }) {
                           onClick={() => {
                             setFlag(!flag);
                             dispatch(chooseEvent(goal._id));
-                             window.location.reload(); 
+                            window.location.reload();
                           }}
                         >
                           Take your Ticket
@@ -63,7 +66,7 @@ function GoalItem({ goal, setFlag, flag }) {
                           Watch With VR Box
                         </a>
 
-                        {user.result.role === 2 ? (
+                        {/* {user.result.role === 2 ? (
                           <a
                             href="/edit/:id"
                             className="btn btn-transparent"
@@ -74,7 +77,7 @@ function GoalItem({ goal, setFlag, flag }) {
                           </a>
                         ) : (
                           ""
-                        )}
+                        )} */}
                       </div>
                     </div>
                   </Col>
