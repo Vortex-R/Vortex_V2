@@ -19,7 +19,6 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(express.json());
 app.use(cors());
-
 app.use("/user", userRoute);
 app.use("/contact", auth, contactRoute);
 app.use("/event", eventRoute);
@@ -27,7 +26,7 @@ app.use("/organizerP", auth, organizerPRoute);
 app.use("/userP", auth, userPRoute);
 
 const PORT = process.env.PORT || 4000;
-
+console.log(process.env.PORT);
 mongoose
   .connect(process.env.CONNECTION_URL, {
     useNewUrlParser: true,
