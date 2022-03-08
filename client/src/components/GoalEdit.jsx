@@ -1,8 +1,17 @@
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { createGoal } from '../features/goals/goalSlice'
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  createGoal,
+  editEvent,
+  getGoal,
+  getGoals,
+  reset,
+} from "../features/goals/goalSlice";
+import Spinner from "./Spinner";
 
-function GoalForm() {
+function GoalEdit({ goal }) {
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     name: "",
     attendees: "",
@@ -11,8 +20,6 @@ function GoalForm() {
   });
 
   const { name, attendees, date, link } = formData;
-
-  const dispatch = useDispatch();
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -25,15 +32,17 @@ function GoalForm() {
     e.preventDefault();
 
     const eventData = {
+      id: goal._id,
       name,
       attendees,
       date,
       link,
     };
-
-    dispatch(createGoal(eventData));
+    // console.log(eventData);
+    dispatch(editEvent(eventData));
     // setFormData('')
   };
+  console.log(goal);
 
   return (
     <section className="form9">
@@ -45,39 +54,42 @@ function GoalForm() {
           <input
             type="text"
             name="name"
+            placeholder={goal.name}
             id="name"
-            placeholder="Enter event name"
             value={name}
             onChange={onChange}
           />
+
           <input
             type="text"
             name="attendees"
             id="attendees"
-            placeholder="Enter attendees`s number"
             value={attendees}
+            placeholder={goal.attendees}
             onChange={onChange}
           />
+
           <input
             type="datetime-local"
             name="date"
             id="date"
-            placeholder="Enter event date"
+            placeholder={goal.date}
             value={date}
             onChange={onChange}
           />
+
           <input
             type="text"
             name="link"
             id="link"
-            placeholder="Enter live link"
+            placeholder={goal.link}
             value={link}
             onChange={onChange}
           />
         </div>
         <div className="form9-group">
           <button className="btn btn-primary" type="submit">
-            Add Event
+            Edit Event
           </button>
         </div>
       </form>
@@ -85,4 +97,4 @@ function GoalForm() {
   );
 }
 
-export default GoalForm
+export default GoalEdit;

@@ -30,35 +30,36 @@ export const showEvent = async(req, res) => {
     }
 };
 
-export const createEvent = async(req, res) => {
-    var newEvent = new Event();
-    newEvent.name = req.body.name;
-    newEvent.attendees = req.body.attendees;
-    newEvent.date = req.body.date;
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-    } else {
-        try {
-            await newEvent.save();
-            return res.status(200).json(newEvent);
-        } catch (err) {
-            console.log(err);
-        }
+export const createEvent = async (req, res) => {
+  var newEvent = new Event();
+  newEvent.name = req.body.name;
+  newEvent.attendees = req.body.attendees;
+  newEvent.date = req.body.date;
+  newEvent.link = req.body.link;
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  } else {
+    try {
+      await newEvent.save();
+      return res.status(200).json(newEvent);
+    } catch (err) {
+      console.log(err);
     }
+  }
 };
 
-export const updateEvent = async(req, res) => {
-    const { id } = req.params;
-    const { name, attendees, date } = req.body;
+export const updateEvent = async (req, res) => {
+  const { id } = req.params;
+  const { name, attendees, date, link } = req.body;
 
-    if (!mongoose.Types.ObjectId.isValid(id))
-        return res.status(404).send("No Event Found ! ");
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send("No Event Found ! ");
 
-    const updatedEvent = { name, attendees, date, _id: id };
+  const updatedEvent = { name, attendees, date, link, _id: id };
 
-    await Event.findByIdAndUpdate(id, updatedEvent, { new: true });
-    res.json(updatedEvent);
+  await Event.findByIdAndUpdate(id, updatedEvent, { new: true });
+  res.json(updatedEvent);
 };
 
 export const deleteEvent = async(req, res) => {

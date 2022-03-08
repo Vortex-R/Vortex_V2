@@ -29,6 +29,17 @@ const getGoals = async (token) => {
   const response = await axios.get(API_URL, config)
   return response.data
 }
+// Get user goals
+const getGoal = async (id, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+
+  const response = await axios.get(API_URL + id, config)
+  return response.data
+}
 
 
 
@@ -57,6 +68,19 @@ const chooseEvent = async (goalData, token) => {
   
     return response.data
   }
+// Edit event
+const editEvent = async ( data, token) => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+    console.log(data);
+    const response = await axios.patch(API_URL + data.id, data, config)
+
+  
+    return response.data
+  }
 
   // Get contats
 const getContacts = async (token) => {
@@ -77,6 +101,8 @@ const goalService = {
   deleteGoal,
   chooseEvent,
   getContacts,
+  editEvent,
+  getGoal,
 }
 
 export default goalService

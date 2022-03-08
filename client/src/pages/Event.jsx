@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import HomeUrl from "../assets/Images/home-border.png";
 import Img from "../assets/Images/features/img-2.png";
 import { FaTicketAlt, FaTruckPickup, FaUser } from "react-icons/fa";
+import GoalEdit from "../components/GoalEdit";
 const moment = require("moment");
 
 function Event() {
@@ -49,9 +50,18 @@ function Event() {
         <> */}
       <section>
         {goals.map((goal) => (
-          <GoalItem setFlag={setFlag} flag={flag} key={goal._id} goal={goal} />
+          <>
+            <GoalItem
+              setFlag={setFlag}
+              flag={flag}
+              key={goal._id}
+              goal={goal}
+            />
+            <GoalEdit key={goal.name} goal={goal} />
+          </>
         ))}
       </section>
+
       {/* <section>
         <ContactForm />
       </section> */}

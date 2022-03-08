@@ -1,4 +1,10 @@
-import { FaExternalLinkAlt, FaTicketAlt, FaTimesCircle } from "react-icons/fa";
+import {
+  FaEdit,
+  FaExternalLinkAlt,
+  FaRegPlayCircle,
+  FaTicketAlt,
+  FaTimesCircle,
+} from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteGoal, chooseEvent } from "../features/goals/goalSlice";
 import { Container, Row, Col } from "reactstrap";
@@ -12,7 +18,6 @@ function GoalItem({ goal, setFlag, flag }) {
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.auth);
-
   return (
     <div className="goal">
       <React.Fragment>
@@ -40,7 +45,7 @@ function GoalItem({ goal, setFlag, flag }) {
                           goal.attendees
                         } <FaTicketAlt />{" "}
                       </p>
-                      <div className="mt-4 pt-2">
+                      <div className="mt-4 pt-2 d-flex">
                         <Link
                           to="#"
                           className="btn btn-primary mr-3"
@@ -51,11 +56,25 @@ function GoalItem({ goal, setFlag, flag }) {
                           }}
                         >
                           Take your Ticket
-                        </Link>{" "}
-                        <Link to="#" className="video-play-icon text-white">
-                          <i className="mdi mdi-play-circle-outline text-white mr-2"></i>
-                          Whatch Online
                         </Link>
+
+                        <a href={goal.link} className="btn text-white ">
+                          <FaRegPlayCircle />
+                          Watch With VR Box
+                        </a>
+
+                        {user.result.role === 2 ? (
+                          <a
+                            href="/edit/:id"
+                            className="btn btn-transparent"
+                            onClick={() => dispatch}
+                          >
+                            <FaEdit />
+                            EDIT
+                          </a>
+                        ) : (
+                          ""
+                        )}
                       </div>
                     </div>
                   </Col>
