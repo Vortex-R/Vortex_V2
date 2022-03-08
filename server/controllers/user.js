@@ -99,9 +99,10 @@ export const affectUserToEvent = async (req, res) => {
     const getEvent = await Event.findById(idEvent);
     const userId = req.user._id;
     const eventParticipation = await IfUserParticipated(userId, idEvent);
+
     if (eventParticipation == true) {
       if (getEvent.attendees > 0) {
-        sendmail();
+        sendmail(req.user.email);
         const getUser = await UserModal.findByIdAndUpdate(idUser, updatedUser);
         let getEvent = await Event.findByIdAndUpdate(idEvent, updatedEvent);
         res.status(200).send(getUser);
@@ -110,6 +111,14 @@ export const affectUserToEvent = async (req, res) => {
   } catch (error) {
     res.send(error);
   }
+};
+export const userParticipated = async (req, res) => {
+  const idEvent = req.body.idEvent;
+  const userId = req.user._id;
+  const eventParticipation = await IfUserParticipated(userId, idEvent);
+  if (!eventParticipation)
+    res.code(200).send("user not participated to this event");
+  res.code(500).send("user already participating to this event");
 };
 
 export const updateProfile = async (req, res) => {

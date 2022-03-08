@@ -47,7 +47,7 @@ function GoalItem({ goal, setFlag, flag }) {
                           onClick={() => {
                             setFlag(!flag);
                             dispatch(chooseEvent(goal._id));
-                            window.location.reload();
+                             window.location.reload(); 
                           }}
                         >
                           Take your Ticket
