@@ -282,6 +282,24 @@ form9-group2 {
   height: 3rem;
   
 }
+.btn-register-1 {
+  margin-right: 80%;
+  margin-bottom: 10%;
+  display: flex;
+  width: 100%;
+  font-size: xx-large;
+  /* height: 3rem; */
+  
+}
+.btn-register-2 {
+  margin-right: 80%;
+  margin-bottom: 20%;
+  display: flex;
+  width: 100%;
+  font-size: xx-large;
+  /* height: 3rem; */
+  
+}
 
 /* ***********new design maquette ********** */
 /* 
@@ -336,11 +354,17 @@ body {
 
 .firstsection {
   background-image: url(./assets/Images/premierslide.png);
+  background-size: cover;
+  margin: auto;
+  margin-top: -7.5%;
+}
+.firstsection1 {
+  background-image: url(./assets/Images/premierslide.png);
   /* width: 83.2%; */
   /* height: 85%; */
   background-size: cover;
   margin: auto;
-  margin-top: -7.5%;
+  margin-top: -15.6%;
   /* background-repeat: no-repeat; */
   /* position: absolute; */
   /* left: 0%; */

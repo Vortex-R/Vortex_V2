@@ -63,6 +63,7 @@ function Profile() {
     // dispatch(profile(userData))
     dispatch(updateProfile(userData));
     setFormData("");
+    navigate("/event");
   };
 
   return (

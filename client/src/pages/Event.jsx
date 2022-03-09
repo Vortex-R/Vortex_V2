@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import GoalEdit from "../components/GoalEdit";
 import GoalItem from "../components/GoalItem";
-import ContactForm from "../components/ContactForm";
 import Spinner from "../components/Spinner";
 import { getGoals, reset } from "../features/goals/goalSlice";
-import { Container, Row, Col } from "reactstrap";
-import { Link } from "react-router-dom";
-
-import HomeUrl from "../assets/Images/home-border.png";
-import Img from "../assets/Images/features/img-2.png";
-import { FaTicketAlt, FaTruckPickup, FaUser } from "react-icons/fa";
-import GoalEdit from "../components/GoalEdit";
-const moment = require("moment");
 
 function Event() {
   const navigate = useNavigate();
@@ -35,7 +27,7 @@ function Event() {
     }
 
     dispatch(getGoals());
-    console.log(goals);
+
     return () => {
       dispatch(reset());
     };

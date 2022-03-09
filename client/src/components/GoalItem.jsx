@@ -1,27 +1,15 @@
-import {
-  FaEdit,
-  FaExternalLinkAlt,
-  FaRegPlayCircle,
-  FaTicketAlt,
-  FaTimesCircle,
-} from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import {  chooseEvent } from "../features/goals/goalSlice";
-import { Container, Row, Col } from "reactstrap";
-import { Link, useNavigate } from "react-router-dom";
-
-import HomeUrl from "../assets/Images/home-border.png";
-import Img from "../assets/Images/features/img-2.png";
 import React from "react";
+import { FaRegPlayCircle, FaTicketAlt } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { Col, Container, Row } from "reactstrap";
+import Img from "../assets/Images/features/img-2.png";
+import HomeUrl from "../assets/Images/home-border.png";
+import { chooseEvent } from "../features/goals/goalSlice";
 
 function GoalItem({ goal, setFlag, flag }) {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
- const { user, isLoading, isError, message } = useSelector(
-    (state) => state.auth
-  );
-
-  
+  const { user } = useSelector((state) => state.auth);
   return (
     <div className="goal">
       <React.Fragment>
@@ -51,39 +39,34 @@ function GoalItem({ goal, setFlag, flag }) {
                         } <FaTicketAlt />{" "}
                       </p>
                       <div className="mt-4 pt-2 d-flex">
-                        {user.result.verified ? <Link
-                          to="#"
-                          className="btn btn-primary mr-3"
-                          onClick={() => {
-                            setFlag(!flag);
-                            dispatch(chooseEvent(goal._id));
-                            window.location.reload();
-                          }}
-                        >
-                          Take your Ticket
-                        </Link> :  <Link
-                          to="#"
-                          className="btn btn-secondary mr-3 disabled"
-                        >
-                          Verify your email 
-                        </Link> }
+                        {user && user.result.verified ? (
+                          <Link
+                            to="#"
+                            className="btn btn-primary mr-3"
+                            onClick={() => {
+                              setFlag(!flag);
+                              dispatch(chooseEvent(goal._id));
+                              window.location.reload();
+                            }}
+                          >
+                            Take your Ticket
+                          </Link>
+                        ) : (
+                          <Link
+                            to="#"
+                            className="btn btn-secondary mr-3"
+                            onClick={() => {
+                              localStorage.removeItem("user");
+                              window.location.reload();
+                            }}
+                          >
+                            Verify your email
+                          </Link>
+                        )}
                         <a href={goal.link} className="btn text-white ">
                           <FaRegPlayCircle />
                           Watch With VR Box
                         </a>
-
-                        {/* {user.result.role === 2 ? (
-                          <a
-                            href="/edit/:id"
-                            className="btn btn-transparent"
-                            onClick={() => dispatch}
-                          >
-                            <FaEdit />
-                            EDIT
-                          </a>
-                        ) : (
-                          ""
-                        )} */}
                       </div>
                     </div>
                   </Col>
@@ -101,33 +84,6 @@ function GoalItem({ goal, setFlag, flag }) {
           </div>
         </section>
       </React.Fragment>
-      {/* <div>{new Date(goal.date).toLocaleString("en-US")}</div>
-
-      <h5> Event: {goal.name}</h5>
-      <h5>Available Tickets: {goal.attendees} </h5>
-      <br />
-
-      {user.result.role == 2 ? (
-        <button
-          onClick={() => {
-            dispatch(deleteGoal(goal._id));
-            window.location.reload();
-          }}
-          className="close"
-        >
-          <FaTimesCircle />
-        </button>
-      ) : (
-        <button
-          onClick={() => {
-            setFlag(!flag);
-            dispatch(chooseEvent(goal._id));
-          }}
-          className="btn btn-block"
-        >
-          <FaExternalLinkAlt /> Participate
-        </button>
-      )} */}
     </div>
   );
 }

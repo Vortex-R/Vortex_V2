@@ -16,7 +16,7 @@ import {
   Label,
 } from "reactstrap";
 import { Link } from "react-router-dom";
-import Feature4 from "../assets/Images/features/img-4.png";
+import Feature4 from "../assets/Images/features/img-8.png";
 import LogoDark from "../assets/Images/MainLogo.png";
 
 function Login() {

@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { FaUser } from "react-icons/fa";
-import { register, reset } from "../features/auth/authSlice";
-import Spinner from "../components/Spinner";
 import {
+  Button,
   Col,
   Container,
   Form,
   FormGroup,
-  Row,
-  Button,
   Input,
   Label,
+  Row,
 } from "reactstrap";
-import { Link } from "react-router-dom";
-
-import Feature4 from "../assets/Images/features/img-3.png";
+import Feature4 from "../assets/Images/features/img-9.png";
 import LogoDark from "../assets/Images/MainLogo.png";
+import Spinner from "../components/Spinner";
+import { register, reset } from "../features/auth/authSlice";
+
 function Register() {
   const [formData, setFormData] = useState({
     name: "",
@@ -44,7 +42,7 @@ function Register() {
       toast.error(message);
     }
     if (isSuccess || user) {
-      navigate("/");
+      navigate("/event");
     }
 
     dispatch(reset());
@@ -71,7 +69,8 @@ function Register() {
         gender,
         phone,
       };
-      dispatch(register(userData));
+      console.log(userData);
+      // dispatch(register(userData));
     }
   };
 
@@ -197,17 +196,16 @@ function Register() {
                                     </FormGroup>
                                     <div className="d-flex justify-content-center">
                                       <Input
-                                        type="radio"
-                                        checked
+                                        type="checkbox"
                                         className="custom-control custom-checkbox mx-3"
                                         id="gender"
                                         name="gender"
-                                        value="Male"
+                                        value="MALE"
                                         onChange={onChange}
                                       />
                                       MALE
                                       <Input
-                                        type="radio"
+                                        type="checkbox"
                                         className="custom-control custom-checkbox mx-3"
                                         id="gender"
                                         name="gender"

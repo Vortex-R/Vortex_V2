@@ -17,10 +17,10 @@ function Home({ goal }) {
           />
 
           <Carousel.Caption>
-            <div className="mt-4 btn-book">
+            <div className="btn-register-1">
               <a
                 href="/event"
-                className="btn f-20 btn-rounded btn-primary"
+                className="btn btn-outline-secondary btn-rounded f-30 text-white mx-2"
                 // onClick={() => {
                 //   dispatch(chooseEvent(goal._id));
                 // }}
@@ -34,13 +34,16 @@ function Home({ goal }) {
         </Carousel.Item>
         <Carousel.Item interval={2000}>
           <img
-            className="d-block firstsection w-100"
-            src={require("../assets/Images/premierslide.png")}
+            className="d-block firstsection1 w-100 h-50"
+            src={require("../assets/Images/teddy-yang.jpg")}
             alt="Second slide"
           />
           <Carousel.Caption>
-            <div className="mt-4 pt-2 btn-book">
-              <a href="/event" className="btn f-20 text-white mx-2">
+            <div className="btn-register-2">
+              <a
+                href="/event"
+                className="btn btn-outline-danger btn-rounded f-30 text-white mx-2"
+              >
                 <FaPlayCircle />
                 Register now
               </a>
