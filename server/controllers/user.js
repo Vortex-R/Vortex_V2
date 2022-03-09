@@ -10,6 +10,7 @@ import { sendmail } from "../service/mailing.js";
 import { IfUserParticipated } from "../service/userService.js";
 import qrcode from "qrcode";
 const secret = "test";
+import { verifyEmail } from "../service/userService.js";
 
 export const signin = async (req, res) => {
   const { email, password } = req.body;
@@ -55,7 +56,7 @@ export const signup = async (req, res) => {
     });
 
     const profile = await userP.create({ user: result._id });
-
+    verifyEmail(result);
     const token = jwt.sign({ email: result.email, id: result._id }, secret, {
       expiresIn: "5h",
     });
@@ -122,7 +123,18 @@ export const userParticipated = async (req, res) => {
     res.code(200).send("user not participated to this event");
   res.code(500).send("user already participating to this event");
 };
-
+export const userVerification = async (req, res) => {
+  const confirmationCode = req.params.confirmationCode;
+  console.log(confirmationCode);
+  const verifiedUser = await user.findOneAndUpdate(
+    { confirmationCode },
+    { verified: true },
+    { new: true }
+  );
+  console.log(verifiedUser);
+  if (!verifiedUser) throw new Error("didn't find user");
+  res.status(200).send();
+};
 export const updateProfile = async (req, res) => {
   // console.log("hello");
   const id = req.user.id;
