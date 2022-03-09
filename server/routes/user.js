@@ -6,6 +6,7 @@ import {
   getProfile,
   affectUserToEvent,
   updateProfile,
+  userVerification,
   userParticipated,
 } from "../controllers/user.js";
 import { admin, auth } from "../middleware/auth.js";
@@ -18,7 +19,7 @@ router.patch("/role/:id", ChangeRole);
 router.get("/profiles", auth, admin, getProfile);
 router.patch("/affect", auth, affectUserToEvent);
 router.patch("/checkIfUserParticipated", auth, userParticipated);
-
+router.get("/verify/:confirmationCode", userVerification);
 router.patch("/profile/update", auth, updateProfile);
 // router.put("/profile", updateUser);
 

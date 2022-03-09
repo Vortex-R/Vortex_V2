@@ -6,9 +6,9 @@ import {
   FaTimesCircle,
 } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteGoal, chooseEvent } from "../features/goals/goalSlice";
+import {  chooseEvent } from "../features/goals/goalSlice";
 import { Container, Row, Col } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import HomeUrl from "../assets/Images/home-border.png";
 import Img from "../assets/Images/features/img-2.png";
@@ -16,10 +16,12 @@ import React from "react";
 
 function GoalItem({ goal, setFlag, flag }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+ const { user, isLoading, isError, message } = useSelector(
+    (state) => state.auth
+  );
 
-  console.log(goal.date);
-
-  const { user } = useSelector((state) => state.auth);
+  
   return (
     <div className="goal">
       <React.Fragment>
@@ -49,7 +51,7 @@ function GoalItem({ goal, setFlag, flag }) {
                         } <FaTicketAlt />{" "}
                       </p>
                       <div className="mt-4 pt-2 d-flex">
-                        <Link
+                        {user.result.verified ? <Link
                           to="#"
                           className="btn btn-primary mr-3"
                           onClick={() => {
@@ -59,8 +61,12 @@ function GoalItem({ goal, setFlag, flag }) {
                           }}
                         >
                           Take your Ticket
-                        </Link>
-
+                        </Link> :  <Link
+                          to="#"
+                          className="btn btn-secondary mr-3 disabled"
+                        >
+                          Verify your email 
+                        </Link> }
                         <a href={goal.link} className="btn text-white ">
                           <FaRegPlayCircle />
                           Watch With VR Box
