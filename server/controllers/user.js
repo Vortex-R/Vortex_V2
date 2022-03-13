@@ -11,6 +11,12 @@ import { IfUserParticipated } from "../service/userService.js";
 import qrcode from "qrcode";
 const secret = "test";
 import { verifyEmail } from "../service/userService.js";
+import { OAuth2Client } from "google-auth-library";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const client = new OAuth2Client(process.env.REACT_APP_GOOGLE_CLIENT_ID);
 
 export const signin = async (req, res) => {
   const { email, password } = req.body;
@@ -35,6 +41,51 @@ export const signin = async (req, res) => {
     res.status(500).json({ message: "Something went wrong" });
   }
 };
+
+const upsert = async (item) => {
+  try {
+    const oldUser = await UserModal.findOne({ email: item.email });
+    console.log(oldUser);
+    if (!oldUser) {
+      const result = await UserModal.create({
+        email,
+        password: hashedPassword,
+        name: `${firstName} ${lastName}`,
+        gender,
+        phone,
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const googleAuth = async (req, res) => {
+  const { token, given_name, family_name } = req.body;
+  const ticket = await client.verifyIdToken({
+    idToken: token,
+    audience: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+  });
+  const { name, email, picture } = ticket.getPayload();
+  console.log(ticket.getPayload());
+
+  const result = await UserModal.create({
+    email,
+    password: token,
+    name: `${given_name} ${family_name}`,
+    gender: "",
+    phone: "",
+    picture,
+  });
+
+  res.status(201).json({ name, email, picture, token });
+
+  // upsert({ name, email, picture });
+  // res.status(201);
+  // res.json({ name, email, picture });
+};
+
+
 
 export const signup = async (req, res) => {
   const { email, password, firstName, lastName, gender, phone } = req.body;

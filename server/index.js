@@ -13,6 +13,8 @@ import userPRoute from "./routes/userProfile.js";
 import dotenv from "dotenv";
 import { auth, organizer } from "./middleware/auth.js";
 
+dotenv.config();
+
 const app = express();
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -26,7 +28,6 @@ app.use("/organizerP", auth, organizerPRoute);
 app.use("/userP", auth, userPRoute);
 
 const PORT = process.env.PORT || 4000;
-console.log(process.env.PORT);
 mongoose
   .connect(process.env.CONNECTION_URL, {
     useNewUrlParser: true,
@@ -48,3 +49,4 @@ if (process.env.NODE_ENV === "production") {
 } else {
   app.get("/", (req, res) => res.send("Please set to production"));
 }
+
