@@ -192,6 +192,7 @@ function Login() {
                                       onSuccess={handleLogin}
                                       onFailure={handleFailure}
                                       cookiePolicy={"single_host_origin"}
+                                      hello
                                     ></GoogleLogin> */}
                                     <div className="mt-4 pt-1 mb-0 text-center">
                                       <p className="mb-0">
