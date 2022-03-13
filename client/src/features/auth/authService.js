@@ -1,8 +1,8 @@
 import axios from "axios";
 
 
-const API_URL = "http://vr-event.herokuapp.com/user/";
-const API_URL_CONTACT = "http://vr-event.herokuapp.com/contact/";
+const API_URL = "https://vr-event.herokuapp.com/user/";
+const API_URL_CONTACT = "https://vr-event.herokuapp.com/contact/";
 
 // Register user
 const register = async (userData) => {

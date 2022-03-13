@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-const API_URL = "http://vr-event.herokuapp.com/user/";
-const API_URL_EVENT = "http://vr-event.herokuapp.com/event/";
-const API_URL_ORGANIZER = "http://vr-event.herokuapp.com/organizerP/";
+const API_URL = "https://vr-event.herokuapp.com/user/";
+const API_URL_EVENT = "https://vr-event.herokuapp.com/event/";
+const API_URL_ORGANIZER = "https://vr-event.herokuapp.com/organizerP/";
 
 
 // update profile
