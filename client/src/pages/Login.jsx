@@ -78,7 +78,7 @@ function Login() {
   };
 
   const handleLogin = async (googleData) => {
-    const res = await fetch("http://localhost:5000/user/googleAuth", {
+    const res = await fetch("https://vr-event.herokuapp.com/user/googleAuth", {
       method: "POST",
       body: JSON.stringify({
         token: googleData.tokenId,
