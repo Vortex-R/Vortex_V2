@@ -186,13 +186,13 @@ function Login() {
                                         Log In
                                       </Button>{" "}
                                     </div>
-                                    <GoogleLogin
+                                    {/*  <GoogleLogin
                                       clientId={REACT_APP_GOOGLE_CLIENT_ID}
                                       buttonText="Log in with Google"
                                       onSuccess={handleLogin}
                                       onFailure={handleFailure}
                                       cookiePolicy={"single_host_origin"}
-                                    ></GoogleLogin>
+                                    ></GoogleLogin> */}
                                     <div className="mt-4 pt-1 mb-0 text-center">
                                       <p className="mb-0">
                                         Don't have an account ?
