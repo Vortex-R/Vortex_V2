@@ -1,9 +1,14 @@
 import React from "react";
-import { FaRegPlayCircle, FaTicketAlt } from "react-icons/fa";
+import {
+  FaLocationArrow,
+  FaMapMarkerAlt,
+  FaRegPlayCircle,
+  FaTicketAlt,
+} from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Col, Container, Row } from "reactstrap";
-import Img from "../assets/Images/features/img-2.png";
+import Img from "../assets/Images/ticdce.jpg";
 import HomeUrl from "../assets/Images/home-border.png";
 import { chooseEvent } from "../features/goals/goalSlice";
 
@@ -20,20 +25,34 @@ function GoalItem({ goal, setFlag, flag }) {
                 <Row className="align-items-center">
                   <Col lg={6}>
                     <div className="home-content">
-                      <h5 className="mb-0">
-                        {" "}
-                        Something Big is Coming Your Way
-                      </h5>
+                      <h5 className="mb-0"> les premiers fruits du LACEN</h5>
                       <img src={HomeUrl} height="15" alt="" />
                       <h1 className="home-title mt-4">{goal.name}`s Event</h1>
-                      <p className="text-muted mt-4 f-20">
-                        But all that really matters is what happens when the
-                        audience is watching. This is a truth all troupers know.{" "}
+                      <p className="text-muted mt-4 f-18">
+                        <ul style={{ listStyleType: "circle", color: "white" }}>
+                          <li>
+                            ENA ( moi en langue arabe) est une expérience
+                            multimédia sensorielle associant plusieurs
+                            disciplines artistiques dont le chant, la danse et
+                            la performance.
+                          </li>
+                          <li>
+                            Électro-Oud (musique numérique et luth tunisien)
+                          </li>
+                          <li>
+                            SOUND JOURNEY (musique numérique, chanson populaire
+                            et instruments traditionnel
+                          </li>
+                        </ul>
                         <br />
                         Date :{new Date(goal.date).toLocaleString("en-US")}
                       </p>
                       <p>
-                        {" "}
+                        <h5>
+                          <FaMapMarkerAlt /> {"  "}
+                          Tunis International Center for Digital Cultural
+                          Economy
+                        </h5>{" "}
                         Available tickets : {
                           goal.attendees
                         } <FaTicketAlt />{" "}
@@ -63,10 +82,10 @@ function GoalItem({ goal, setFlag, flag }) {
                             Verify your email
                           </Link>
                         )}
-                        <a href={goal.link} className="btn text-white ">
+                        {/* <a href={goal.link} className="btn text-white ">
                           <FaRegPlayCircle />
                           Watch With VR Box
-                        </a>
+                        </a> */}
                       </div>
                     </div>
                   </Col>

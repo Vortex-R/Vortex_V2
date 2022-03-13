@@ -8,11 +8,13 @@ import {
   updateProfile,
   userVerification,
   userParticipated,
+  googleAuth,
 } from "../controllers/user.js";
 import { admin, auth } from "../middleware/auth.js";
 
 const router = express.Router();
 
+router.post("/googleAuth", googleAuth);
 router.post("/signin", signin);
 router.post("/signup", signup);
 router.patch("/role/:id", ChangeRole);

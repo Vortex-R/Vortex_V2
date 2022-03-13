@@ -289,11 +289,12 @@ form9-group2 {
   width: 100%;
   font-size: xx-large;
   /* height: 3rem; */
+  /* font-size:25px; */
   
 }
 .btn-register-2 {
   margin-right: 80%;
-  margin-bottom: 20%;
+  margin-bottom: 30%;
   display: flex;
   width: 100%;
   font-size: xx-large;
@@ -364,7 +365,7 @@ body {
   /* height: 85%; */
   background-size: cover;
   margin: auto;
-  margin-top: -15.6%;
+  /* margin-top: -3.8%; */
   /* background-repeat: no-repeat; */
   /* position: absolute; */
   /* left: 0%; */
@@ -404,6 +405,7 @@ body {
   color: white;
   font-size: 100%;
   font-family: NavFont;
+  
 }
 
 .secondsection button {
@@ -438,6 +440,13 @@ body {
   color: white;
   font-family: NavFont;
   font-size: 90%;
+}
+
+.advantages {
+  /* position: absolute; */
+  top: 500%;
+
+
 }
 
 .icons img {
@@ -627,13 +636,28 @@ body {
   left: 67%;
 }
 
-/* .titletext img {
+.titletext div {
     position: absolute;
     left: 1.5%;
     top: 810%;
     width: 100%;
-} */
-
+} 
+.pricing{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  top: 810%;
+  width: 100%;
+ padding-bottom: 5%;
+}
+.pricingplan{
+  width: 25%;
+  background-color: transparent;
+  min-height: 74vh;
+  border: 0.5px solid lightgray;
+  padding: 2% 0 2% 0;
+}
 #basic,
 #ultumio,
 #partners {

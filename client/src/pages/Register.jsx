@@ -69,8 +69,8 @@ function Register() {
         gender,
         phone,
       };
-      console.log(userData);
-      // dispatch(register(userData));
+      // console.log(userData);
+      dispatch(register(userData));
     }
   };
 

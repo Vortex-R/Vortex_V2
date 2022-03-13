@@ -20,12 +20,12 @@ function Home({ goal }) {
             <div className="btn-register-1">
               <a
                 href="/event"
-                className="btn btn-outline-secondary btn-rounded f-30 text-white mx-2"
+                className="btn btn-soft-info btn-rounded f-30   text-white mx-2"
                 // onClick={() => {
                 //   dispatch(chooseEvent(goal._id));
                 // }}
               >
-                <h5> Register now</h5>
+                Register now
               </a>
             </div>
             {/* <h3>First slide label</h3>
@@ -34,15 +34,15 @@ function Home({ goal }) {
         </Carousel.Item>
         <Carousel.Item interval={2000}>
           <img
-            className="d-block firstsection1 w-100 h-50"
-            src={require("../assets/Images/teddy-yang.jpg")}
+            className="d-block firstsection1 vh-100"
+            src={require("../assets/Images/ticdce.jpg")}
             alt="Second slide"
           />
           <Carousel.Caption>
             <div className="btn-register-2">
               <a
                 href="/event"
-                className="btn btn-outline-danger btn-rounded f-30 text-white mx-2"
+                className="btn btn-soft-info btn-rounded f-30 text-white mx-2"
               >
                 <FaPlayCircle />
                 Register now
@@ -58,11 +58,9 @@ function Home({ goal }) {
       </section> */}
       <section className="secondsection">
         <h1>Virtual Events</h1>
-        <article>
-          Our platform provides you with the opportunity to attend real time{" "}
-          {/*  { require('../assets/Images/') } */}
-          events through our tra shneeya tra shneeya am blind i cant see the
-          text
+        <article style={{ fontSize: "20px" }}>
+          Our platform provides you with the opportunity to attend real time
+          events through an immersive unique experience saving time and costs
         </article>
         <button></button>
         <figure className="sideimages">
@@ -79,6 +77,9 @@ function Home({ goal }) {
         </figure>
       </section>
       <section className="thirdsection">
+        {/* <div className="advantages">
+          <h1>Our Main Advantages</h1>
+        </div> */}
         <figure className="icons">
           <img
             src={require("../assets/Images/time.png")}
@@ -166,12 +167,68 @@ function Home({ goal }) {
           />
         </figure>
       </section>
-      <section className="footer2">
+      <section className="pricing">
         {/* <figure className="titletext">
                 <img src="./Images/texte5.png" alt="title"/>
             </figure> */}
-        <figure>
-          <img
+        <div className="pricingplan">
+          <h2 style={{ textAlign: "center" }}>Basic'O</h2>
+          <hr
+            style={{
+              width: "70%",
+              color: "white",
+              border: "2px solid cyan",
+            }}
+          />
+          <ul style={{ listStyleType: "circle", color: "white" }}>
+            <li>Live Streaming Access</li>
+            <li>Profile</li>
+            <li>Mini Communities</li>
+          </ul>
+        </div>
+        <div className="pricingplan">
+          <h2 style={{ textAlign: "center" }}>Ultumi'O</h2>
+          <hr
+            style={{
+              width: "70%",
+              color: "white",
+              border: "2px solid cyan",
+            }}
+          />
+          <ul style={{ listStyleType: "circle", color: "white" }}>
+            <li>Basic'o</li>
+            <li>Avatar & Customization</li>
+            <li>Virtual Goods Market</li>
+            <li>Photography</li>
+            <li>Vocal Chat</li>
+            <li>Pictures</li>
+            <li>Private Rooms</li>
+            <li>Promotion Codes</li>
+            <li>Event autographs</li>
+            <li>Relive the XP</li>
+          </ul>
+        </div>
+
+        <div className="pricingplan">
+          <h2 style={{ textAlign: "center" }}>Partner's plan</h2>
+          <hr
+            style={{
+              width: "70%",
+              color: "white",
+              border: "2px solid cyan",
+            }}
+          />
+          <ul style={{ listStyleType: "circle", color: "white" }}>
+            <li>Ticketing System</li>
+            <li>Planification Templates</li>
+            <li>Data Analytics</li>
+            <li>Promotion</li>
+            <li>Sponsorship Panels</li>
+            <li>Tech Support</li>
+          </ul>
+        </div>
+
+        {/* <img
             src={require("../assets/Images/basic_o.png")}
             alt="basic"
             id="basic"
@@ -185,8 +242,7 @@ function Home({ goal }) {
             src={require("../assets/Images/partner_splan.png")}
             alt="partner_s"
             id="partners"
-          />
-        </figure>
+          /> */}
       </section>
     </>
   );

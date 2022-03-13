@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { login, reset } from "../features/auth/authSlice";
 import Spinner from "../components/Spinner";
+import GoogleLogin from "react-google-login";
 import {
   Col,
   Container,
@@ -20,6 +21,9 @@ import Feature4 from "../assets/Images/features/img-8.png";
 import LogoDark from "../assets/Images/MainLogo.png";
 
 function Login() {
+  const REACT_APP_GOOGLE_CLIENT_ID =
+    "813623932793-jm2gjeuq0rugc0r4di5hau6kv1opgug8.apps.googleusercontent.com";
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -61,6 +65,32 @@ function Login() {
     };
 
     dispatch(login(userData));
+  };
+
+  const [loginData, setLoginData] = useState(
+    localStorage.getItem("loginData")
+      ? JSON.parse(localStorage.getItem("loginData"))
+      : null
+  );
+
+  const handleFailure = (result) => {
+    alert(result);
+  };
+
+  const handleLogin = async (googleData) => {
+    const res = await fetch("http://localhost:5000/user/googleAuth", {
+      method: "POST",
+      body: JSON.stringify({
+        token: googleData.tokenId,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await res.json();
+    setLoginData(data);
+    localStorage.setItem("loginData", JSON.stringify(data));
   };
 
   if (isLoading) {
@@ -156,6 +186,13 @@ function Login() {
                                         Log In
                                       </Button>{" "}
                                     </div>
+                                    <GoogleLogin
+                                      clientId={REACT_APP_GOOGLE_CLIENT_ID}
+                                      buttonText="Log in with Google"
+                                      onSuccess={handleLogin}
+                                      onFailure={handleFailure}
+                                      cookiePolicy={"single_host_origin"}
+                                    ></GoogleLogin>
                                     <div className="mt-4 pt-1 mb-0 text-center">
                                       <p className="mb-0">
                                         Don't have an account ?
