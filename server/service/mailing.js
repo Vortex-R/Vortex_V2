@@ -2,10 +2,15 @@ import nodemailer from "nodemailer";
 export const sendmail = async (user, qr) => {
   //TODO: make this function general/standard
   const transporter = nodemailer.createTransport({
-    service: "Outlook365",
+    host: "smtp.live.com", // hostname
+    secureConnection: false, // use SSL
+    port: 587, // port for secure SMTP
     auth: {
       user: "vortex-reaction@outlook.fr",
       pass: "vortex@reaction",
+    },
+    tls: {
+      ciphers: "SSLv3",
     },
   });
   const mailOptions = {
