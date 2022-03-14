@@ -57,7 +57,7 @@ function GoalItem({ goal, setFlag, flag }) {
                           goal.attendees
                         } <FaTicketAlt />{" "}
                       </p>
-                      <div className="mt-4 pt-2 d-flex">
+                      <div className="my-4 py-2 d-flex">
                         {user && user.result.verified ? (
                           <Link
                             to="#"
@@ -89,7 +89,7 @@ function GoalItem({ goal, setFlag, flag }) {
                       </div>
                     </div>
                   </Col>
-                  <Col lg={6}>
+                  <Col lg={12}>
                     <div className="home-img">
                       <div className="animation-1"></div>
                       <div className="animation-2"></div>
