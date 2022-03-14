@@ -2,19 +2,14 @@ import nodemailer from "nodemailer";
 export const sendmail = async (user, qr) => {
   //TODO: make this function general/standard
   const transporter = nodemailer.createTransport({
-    host: "smtp.live.com", // hostname
-    secureConnection: false, // use SSL
-    port: 587, // port for secure SMTP
+    service: "gmail",
     auth: {
-      user: "vortex-reaction@outlook.fr",
-      pass: "vortex@reaction",
-    },
-    tls: {
-      ciphers: "SSLv3",
+      user: "mehdihrairi6@gmail.com",
+      pass: "lol06061997mhlol",
     },
   });
   const mailOptions = {
-    from: "vortex-reaction@outlook.fr",
+    from: "mehdihrairi6@gmail.com",
     to: user.email,
     attachDataUrls: true,
     subject: "Event Ticket",
