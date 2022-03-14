@@ -44,7 +44,7 @@ function Header() {
                     className="btn btn-primary"
                     onClick={() =>
                       window.open(
-                        "https://drive.google.com/u/0/uc?id=1aGRmZ6wJ-UEETlfCYmC4pH5ZXUJrxfQL&export=download",
+                        "https://wetransfer.com/downloads/cd3821d0d722de38d8064d4938f19e6b20220314204336/b398d6?fbclid=IwAR3IoBsjBwUbf-ZBoRkZgCw-qqKirx2hg3hTLwRUds1HKz37TV2dYmRSEXI",
                         "_blank"
                       )
                     }
@@ -80,7 +80,7 @@ function Header() {
                     className="btn btn-primary"
                     onClick={() =>
                       window.open(
-                        "https://drive.google.com/u/0/uc?id=1aGRmZ6wJ-UEETlfCYmC4pH5ZXUJrxfQL&export=download",
+                        "https://wetransfer.com/downloads/cd3821d0d722de38d8064d4938f19e6b20220314204336/b398d6?fbclid=IwAR3IoBsjBwUbf-ZBoRkZgCw-qqKirx2hg3hTLwRUds1HKz37TV2dYmRSEXI",
                         "_blank"
                       )
                     }
@@ -112,7 +112,7 @@ function Header() {
                     className="btn btn-primary"
                     onClick={() =>
                       window.open(
-                        "https://drive.google.com/u/0/uc?id=1aGRmZ6wJ-UEETlfCYmC4pH5ZXUJrxfQL&export=download",
+                        "https://wetransfer.com/downloads/cd3821d0d722de38d8064d4938f19e6b20220314204336/b398d6?fbclid=IwAR3IoBsjBwUbf-ZBoRkZgCw-qqKirx2hg3hTLwRUds1HKz37TV2dYmRSEXI",
                         "_blank"
                       )
                     }
@@ -146,7 +146,7 @@ function Header() {
                 className="btn btn-primary"
                 onClick={() =>
                   window.open(
-                    "https://drive.google.com/u/0/uc?id=1aGRmZ6wJ-UEETlfCYmC4pH5ZXUJrxfQL&export=download",
+                    "https://wetransfer.com/downloads/cd3821d0d722de38d8064d4938f19e6b20220314204336/b398d6?fbclid=IwAR3IoBsjBwUbf-ZBoRkZgCw-qqKirx2hg3hTLwRUds1HKz37TV2dYmRSEXI",
                     "_blank"
                   )
                 }
