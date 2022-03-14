@@ -36,7 +36,7 @@ export const verifyEmail = async (user) => {
     from: "mehdihrairi6@gmail.com",
     to: user.email,
     subject: "Event Ticket",
-    html: `<h1>Email Confirmation</h1> <h2>Hello ${user.name}</h2><p>Thank you for subscribing. Please confirm your email by clicking on the following link</p><a href=${process.env.LOCAL_PATH}user/verify/${verificationToken}> Click here</a></div>`,
+    html: `<h1>Email Confirmation</h1> <h2>Hello ${user.name}</h2><p>Thank you for subscribing. Please confirm your email by clicking on the following link</p><a href=https://vr-event.herokuapp.com/api/user/verify/${verificationToken}> Click here</a></div>`,
   };
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
