@@ -2,7 +2,7 @@ import nodemailer from "nodemailer";
 export const sendmail = async (user, qr) => {
   //TODO: make this function general/standard
   const transporter = nodemailer.createTransport({
-    service: "hotmail",
+    service: "Outlook365",
     auth: {
       user: "vortex-reaction@outlook.fr",
       pass: "vortex@reaction",
