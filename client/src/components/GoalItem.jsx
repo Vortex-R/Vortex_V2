@@ -28,7 +28,7 @@ function GoalItem({ goal, setFlag, flag }) {
                       <h5 className="mb-0"> les premiers fruits du LACEN</h5>
                       <img src={HomeUrl} height="15" alt="" />
                       <h1 className="home-title mt-4">{goal.name}`s Event</h1>
-                      <p className="text-muted mt-4 f-18">
+                      <p className="text-muted mt-4 f-16">
                         <ul style={{ listStyleType: "circle", color: "white" }}>
                           <li>
                             ENA ( moi en langue arabe) est une expérience
@@ -44,7 +44,6 @@ function GoalItem({ goal, setFlag, flag }) {
                             et instruments traditionnel
                           </li>
                         </ul>
-                        <br />
                         Date :{new Date(goal.date).toLocaleString("en-US")}
                       </p>
                       <p>
@@ -52,49 +51,45 @@ function GoalItem({ goal, setFlag, flag }) {
                           <FaMapMarkerAlt /> {"  "}
                           Tunis International Center for Digital Cultural
                           Economy
-                        </h5>{" "}
-                        Available tickets : {
-                          goal.attendees
-                        } <FaTicketAlt />{" "}
+                        </h5>
                       </p>
-                      <div className="my-4 py-2 d-flex">
-                        {user && user.result.verified ? (
-                          <Link
-                            to="#"
-                            className="btn btn-primary mr-3"
-                            onClick={() => {
-                              setFlag(!flag);
-                              dispatch(chooseEvent(goal._id));
-                              window.location.reload();
-                            }}
-                          >
-                            Take your Ticket
-                          </Link>
-                        ) : (
-                          <Link
-                            to="#"
-                            className="btn btn-secondary mr-3"
-                            onClick={() => {
-                              localStorage.removeItem("user");
-                              window.location.reload();
-                            }}
-                          >
-                            Verify your email
-                          </Link>
-                        )}
-                        {/* <a href={goal.link} className="btn text-white ">
-                          <FaRegPlayCircle />
-                          Watch With VR Box
-                        </a> */}
-                      </div>
                     </div>
                   </Col>
-                  <Col lg={12}>
+                  <Col lg={6}>
                     <div className="home-img">
                       <div className="animation-1"></div>
                       <div className="animation-2"></div>
                       <div className="animation-3"></div>
                       <img src={Img} className="img-fluid" alt="" />
+                    </div>
+                    <div className="my-4 py-2 d-flex justify-content-between align-items-center">
+                      <p>
+                        Available tickets : {goal.attendees} <FaTicketAlt />
+                      </p>
+                      {user && user.result.verified ? (
+                        <Link
+                          to="#"
+                          className="btn btn-primary mr-3"
+                          onClick={() => {
+                            setFlag(!flag);
+                            dispatch(chooseEvent(goal._id));
+                            window.location.reload();
+                          }}
+                        >
+                          Take your Ticket
+                        </Link>
+                      ) : (
+                        <Link
+                          to="#"
+                          className="btn btn-secondary mr-3"
+                          onClick={() => {
+                            localStorage.removeItem("user");
+                            window.location.reload();
+                          }}
+                        >
+                          Verify your email
+                        </Link>
+                      )}
                     </div>
                   </Col>
                 </Row>
