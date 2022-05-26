@@ -1,19 +1,9 @@
-/* eslint-disable react/jsx-no-undef */
-import {
-  FaCloudDownloadAlt,
-  FaDharmachakra,
-  FaFireAlt,
-  FaHome,
-  FaSignInAlt,
-  FaSignOutAlt,
-  FaUser,
-  FaUserAlt,
-  FaUserEdit,
-  FaUsersCog,
-} from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { logout, reset } from "../features/auth/authSlice";
+import Login from "./auth/Login";
+import Register from "./auth/Register";
 
 function Header() {
   const navigate = useNavigate();
@@ -23,151 +13,165 @@ function Header() {
   const onLogout = () => {
     dispatch(logout());
     dispatch(reset());
-    window.location.reload();
-    navigate("/login");
+
+    navigate("/");
   };
-
   return (
-    <header className="header">
-      <div className="logo">
-        <Link to="/">
-          <img src={require("../assets/Images/MainLogo.png")} alt="Logo" />
-        </Link>
+    <>
+      <header className="stick style1 w-100">
+        <div className="container">
+          <div className="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
+            <div className="logo">
+              <h1 className="mb-0">
+                <a href="/" title="Home">
+                  <img
+                    className="img-fluid"
+                    src={require("../assets/images/logo.png")}
+                    alt="Logo"
+                    srcSet="../assets/images/retina-logo.png"
+                  />
+                </a>
+              </h1>
+            </div>
+            <nav className="d-inline-flex align-items-center">
+              <div className="header-left">
+                <ul className="mb-0 list-unstyled d-inline-flex">
+                  <li className="menu-item-has-children">
+                    <a href="/" title="">
+                      Home
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/events" title="">
+                      Events
+                    </a>
+                  </li>
+                  {/* <li className="menu-item-has-children">
+                    <a href="/events" title="">
+                      Events
+                    </a>
+                    <ul className="children mb-0 list-unstyled">
+                      <li>
+                        <a href="/events" title="">
+                          Events List
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/event-details" title="">
+                          Event Detail
+                        </a>
+                      </li>
+                    </ul>
+                  </li> */}
+                  <li className="menu-item-has-children">
+                    <a href="/dashboard" title="">
+                      Dashboard
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="/about" title="">
+                      About
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/contact" title="">
+                      Contact
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className="header-right-btns">
+                {user ? (
+                  <a className="btn" onClick={onLogout}>
+                    <i className="flaticon-trajectory">Exit</i>
+                  </a>
+                ) : (
+                  <a className="user-btn" href="" title="">
+                    <i className="flaticon-user"></i>
+                  </a>
+                )}
+                <a className="search-btn" href="" title="">
+                  <i className="flaticon-magnifying-glass"></i>
+                </a>
+                <a className="menu-btn" href="" title="">
+                  <i className="flaticon-menu"></i>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <div className="menu-wrap">
+        <span className="menu-close">
+          <i className="fas fa-times"></i>
+        </span>
+        <ul className="mb-0 list-unstyled w-100">
+          <li>
+            <a href="/" title="">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="/events" title="">
+              Events
+            </a>
+          </li>
+          {/* <li className="menu-item-has-children">
+            <a href="/events" title="">
+              Events
+            </a>
+            <ul className="children list-unstyled">
+              <li>
+                <a href="/events" title="">
+                  Events List
+                </a>
+              </li>
+              <li>
+                <a href="/event-details" title="">
+                  Event Detail
+                </a>
+              </li>
+            </ul>
+          </li> */}
+
+          <li>
+            <a href="/about" title="">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="/contact" title="">
+              Contact
+            </a>
+          </li>
+        </ul>
+        <div className="social-links4 d-flex flex-wrap">
+          <a className="facebook" href="" title="Facebook" target="_blank">
+            <i className="fab fa-facebook-f"></i>
+          </a>
+          <a className="pinterest" href="" title="Pinterest" target="_blank">
+            <i className="fab fa-pinterest-p"></i>
+          </a>
+          <a className="twitter" href="" title="Twitter" target="_blank">
+            <i className="fab fa-twitter"></i>
+          </a>
+          <a className="vimeo" href="" title="Vimeo" target="_blank">
+            <i className="fab fa-vimeo-v"></i>
+          </a>
+        </div>
       </div>
-      <ul>
-        {user ? (
-          <>
-            {user.result.role == 2 ? (
-              <>
-                <li>
-                  <button
-                    className="btn btn-primary"
-                    onClick={() =>
-                      window.open(
-                        "https://wetransfer.com/downloads/cd3821d0d722de38d8064d4938f19e6b20220314204336/b398d6?fbclid=IwAR3IoBsjBwUbf-ZBoRkZgCw-qqKirx2hg3hTLwRUds1HKz37TV2dYmRSEXI",
-                        "_blank"
-                      )
-                    }
-                  >
-                    <FaCloudDownloadAlt /> Download APK
-                  </button>
-                </li>
-                <li>
-                  <Link to="/event">
-                    <FaFireAlt /> Event
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/users">
-                    <FaUsersCog /> Users
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/dashbord">
-                    <FaDharmachakra /> Dashbord
-                  </Link>
-                </li>
-                <li>
-                  <button className="btn btn-secondary" onClick={onLogout}>
-                    <FaSignOutAlt /> Logout
-                  </button>
-                </li>
-              </>
-            ) : user.result.role == 1 ? (
-              <>
-                <li>
-                  <button
-                    className="btn btn-primary"
-                    onClick={() =>
-                      window.open(
-                        "https://wetransfer.com/downloads/cd3821d0d722de38d8064d4938f19e6b20220314204336/b398d6?fbclid=IwAR3IoBsjBwUbf-ZBoRkZgCw-qqKirx2hg3hTLwRUds1HKz37TV2dYmRSEXI",
-                        "_blank"
-                      )
-                    }
-                  >
-                    <FaCloudDownloadAlt /> Download APK
-                  </button>
-                </li>
-                <li>
-                  <Link to="/event">
-                    <FaFireAlt /> Event
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/organizer">
-                    <FaUserAlt /> Profile
-                  </Link>
-                </li>
-
-                <li>
-                  <button className="btn btn-secondary" onClick={onLogout}>
-                    <FaSignOutAlt /> Logout
-                  </button>
-                </li>
-              </>
-            ) : (
-              <>
-                <li>
-                  <button
-                    className="btn btn-primary"
-                    onClick={() =>
-                      window.open(
-                        "https://wetransfer.com/downloads/cd3821d0d722de38d8064d4938f19e6b20220314204336/b398d6?fbclid=IwAR3IoBsjBwUbf-ZBoRkZgCw-qqKirx2hg3hTLwRUds1HKz37TV2dYmRSEXI",
-                        "_blank"
-                      )
-                    }
-                  >
-                    <FaCloudDownloadAlt /> Download APK
-                  </button>
-                </li>
-                <li>
-                  <Link to="/event">
-                    <FaFireAlt /> Event
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/profile">
-                    <FaUserAlt /> Profile
-                  </Link>
-                </li>
-
-                <li>
-                  <button className="btn btn-secondary" onClick={onLogout}>
-                    <FaSignOutAlt /> Logout
-                  </button>
-                </li>
-              </>
-            )}
-          </>
-        ) : (
-          <>
-            <li>
-              <button
-                className="btn btn-primary"
-                onClick={() =>
-                  window.open(
-                    "https://wetransfer.com/downloads/cd3821d0d722de38d8064d4938f19e6b20220314204336/b398d6?fbclid=IwAR3IoBsjBwUbf-ZBoRkZgCw-qqKirx2hg3hTLwRUds1HKz37TV2dYmRSEXI",
-                    "_blank"
-                  )
-                }
-              >
-                <FaCloudDownloadAlt /> Download APK
-              </button>
-            </li>
-            <li>
-              <Link to="/login">
-                <FaSignInAlt /> Login
-              </Link>
-            </li>
-            <li>
-              <Link to="/register">
-                <FaUser /> Register
-              </Link>
-            </li>
-          </>
-        )}
-      </ul>
-    </header>
+      <div className="header-search d-flex flex-wrap justify-content-center align-items-center w-100">
+        <span className="search-close-btn">
+          <i className="fas fa-times"></i>
+        </span>
+        <form>
+          <input type="text" placeholder="Search" />
+        </form>
+      </div>
+      <Login />
+      <Register />
+    </>
   );
 }
 

@@ -5,6 +5,10 @@ const eventSchema = mongoose.Schema({
   attendees: { type: Number, required: true },
   date: { type: Date, required: true },
   link: { type: String, required: false },
+  price: { type: Number, required: true },
+  parking: { type: String },
+  overview: { type: String, required: true },
+  location: { type: String, required: true },
   users: [
     {
       type: mongoose.Schema.Types.ObjectId,

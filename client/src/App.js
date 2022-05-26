@@ -1,18 +1,14 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css'
-import Header from "./components/Header";
-import Dashbord from "./pages/Dashbord";
-import Event from "./pages/Event";
-import Login from "./pages/Login";
-import Profile from "./pages/Profile";
-import Organizer from "./pages/Organizer";
-import Users from "./pages/Users";
-import Register from "./pages/Register";
-import Home from "./pages/Home";
-
-import "./assets/scss/themes.scss";
+import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer";
+import Header from "./components/Header";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Dashboard from "./pages/Dashboard";
+import EventDetails from "./pages/EventDetails";
+import Events from "./pages/Events";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -21,15 +17,13 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/event" element={<Event />} />
-          <Route path="/dashbord" element={<Dashbord />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/organizer" element={<Organizer />} />
-          <Route path="/users" element={<Users />} />
+          <Route path="/event-details" element={<EventDetails />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </Router>
       <ToastContainer />
     </>

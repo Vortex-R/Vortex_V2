@@ -1,122 +1,126 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Container, Row, Col, Form, Button, Input } from "reactstrap";
-
-import LogoDark from "../assets/Images/MainLogo.png";
 
 function Footer() {
-  const links = [
-    {
-      id: 1,
-      title: "Services",
-      child: [
-        { title: "Web Design", link: "#" },
-        { title: "Lorem Test", link: "#" },
-        { title: "Credit", link: "#" },
-        { title: "Ui Design", link: "#" },
-      ],
-    },
-    {
-      id: 2,
-      title: "Company",
-      child: [
-        { title: "Features", link: "#" },
-        { title: "Faq", link: "#" },
-        { title: "Contact us", link: "#" },
-      ],
-    },
-  ];
   return (
-    <React.Fragment>
-      {/* Footer Start */}
-      <footer className="section bg-dark bg-footer pb-5">
-        <Container>
-          <Row>
-            <Col lg={4}>
-              <div className="footer-info  mt-4">
-                <img src={LogoDark} alt="" height="44" className="mx-4" />
-                <p className="text-muted mt-4 mb-2">
-                  Aenean lacus enim Praesent congue praesent viverra interdum
-                  maximus lobortis.
-                </p>
-                <div className="team-social mt-4 pt-2">
-                  <ul className="list-inline mb-0">
-                    <li className="list-inline-item">
-                      <Link to="#" className="text-reset">
-                        <i className="mdi mdi-facebook"></i>
-                      </Link>
-                    </li>{" "}
-                    <li className="list-inline-item">
-                      <Link to="#" className="text-reset">
-                        <i className="mdi mdi-twitter"></i>
-                      </Link>
-                    </li>{" "}
-                    <li className="list-inline-item">
-                      <Link to="#" className="text-reset">
-                        <i className="mdi mdi-google"></i>
-                      </Link>
-                    </li>{" "}
-                    <li className="list-inline-item">
-                      <Link to="#" className="text-reset">
-                        <i className="mdi mdi-pinterest"></i>
-                      </Link>
-                    </li>{" "}
-                  </ul>
-                </div>
-              </div>
-            </Col>
-            <Col lg={4}>
-              <Row className="pl-0 md-lg-5">
-                {/* Render Footer Link */}
-                {links.map((item, key) => (
-                  <Col lg={6} key={key}>
-                    <div className="mt-4">
-                      <h5 className="f-20">{item.title}</h5>
-                      <ul className="list-unstyled footer-link mt-3">
-                        {item.child.map((linkItem, key) => (
-                          <li key={key}>
-                            <Link to={linkItem.link}>{linkItem.title}</Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </Col>
-                ))}
-              </Row>
-            </Col>
-            <Col lg={4}>
-              <div className="mt-4">
-                <h5 className="f-20">Subscribe</h5>
-                <div className="subscribe mt-4 pt-1">
-                  <Form action="#">
-                    <Input
-                      placeholder="Enter Email"
-                      type="text"
-                      style={{ height: "auto" }}
+    <footer>
+      <div className="w-100 pt-120 blue-layer opc1 position-relative">
+        <div
+          className="fixed-bg back-blend-multiply bg-color4"
+          style={{
+            backgroundImage: `url("../assets/images/parallax2.jpg")`,
+          }}
+        ></div>
+        <div className="container position-relative">
+          <div className="clrs-wrap d-flex position-absolute">
+            <i className="bg-color6"></i>
+            <i className="bg-color7"></i>
+            <i className="bg-color8"></i>
+            <i className="bg-color9"></i>
+            <i className="bg-color10"></i>
+            <i className="bg-color11"></i>
+          </div>
+          <div className="footer-wrap w-100 text-center">
+            <div className="footer-inner d-inline-block">
+              <div className="logo d-inline-block">
+                <h1 className="mb-0">
+                  <a href="index.html" title="">
+                    <img
+                      className="img-fluid"
+                      src={require("../assets/images/logo2.png")}
+                      alt="Logo"
                     />
-                    <Button color="primary" className="btn btn-primary">
-                      <i className="mdi mdi-send"></i>
-                    </Button>
-                  </Form>
-                </div>
+                  </a>
+                </h1>
               </div>
-            </Col>
-          </Row>
-          <hr className="my-5" />
-          {/* Render Footer Link End */}
-          <Row>
-            <Col lg={12}>
-              <div className="text-center">
-                <p className="text-muted mb-0">
-                  {new Date().getFullYear()} © VR-Event. Develop by Vortex
-                </p>
+              <p className="mb-0">
+                Lorem ipsum dolor sit con dctum Loriem facili id tellus Loreor
+                sit a conseetur Sed li conectetureget orci m Lorem facili id
+                tellu Loriem Ipsom ilm facilisis.......
+              </p>
+              <ul className="bottom-links list-unstyled d-flex flex-wrap justify-content-center mb-0">
+                <li>
+                  <a href="" title="">
+                    Corporate Form
+                  </a>
+                </li>
+                <li>
+                  <a href="" title="">
+                    Event Booking Form
+                  </a>
+                </li>
+                <li>
+                  <a href="" title="">
+                    Faq's
+                  </a>
+                </li>
+                <li>
+                  <a href="" title="">
+                    Contact Us
+                  </a>
+                </li>
+              </ul>
+              <p className="mb-0">
+                <a href="index.html" title="">
+                  Aconte
+                </a>{" "}
+                - Copyright 2020. Design By{" "}
+                <a href="" title="">
+                  cwsthemes
+                </a>
+              </p>
+            </div>
+            <div className="footer-bottom d-flex flex-wrap justify-content-between w-100">
+              <p className="mb-0">
+                <i className="thm-clr flaticon-headset"></i>Call Us Today:
+                <strong>12345 678091</strong>
+              </p>
+              <div className="social-links d-inline-flex">
+                <a
+                  className="facebook rounded-circle"
+                  href="https://www.facebook.com/Vortex.Reaction/"
+                  title="Facebook"
+                  target="_blank"
+                >
+                  <i className="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  className="twitter rounded-circle"
+                  href="#"
+                  title="Twitter"
+                  // target="_blank"
+                >
+                  <i className="fab fa-twitter"></i>
+                </a>
+                <a
+                  className="pinterest rounded-circle"
+                  href="#"
+                  title="Pinterest"
+                  // target="_blank"
+                >
+                  <i className="fab fa-pinterest-p"></i>
+                </a>
+                <a
+                  className="instagram rounded-circle"
+                  href="#"
+                  title="Instagram"
+                  // target="_blank"
+                >
+                  <i className="fab fa-instagram"></i>
+                </a>
+                <a
+                  className="youtube rounded-circle"
+                  href="#"
+                  title="Youtube"
+                  // target="_blank"
+                >
+                  <i className="fab fa-youtube"></i>
+                </a>
               </div>
-            </Col>
-          </Row>
-        </Container>
-      </footer>
-      {/* Footer End */}
-    </React.Fragment>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 }
 

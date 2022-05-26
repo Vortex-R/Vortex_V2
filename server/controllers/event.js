@@ -36,6 +36,11 @@ export const createEvent = async (req, res) => {
   newEvent.attendees = req.body.attendees;
   newEvent.date = req.body.date;
   newEvent.link = req.body.link;
+  
+  newEvent.price = req.body.price;
+  newEvent.parking = req.body.parking;
+  newEvent.overview = req.body.overview;
+  newEvent.location = req.body.location;
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
