@@ -30,7 +30,7 @@ export const updateProfile = createAsyncThunk(
 )
 
 
-  // get all contacts
+  // get all users
   export const getUsers = createAsyncThunk(
     'profiles/getAll',
     async (_,thunkAPI) => {
@@ -93,9 +93,8 @@ export const updateProfile = createAsyncThunk(
       'profiles/updateOrganizer',
       async (data,thunkAPI) => {
         try {
-          // console.log("slice: "+data.event);
-          const token = thunkAPI.getState().auth.user.token
-          return await profileService.updateUserToOrganizer(token, data)
+          const token = thunkAPI.getState().auth.user.token;
+          return await profileService.updateUserToOrganizer(token, data);
         } catch (error) {
           const message =
             (error.response &&

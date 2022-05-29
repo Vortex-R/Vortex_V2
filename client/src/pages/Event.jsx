@@ -1,168 +1,75 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import GoalEdit from "../components/GoalEdit";
-import GoalItem from "../components/GoalItem";
-import Spinner from "../components/Spinner";
-import { getGoals, reset } from "../features/goals/goalSlice";
+import { TooltipComponent } from "@syncfusion/ej2-react-popups";
+import React, { useEffect } from "react";
+import { FiSettings } from "react-icons/fi";
+import { Ecommerce } from ".";
+import "../App.css";
+import { Footer, Navbar, Sidebar, ThemeSettings } from "../components";
+import EventFom from "../components/event/EventFom";
+import { useStateContext } from "../contexts/ContextProvider";
 
-function Event() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const { user } = useSelector((state) => state.auth);
-  const { goals, isLoading, isError, message } = useSelector(
-    (state) => state.goals
-  );
-
-  const [flag, setFlag] = useState(false);
+const Event = () => {
+  const {
+    setCurrentColor,
+    setCurrentMode,
+    currentMode,
+    activeMenu,
+    currentColor,
+    themeSettings,
+    setThemeSettings,
+  } = useStateContext();
 
   useEffect(() => {
-    if (isError) {
-      console.log(message);
+    const currentThemeColor = localStorage.getItem("colorMode");
+    const currentThemeMode = localStorage.getItem("themeMode");
+    if (currentThemeColor && currentThemeMode) {
+      setCurrentColor(currentThemeColor);
+      setCurrentMode(currentThemeMode);
     }
-
-    if (!user) {
-      navigate("/login");
-    }
-
-    dispatch(getGoals());
-
-    return () => {
-      dispatch(reset());
-    };
-  }, [user, navigate, isError, message, dispatch, flag]);
-  if (isLoading) {
-    return <Spinner />;
-  }
+  }, []);
 
   return (
-    <>
-      {/* {user && (user.result.role == 0 || user.result.role == 1) ? (
-        <> */}
-      <section className="mb-4">
-        {goals.map((goal) => (
-          <>
-            <GoalItem
-              setFlag={setFlag}
-              flag={flag}
-              key={goal._id}
-              goal={goal}
-            />
-            {user.result.role === 2 ? (
-              <GoalEdit key={goal.name} goal={goal} />
-            ) : (
-              ""
-            )}
-          </>
-        ))}
-      </section>
-
-      {/* <section>
-        <ContactForm />
-      </section> */}
-      {/* <React.Fragment>
-        <section className="bg-home bg-transparent text-white" id="home">
-          <div className="home-center">
-            <div className="home-desc-center">
-              <Container>
-                <Row className="align-items-center">
-                  <Col lg={6}>
-                    <div className="home-content">
-                      <h5 className="mb-0"> {goals[0].name} Event</h5>
-                      <img src={HomeUrl} height="15" alt="" />
-                      <h1 className="home-title mt-4">
-                        Something Big <br /> is Coming Your Way
-                      </h1>
-                      <p className="text-muted mt-4 f-20">
-                        But all that really matters is what happens when the
-                        audience is watching. This is a truth all troupers know.{" "}
-                        <br />
-                        Date : {goals[0].date}
-                      </p>
-                      <p>
-                        {" "}
-                        Available tickets : {
-                          goals[0].attendees
-                        } <FaTicketAlt />{" "}
-                      </p>
-                      <div className="mt-4 pt-2">
-                        <Link to="#" className="btn btn-primary mr-3">
-                          Contact Us
-                        </Link>{" "}
-                        <Link to="#" className="video-play-icon text-white">
-                          <i className="mdi mdi-play-circle-outline text-white mr-2"></i>
-                          Live Streaming
-                        </Link>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col lg={6}>
-                    <div className="home-img">
-                      <div className="animation-1"></div>
-                      <div className="animation-2"></div>
-                      <div className="animation-3"></div>
-                      <img src={Img} className="img-fluid" alt="" />
-                    </div>
-                  </Col>
-                </Row>
-              </Container>
-            </div>
+    <div className={currentMode === "Dark" ? "dark" : ""}>
+      <div className="flex relative dark:bg-main-dark-bg">
+        <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
+          <TooltipComponent content="Settings" position="Top">
+            <button
+              type="button"
+              onClick={() => setThemeSettings(true)}
+              style={{ background: currentColor, borderRadius: "50%" }}
+              className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray"
+            >
+              <FiSettings />
+            </button>
+          </TooltipComponent>
+        </div>
+        {activeMenu ? (
+          <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white ">
+            <Sidebar />
           </div>
-        </section>
-        <section>
-          <ContactForm />
-        </section>
-      </React.Fragment> */}
-
-      {/* <section className="heading">
-            <h1>VORTEX</h1>
-            <p>Welcome to our Events</p>
-          </section>
-
-          <section className="content">
-            {goals.length > 0 ? (
-              <div className="goals">
-                {goals.map((goal) => (
-                  <GoalItem
-                    setFlag={setFlag}
-                    flag={flag}
-                    key={goal._id}
-                    goal={goal}
-                  />
-                ))}
-              </div>
-            ) : (
-              <h3>STAY TUNED </h3>
-            )}
-          </section>
-
-          <section>
-            <ContactForm />
-          </section> */}
-    </>
-    //   ) : (
-    //     <>
-    //       <section className="heading">
-    //         <h1>VORTEX</h1>
-    //         <p>Welcome to our Events</p>
-    //       </section>
-
-    //       <section className="content">
-    //         {goals.length > 0 ? (
-    //           <div className="goals">
-    //             {goals.map((goal) => (
-    //               <GoalItem key={goal._id} goal={goal} />
-    //             ))}
-    //           </div>
-    //         ) : (
-    //           <h3>STAY TUNED </h3>
-    //         )}
-    //       </section>
-    //     </>
-    //   )}
-    // </>
+        ) : (
+          <div className="w-0 dark:bg-secondary-dark-bg">
+            <Sidebar />
+          </div>
+        )}
+        <div
+          className={
+            activeMenu
+              ? "dark:bg-main-dark-bg  bg-main-bg min-h-screen md:ml-72 w-full  "
+              : "bg-main-bg dark:bg-main-dark-bg  w-full min-h-screen flex-2 "
+          }
+        >
+          <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
+            <Navbar />
+          </div>
+          <div>
+            {themeSettings && <ThemeSettings />}
+            <EventFom />
+          </div>
+          <Footer />
+        </div>
+      </div>
+    </div>
   );
-}
+};
 
 export default Event;

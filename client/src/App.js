@@ -1,35 +1,36 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css'
-import Header from "./components/Header";
-import Dashbord from "./pages/Dashbord";
+import "react-toastify/dist/ReactToastify.css";
+import OldFooter from "./components/OldFooter";
+import OldHeader from "./components/OldHeader";
+import { Calendar, Customers, Employees, Orders } from "./pages";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Dashboard from "./pages/Dashboard";
 import Event from "./pages/Event";
-import Login from "./pages/Login";
-import Profile from "./pages/Profile";
-import Organizer from "./pages/Organizer";
-import Users from "./pages/Users";
-import Register from "./pages/Register";
+import EventDetails from "./pages/EventDetails";
+import Events from "./pages/Events";
 import Home from "./pages/Home";
-
-import "./assets/scss/themes.scss";
-import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
       <Router>
-        <Header />
+        {/* <OldHeader /> */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/event" element={<Event />} />
-          <Route path="/dashbord" element={<Dashbord />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/organizer" element={<Organizer />} />
-          <Route path="/users" element={<Users />} />
+          <Route path="/event-details" element={<EventDetails />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/customers" element={<Customers />} />
+          <Route path="/employees" element={<Employees />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/event-form" element={<Event />} />
         </Routes>
-        {/* <Footer /> */}
+        {/* <OldFooter /> */}
       </Router>
       <ToastContainer />
     </>

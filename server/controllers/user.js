@@ -85,10 +85,19 @@ export const googleAuth = async (req, res) => {
   // res.json({ name, email, picture });
 };
 
-
-
 export const signup = async (req, res) => {
-  const { email, password, firstName, lastName, gender, phone } = req.body;
+  const {
+    email,
+    password,
+    firstName,
+    lastName,
+    gender,
+    phone,
+    naissance,
+    situation,
+    job,
+    income,
+  } = req.body;
 
   try {
     const oldUser = await UserModal.findOne({ email });
@@ -104,6 +113,11 @@ export const signup = async (req, res) => {
       name: `${firstName} ${lastName}`,
       gender,
       phone,
+
+      naissance,
+      situation,
+      job,
+      income,
     });
 
     const profile = await userP.create({ user: result._id });
