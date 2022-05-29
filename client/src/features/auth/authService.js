@@ -1,8 +1,8 @@
 import axios from "axios";
+const LOCAL_URL = "http://localhost:5000/api/contact/";
 
-
-const API_URL = "http://localhost:5000/api/user/";
-const API_URL_CONTACT = "http://localhost:5000/api/contact/";
+const API_URL = "https://vr-event.herokuapp.com/api/user/";
+const API_URL_CONTACT = "https://vr-event.herokuapp.com/api/contact/";
 
 // Register user
 const register = async (userData) => {
