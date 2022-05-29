@@ -68,7 +68,7 @@ function OldHeader() {
                   </li> */}
 
                   {user && user.result.role === 2 && (
-                    <li className="menu-item-has-children">
+                    <li>
                       <a href="/dashboard" title="">
                         Dashboard
                       </a>
@@ -119,11 +119,19 @@ function OldHeader() {
               Home
             </a>
           </li>
-          <li>
+          {user && user.result.role === 2 && (
+            <li>
+              <a href="/dashboard" title="">
+                Dashboard
+              </a>
+            </li>
+          )}
+
+          {/* <li>
             <a href="/events" title="">
               Events
             </a>
-          </li>
+          </li> */}
           {/* <li className="menu-item-has-children">
             <a href="/events" title="">
               Events

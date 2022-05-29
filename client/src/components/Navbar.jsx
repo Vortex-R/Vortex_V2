@@ -81,7 +81,7 @@ const Navbar = () => {
         icon={<AiOutlineMenu />}
       />
 
-      <div className="mt-0 ">
+      {/* <div className="mt-0 ">
         {user ? (
           <a
             onClick={onLogout}
@@ -93,7 +93,7 @@ const Navbar = () => {
         ) : (
           ""
         )}
-      </div>
+      </div> */}
 
       {/* <div className="flex">
         <NavButton

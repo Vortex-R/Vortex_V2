@@ -1,13 +1,18 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
-import { SiInternetarchive } from "react-icons/si";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { SiInternetarchive, SiXbox } from "react-icons/si";
 import { MdOutlineCancel } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 import { links } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
+import { logout, reset } from "../features/auth/authSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
   const { currentColor, activeMenu, setActiveMenu, screenSize } =
     useStateContext();
 
@@ -15,6 +20,13 @@ const Sidebar = () => {
     if (activeMenu !== undefined && screenSize <= 900) {
       setActiveMenu(false);
     }
+  };
+
+  const onLogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+
+    navigate("/");
   };
 
   const activeLink =
@@ -69,6 +81,19 @@ const Sidebar = () => {
                 ))}
               </div>
             ))}
+          </div>
+          <div className="mt-96 w-32 mx-auto">
+            {user ? (
+              <a
+                onClick={onLogout}
+                className="flex items-center justify-center rounded-md border border-transparent bg-cyan-300-600 px-2 py-2 text-base font-medium text-black shadow-sm hover:bg-blue-400"
+              >
+                <SiXbox />
+                LogOut
+              </a>
+            ) : (
+              ""
+            )}
           </div>
         </>
       )}
