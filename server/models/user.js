@@ -33,6 +33,24 @@ const userSchema = mongoose.Schema({
     type: String,
     required: false,
   },
+
+  naissance: {
+    type: Date,
+    required: false,
+  },
+  situation: {
+    type: String,
+    required: false,
+  },
+  job: {
+    type: String,
+    required: false,
+  },
+  income: {
+    type: String,
+    required: false,
+  },
+
   organizer: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "organizerP",

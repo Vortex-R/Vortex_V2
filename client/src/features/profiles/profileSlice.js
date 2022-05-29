@@ -30,7 +30,7 @@ export const updateProfile = createAsyncThunk(
 )
 
 
-  // get all contacts
+  // get all users
   export const getUsers = createAsyncThunk(
     'profiles/getAll',
     async (_,thunkAPI) => {

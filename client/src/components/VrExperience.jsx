@@ -63,9 +63,8 @@ function VrExperience() {
                     </div>
                   </div>
                   <p className="mb-0">
-                    Nunc commodo tellus diam, sed molestie quam Etiam finibus
-                    Ilime iaculis placerat neque id frin erat egestas ante
-                    sollicitudin
+                    The story of Vortex_Reaction "V_R" started through the
+                    integration of virtual reality in the world of events.
                   </p>
                   <ul className="nav nav-tabs">
                     <li className="nav-item">
@@ -76,7 +75,8 @@ function VrExperience() {
                       >
                         <i className="far fa-calendar-check"></i>New People
                         <span className="d-block">
-                          Technology, consumer, habits industry dynamic
+                          you will be connected to other people through vocal
+                          channels
                         </span>
                       </a>
                     </li>
@@ -86,9 +86,9 @@ function VrExperience() {
                         data-toggle="tab"
                         href="#reason-img2"
                       >
-                        <i className="flaticon-listen"></i>Great Speakers
+                        <i className="flaticon-listen"></i>View angle 
                         <span className="d-block">
-                          Transform your business as technology,
+                          from now on you will decide your own angle of vision
                         </span>
                       </a>
                     </li>
@@ -100,7 +100,7 @@ function VrExperience() {
                       >
                         <i className="flaticon-ice-cream"></i>Have Fun
                         <span className="d-block">
-                          Consumer, habits industry dynamic
+                          by attending the pre event Virtual Reality experiences
                         </span>
                       </a>
                     </li>

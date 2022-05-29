@@ -8,10 +8,8 @@ function Digital() {
           <div className="sec-title mb-70 w-100 text-center">
             <div className="sec-title-inner d-inline-block">
               <i className=""></i>
-              <span className="d-block thm-clr">Overview Event</span>
-              <h2 className="mb-0">
-                Think Digital Event <br /> Experience
-              </h2>
+              <span className="d-block thm-clr">Overview</span>
+              <h2 className="mb-0">Think Digital</h2>
             </div>
           </div>
           <div className="about-wrap w-100">
@@ -57,11 +55,15 @@ function Digital() {
               <div className="col-md-12 col-sm-12 col-lg-6">
                 <div className="about-desc w-100">
                   <p className="mb-0">
-                    Nunc commodo tellus diam, sed molestie quam ferme tum varius
-                    Eti am finibus Ilime iaculis placerat neque id fringilla.
-                    Sed suscipit erat e gestas ante sollicitudin, quis
-                    uiltristique ulis placerat nequ leo tristiqu am, sed
-                    molestie quam.
+                    Vortex_Reaction is a project that aims to bring together two
+                    specific targets. The first target is the participants in
+                    the events who cannot attend due to several constraints
+                    mainly related to lack of money and time or even distance.{" "}
+                    <br />
+                    Vortex_Reaction will play the role of a broadcaster of
+                    events organized with 360° cameras through its mobile
+                    application, for the benefit of online participants who will
+                    be immersed in the event thanks to their VR headsets.
                   </p>
                   <div className="about-info-wrap w-100">
                     <div className="row">
@@ -69,8 +71,8 @@ function Digital() {
                         <div className="about-info w-100">
                           <i className="thm-clr flaticon-tickets"></i>
                           <div className="about-info-inner">
-                            <span>Tickets Information:</span>
-                            <p className="mb-0">Free</p>
+                            {/* <span>Live Streaming Access </span> */}
+                            <p className="mb-0">Live Streaming Access</p>
                           </div>
                         </div>
                       </div>
@@ -78,8 +80,8 @@ function Digital() {
                         <div className="about-info w-100">
                           <i className="thm-clr far fa-calendar-alt"></i>
                           <div className="about-info-inner">
-                            <span>Opening Times</span>
-                            <p className="mb-0">Mon - Thu 9am - 5pm</p>
+                            {/* <span>Opening Times</span> */}
+                            <p className="mb-0">360° diffusion technology </p>
                           </div>
                         </div>
                       </div>
@@ -87,8 +89,8 @@ function Digital() {
                         <div className="about-info w-100">
                           <i className="thm-clr flaticon-pin-1"></i>
                           <div className="about-info-inner">
-                            <span>149 Pulaski Court</span>
-                            <p className="mb-0">1Peters, Va 23803</p>
+                            {/* <span>149 Pulaski Court</span> */}
+                            <p className="mb-0">Immersive ( VR box)</p>
                           </div>
                         </div>
                       </div>
@@ -96,8 +98,8 @@ function Digital() {
                         <div className="about-info w-100">
                           <i className="thm-clr flaticon-parking-square-signal"></i>
                           <div className="about-info-inner">
-                            <span>Your Parking:</span>
-                            <p className="mb-0">Available Now</p>
+                            {/* <span>Your Parking:</span> */}
+                            <p className="mb-0">New kind of experience !</p>
                           </div>
                         </div>
                       </div>

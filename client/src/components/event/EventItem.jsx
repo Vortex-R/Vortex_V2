@@ -66,7 +66,7 @@ function EventItem() {
                           Join Us <strong> Now</strong>
                         </i>
                         <h3 className="mb-0 text-white">
-                          <a className="" href="/event-details" title="">
+                          <a className=" " href="/event-details" title="">
                             {goals[0]?.name}
                           </a>
                         </h3>

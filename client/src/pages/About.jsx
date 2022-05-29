@@ -1,8 +1,11 @@
 import React from "react";
+import OldFooter from "../components/OldFooter";
+import OldHeader from "../components/OldHeader";
 
 function About() {
   return (
     <>
+      <OldHeader />
       <section>
         <div className="w-100 pt-180 pb-180 page-title-wrap text-center black-layer opc5 position-relative">
           <div
@@ -34,7 +37,7 @@ function About() {
                     <a
                       className="d-inline-block position-absolute play-btn"
                       data-fancybox
-                      href="https://player.vimeo.com/video/130661238"
+                      href="#"
                       title="Video"
                     >
                       <svg
@@ -74,27 +77,27 @@ function About() {
                   <div className="about-desc3 w-100">
                     <div className="sec-title mb-25 w-100">
                       <div className="sec-title-inner pt-0 d-inline-block">
-                        <span className="d-block thm-clr">About The Event</span>
-                        <h3 className="mb-0">
-                          Welcome To Event <br /> Conference
-                        </h3>
+                        <span className="d-block thm-clr">About us </span>
+                        <h3 className="mb-0">Overview</h3>
                       </div>
                     </div>
                     <p className="mb-0">
-                      Nunc commodo tellus diam, sed molestie quam ferme Sed
-                      suscipit erat egestas ante sollicitudin, quis uiltristi
-                      ulis placerat nequ leo tristique egestas ante sollicitudi
-                      suscipit erat egestas ante sollicitudin, qis.
+                      Vortex_Reaction is a project that aims to bring together
+                      two specific targets. The first target is the participants
+                      in the events who cannot attend due to several constraints
+                      mainly related to lack of money and time or even distance.
                     </p>
                     <p className="mb-0">
-                      Nunc commodo tellus diam, sed molestie quam ferme Sed
-                      suscipit erat egestas ante sollicitudin.
+                      Vortex_Reaction will play the role of a broadcaster of
+                      events organized with 360° cameras through its mobile
+                      application, for the benefit of online participants who
+                      will be immersed in the event thanks to their VR headsets.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="facts-wrap mt-70 style2 text-center w-100">
+            {/* <div className="facts-wrap mt-70 style2 text-center w-100">
               <div className="row mrg">
                 <div className="col-md-6 col-sm-6 col-lg-3">
                   <div className="fact-box mt-30 w-100">
@@ -129,7 +132,7 @@ function About() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -151,8 +154,7 @@ function About() {
                       <i className="bg-color3 position-absolute w-100"></i>
                       <span className="d-block">01</span>
                       <p className="mb-0">
-                        Contact us to start a conversation about your event or
-                        idea
+                        Free your mind! <br /> Login into the platform
                       </p>
                     </div>
                   </div>
@@ -161,8 +163,8 @@ function About() {
                       <i className="bg-color3 position-absolute w-100"></i>
                       <span className="d-block">02</span>
                       <p className="mb-0">
-                        Contact us to start a conversation about your event or
-                        idea
+                        Select your event! <br />
+                        Based on multiple choice
                       </p>
                     </div>
                   </div>
@@ -171,8 +173,8 @@ function About() {
                       <i className="bg-color3 position-absolute w-100"></i>
                       <span className="d-block">03</span>
                       <p className="mb-0">
-                        Contact us to start a conversation about your event or
-                        idea
+                        Live it differently ! <br />
+                        We recommend putting a vr headset
                       </p>
                     </div>
                   </div>
@@ -183,7 +185,7 @@ function About() {
         </div>
       </section>
       <section>
-        <div className="w-100 pt-110 pb-80 gray-layer opc9 position-relative">
+        <div className="w-100 pt-110 gray-layer opc9 position-relative">
           <div
             className="fixed-bg patern-bg"
             style={{ backgroundImage: "url(assets/images/patter-bg1.jpg)" }}
@@ -191,77 +193,92 @@ function About() {
           <div className="container">
             <div className="sec-title btm-icn mb-60 w-100 text-center">
               <div className="sec-title-inner d-inline-block">
-                <span className="d-block thm-clr">Pricing Plans</span>
-                <h2 className="mb-0">Event Tickets</h2>
+                <span className="d-block thm-clr">Pricing</span>
+                <h2 className="mb-0">Our Plans</h2>
                 <i className=""></i>
               </div>
             </div>
             <div className="packages-wrap w-100">
-              <div className="row mrg60 res-caro">
+              <div className="row mrg60 res-caro  ">
                 <div className="col-md-4 col-sm-6 col-lg-4">
-                  <div className="package-box2 mb-40 position-relative w-100">
+                  <div className="package-box2 mb-40 position-relative h-4/5 w-100">
                     <div className="package-head2 w-100">
-                      <h5 className="mb-0">Business Pack</h5>
+                      {/* <h5 className="mb-0">Basic'O</h5> */}
                       <span className="d-block">
-                        <sup>$</sup>130
+                        <sup>B</sup>asic'O
                       </span>
                     </div>
                     <div className="package-body2 w-100">
                       <ul className="list-unstyled mb-0 w-100">
-                        <li>Consectetur adipisicing</li>
-                        <li>Event Organization</li>
-                        <li>24/7 Customer Support</li>
-                        <li>Travel Booking</li>
-                        <li>Food & Music</li>
+                        <li>Live Streaming Access</li>
+                        <li>Profile</li>
+                        <li>Mini Communities</li>
                       </ul>
-                      <a className="thm-btn lft-icon fill-btn" href="" title="">
+                      {/* <a
+                        className="thm-btn lft-icon fill-btn "
+                        href=""
+                        title=""
+                      >
                         <i className="flaticon-coupon"></i>Buy Ticket
                         <span></span>
-                      </a>
+                      </a> */}
                     </div>
                   </div>
                 </div>
                 <div className="col-md-4 col-sm-6 col-lg-4">
-                  <div className="package-box2 mb-40 position-relative w-100">
+                  <div className="package-box2 mb-40 position-relative h-4/5 w-100">
                     <div className="package-head2 w-100">
-                      <h5 className="mb-0">Standard Pack</h5>
+                      {/* <h5 className="mb-0">Ultumi'O</h5> */}
                       <span className="d-block">
-                        <sup>$</sup>250
+                        <sup>U</sup>ltumi'O
                       </span>
                     </div>
                     <div className="package-body2 w-100">
                       <ul className="list-unstyled mb-0 w-100">
-                        <li>Consectetur adipisicing</li>
-                        <li>Event Organization</li>
-                        <li>24/7 Customer Support</li>
-                        <li>Travel Booking</li>
-                        <li>Food & Music</li>
+                        <li>Basic'O</li>
+                        <li>Avatar & Customization</li>
+                        <li>Virtual Goods Market</li>
+                        <li>Photography</li>
+                        <li>Vocal Chat</li>
+                        <li>Pictures </li>
+                        <li>Private Rooms </li>
+                        <li>Promotion Codes </li>
+                        <li>Event autographs </li>
+                        <li>Relive the XP </li>
                       </ul>
-                      <a className="thm-btn lft-icon brd-btn" href="" title="">
+                      {/* <a
+                        className="thm-btn lft-icon brd-btn mb-0"
+                        href=""
+                        title=""
+                      >
                         <i className="flaticon-coupon"></i>Buy Ticket
                         <span></span>
-                      </a>
+                      </a> */}
                     </div>
                   </div>
                 </div>
                 <div className="col-md-4 col-sm-6 col-lg-4">
-                  <div className="package-box2 mb-40 position-relative w-100">
+                  <div className="package-box2 mb-40 position-relative h-4/5 w-100">
                     <div className="package-head2 w-100">
-                      <h5 className="mb-0">Ultimate Pack</h5>
+                      {/* <h5 className="mb-0">Partner's plan</h5> */}
                       <span className="d-block">
-                        <sup>$</sup>390
+                        <sup>P</sup>artner's plan
                       </span>
                     </div>
                     <div className="package-body2 w-100">
                       <ul className="list-unstyled mb-0 w-100">
-                        <li>Consectetur adipisicing</li>
-                        <li>Event Organization</li>
-                        <li>24/7 Customer Support</li>
-                        <li>Travel Booking</li>
-                        <li>Food & Music</li>
+                        <li>Ticketing System</li>
+                        <li>Planification Templates</li>
+                        <li>Data Analytics</li>
+                        <li>Promotion</li>
+                        <li>Tech Support</li>
                       </ul>
-                      <a className="thm-btn lft-icon fill-btn" href="" title="">
-                        <i className="flaticon-coupon"></i>Buy Ticket
+                      <a
+                        className="thm-btn lft-icon fill-btn"
+                        href="/contact"
+                        title=""
+                      >
+                        <i className="flaticon-coupon"></i>Buy Pass
                         <span></span>
                       </a>
                     </div>
@@ -272,7 +289,7 @@ function About() {
           </div>
         </div>
       </section>
-      <section>
+      {/* <section>
         <div className="w-100 pt-120 pb-90 position-relative">
           <div className="container">
             <div className="sponsors-wrap w-100">
@@ -357,12 +374,12 @@ function About() {
             </div>
           </div>
         </div>
-      </section>
-      <section>
+      </section> */}
+      {/* <section>
         <div className="w-100 pb-120 position-relative">
           <div className="sec-title btm-icn mb-50 w-100 text-center">
             <div className="sec-title-inner d-inline-block">
-              <span className="d-block thm-clr">Client's Testimonials</span>
+              <span className="d-block thm-clr"> Reviews</span>
               <h2 className="mb-0">What People Say?</h2>
               <i className=""></i>
             </div>
@@ -498,7 +515,8 @@ function About() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+      <OldFooter />
     </>
   );
 }

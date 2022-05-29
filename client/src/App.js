@@ -1,11 +1,13 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import OldFooter from "./components/OldFooter";
+import OldHeader from "./components/OldHeader";
+import { Calendar, Customers, Employees, Orders } from "./pages";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
+import Event from "./pages/Event";
 import EventDetails from "./pages/EventDetails";
 import Events from "./pages/Events";
 import Home from "./pages/Home";
@@ -14,7 +16,7 @@ function App() {
   return (
     <>
       <Router>
-        <Header />
+        {/* <OldHeader /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/event-details" element={<EventDetails />} />
@@ -22,8 +24,13 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/customers" element={<Customers />} />
+          <Route path="/employees" element={<Employees />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/event-form" element={<Event />} />
         </Routes>
-        <Footer />
+        {/* <OldFooter /> */}
       </Router>
       <ToastContainer />
     </>

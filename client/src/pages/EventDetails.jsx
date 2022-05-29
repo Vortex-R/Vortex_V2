@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import OldFooter from "../components/OldFooter";
+import OldHeader from "../components/OldHeader";
 
 import { chooseEvent, getGoals, reset } from "../features/goals/goalSlice";
 
@@ -35,6 +37,7 @@ function EventDetails() {
 
   return (
     <>
+      <OldHeader />
       <section>
         <div className="w-100 pt-180 pb-180 page-title-wrap text-center black-layer opc5 position-relative">
           <div
@@ -64,80 +67,81 @@ function EventDetails() {
       <section>
         <div className="w-100 pt-140 pb-120 position-relative">
           <div className="container">
-            {goals.map((goal) => (
-              <div className="event-detail w-100" key={goal._id}>
-                <div className="event-detail-info w-100">
-                  <div className="row align-items-center">
-                    <div className="col-md-12 col-sm-12 col-lg-6">
-                      <span className="thm-clr d-block">
-                        Join Us <strong> Soon</strong>
-                      </span>
-                      <h2 className="mv-0">{goal.name}</h2>
-                    </div>
-                    <div className="col-md-12 col-sm-12 col-lg-6">
-                      <div className="about-info-wrap w-100">
-                        <div className="row">
-                          <div className="col-md-6 col-sm-6 col-lg-6">
-                            <div className="about-info w-100">
-                              <i className="thm-clr flaticon-tickets"></i>
-                              <div className="about-info-inner">
-                                <span>Tickets Information:</span>
-                                {goal.price === 0 ? (
-                                  <p className="mb-0">Free</p>
-                                ) : (
-                                  <p className="mb-0">{goal.price} Dt</p>
+            <div className="event-detail w-100" key={goals[0]?._id}>
+              <div className="event-detail-info w-100">
+                <div className="row align-items-center">
+                  <div className="col-md-12 col-sm-12 col-lg-6">
+                    <span className="thm-clr d-block">
+                      Join Us <strong> Soon</strong>
+                    </span>
+                    <h2 className="mv-0">{goals[0]?.name}</h2>
+                  </div>
+                  <div className="col-md-12 col-sm-12 col-lg-6">
+                    <div className="about-info-wrap w-100">
+                      <div className="row">
+                        <div className="col-md-6 col-sm-6 col-lg-6">
+                          <div className="about-info w-100">
+                            <i className="thm-clr flaticon-tickets"></i>
+                            <div className="about-info-inner">
+                              <span>Tickets Information:</span>
+                              {goals[0]?.price === 0 ? (
+                                <p className="mb-0">Free</p>
+                              ) : (
+                                <p className="mb-0">{goals[0]?.price} Dt</p>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-md-6 col-sm-6 col-lg-6">
+                          <div className="about-info w-100">
+                            <i className="thm-clr far fa-calendar-alt"></i>
+                            <div className="about-info-inner">
+                              <span>Opening Times</span>
+                              <p className="mb-0">
+                                {" "}
+                                {new Date(goals[0]?.date).toLocaleString(
+                                  "en-US"
                                 )}
-                              </div>
+                              </p>
                             </div>
                           </div>
-                          <div className="col-md-6 col-sm-6 col-lg-6">
-                            <div className="about-info w-100">
-                              <i className="thm-clr far fa-calendar-alt"></i>
-                              <div className="about-info-inner">
-                                <span>Opening Times</span>
-                                <p className="mb-0">
-                                  {" "}
-                                  {new Date(goal.date).toLocaleString("en-US")}
-                                </p>
-                              </div>
+                        </div>
+                        <div className="col-md-6 col-sm-6 col-lg-6">
+                          <div className="about-info w-100">
+                            <i className="thm-clr flaticon-pin-1"></i>
+                            <div className="about-info-inner">
+                              <span>Location</span>
+                              <p className="mb-0">{goals[0]?.location}</p>
                             </div>
                           </div>
-                          <div className="col-md-6 col-sm-6 col-lg-6">
-                            <div className="about-info w-100">
-                              <i className="thm-clr flaticon-pin-1"></i>
-                              <div className="about-info-inner">
-                                <span>Location</span>
-                                <p className="mb-0">{goal.location}</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-md-6 col-sm-6 col-lg-6">
-                            <div className="about-info w-100">
-                              <i className="thm-clr flaticon-parking-square-signal"></i>
-                              <div className="about-info-inner">
-                                <span>Your Parking:</span>
-                                <p className="mb-0">{goal.parking} </p>
-                              </div>
+                        </div>
+                        <div className="col-md-6 col-sm-6 col-lg-6">
+                          <div className="about-info w-100">
+                            <i className="thm-clr flaticon-parking-square-signal"></i>
+                            <div className="about-info-inner">
+                              <span>Your Parking:</span>
+                              <p className="mb-0">{goals[0]?.parking} </p>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="event-detail-img position-relative w-100">
-                    <img
-                      className="img-fluid w-100"
-                      src="assets/images/resources/event-detail-img.jpg"
-                      alt="Event Detail Image"
-                    />
-                  </div>
                 </div>
-                <div className="event-detail-content position-relative w-100">
-                  <div className="event-detail-desc position-relative w-100">
-                    <h4 className="mb-0">Overview</h4>
-                    <p className="mb-0">{goal.overview}</p>
-                  </div>
-                  {/* <div className="event-detail-feat position-relative w-100">
+                <div className="event-detail-img position-relative w-100">
+                  <img
+                    className="img-fluid w-100"
+                    src="assets/images/resources/event-detail-img.jpg"
+                    alt="Event Detail Image"
+                  />
+                </div>
+              </div>
+              <div className="event-detail-content position-relative w-100">
+                <div className="event-detail-desc position-relative w-100">
+                  <h4 className="mb-0">Overview</h4>
+                  <p className="mb-0">{goals[0]?.overview}</p>
+                </div>
+                {/* <div className="event-detail-feat position-relative w-100">
                     <h4 className="mb-0">Features</h4>
                     <ul className="event-detail-features-list mb-0 list-unstyled w-100">
                       <li>
@@ -161,46 +165,46 @@ function EventDetails() {
                     </ul>
                   </div> */}
 
-                  <div className="event-detail-getintouch position-relative w-100">
-                    <h4 className="mb-0">Get In Touch</h4>
-                    <div className="event-detail-getintouch-inner w-100">
-                      <p className="mb-0">Start Registration Now</p>
-                      {user && user.result.verified ? (
-                        <a
-                          className="register-btn thm-btn fill-btn"
-                          onClick={() => {
-                            dispatch(chooseEvent(goal._id));
-                            alert("Enjoy The Event");
-                          }}
-                        >
-                          Get your Ticket Now{" "}
-                          <i className="flaticon-trajectory register-btn"></i>
-                          <span></span>
-                        </a>
-                      ) : (
-                        <a
-                          className="register-btn thm-btn fill-btn"
-                          onClick={() => {
-                            localStorage.removeItem("user");
-                            window.location.reload();
-                          }}
-                        >
-                          Verify your Email{" "}
-                          <i className="flaticon-trajectory register-btn"></i>
-                          <span></span>
-                        </a>
-                      )}
-                    </div>
-                    {/* <div className="event-detail-loc mt-50 w-100">
+                <div className="event-detail-getintouch position-relative w-100">
+                  <h4 className="mb-0">Get In Touch</h4>
+                  <div className="event-detail-getintouch-inner w-100">
+                    <p className="mb-0">Start Registration Now</p>
+                    {user && user.result.verified ? (
+                      <a
+                        className="register-btn thm-btn fill-btn"
+                        onClick={() => {
+                          dispatch(chooseEvent(goals[0]?._id));
+                          alert("Enjoy The Event");
+                        }}
+                      >
+                        Get your Ticket Now{" "}
+                        <i className="flaticon-trajectory register-btn"></i>
+                        <span></span>
+                      </a>
+                    ) : (
+                      <a
+                        className="register-btn thm-btn fill-btn"
+                        onClick={() => {
+                          localStorage.removeItem("user");
+                          window.location.reload();
+                        }}
+                      >
+                        Verify your Email{" "}
+                        <i className="flaticon-trajectory register-btn"></i>
+                        <span></span>
+                      </a>
+                    )}
+                  </div>
+                  {/* <div className="event-detail-loc mt-50 w-100">
                       <iframe src={goal.location + "&output=embed"}></iframe>
                     </div> */}
-                  </div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
+      <OldFooter />
     </>
   );
 }

@@ -1,8 +1,11 @@
 import React from "react";
+import OldFooter from "../components/OldFooter";
+import OldHeader from "../components/OldHeader";
 
 function Contact() {
   return (
     <>
+      <OldHeader />
       <section>
         <div className="w-100 pt-180 pb-180 page-title-wrap text-center black-layer opc5 position-relative">
           <div
@@ -25,9 +28,9 @@ function Contact() {
         </div>
       </section>
       <section>
-        <div className="w-100 pt-140 position-relative">
+        <div className="w-100 pt-140 position-relative mb-36">
           <div className="container">
-            <div className="contact-info-wrap text-center w-100">
+            {/* <div className="contact-info-wrap text-center w-100">
               <div className="row">
                 <div className="col-md-4 col-sm-6 col-lg-4">
                   <div className="contact-info-box mb-40 w-100">
@@ -64,13 +67,13 @@ function Contact() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="contact-map-wrap mt-65 style2 w-100">
               <div className="sec-title mb-45 w-100 text-center">
                 <div className="sec-title-inner pt-0 d-inline-block">
                   <span className="d-block thm-clr">Connect With Us</span>
                   <h2 className="mb-0">
-                    If You Have Any Questions <br /> Please Contact Me
+                    If You Have Any Questions <br /> Please Contact Us
                   </h2>
                 </div>
               </div>
@@ -152,7 +155,7 @@ function Contact() {
           </div>
         </div>
       </section>
-      <section>
+      {/* <section>
         <div className="w-100 pt-100 pb-100 position-relative">
           <div className="container">
             <div className="sponsors-wrap w-100">
@@ -215,7 +218,8 @@ function Contact() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+      <OldFooter />
     </>
   );
 }

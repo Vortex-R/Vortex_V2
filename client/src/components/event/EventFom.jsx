@@ -42,6 +42,7 @@ function EventFom() {
     };
 
     dispatch(createGoal(eventData));
+    console.log(formData);
     // setFormData('')
   };
   return (
@@ -50,7 +51,7 @@ function EventFom() {
         <div className="container">
           <div className="checkout-wrap w-100">
             <div className="row">
-              <div className="col-md-12 col-sm-12 col-lg-8">
+              <div className="col-md-12 col-sm-12 col-lg-8 mx-auto">
                 <div className="checkout-form w-100">
                   <h2 className="mb-0">Create New Event</h2>
                   <form className="w-100" onSubmit={onSubmit}>
@@ -136,8 +137,9 @@ function EventFom() {
                           onChange={onChange}
                         />
                       </div>
+
                       <button
-                        className="thm-btn fill-btn mx-auto mt-5 "
+                        className="hover:bg-blue-500 thm-btn fill-btn mx-auto mt-5 "
                         type="submit"
                       >
                         Add Event<span></span>
@@ -146,43 +148,49 @@ function EventFom() {
                   </form>
                 </div>
               </div>
-              <div className="col-md-12 col-sm-12 col-lg-4">
+              {/* <div className="col-md-12 col-sm-12 col-lg-4">
                 <div className="your-payment-method bg-color3 w-100">
                   <div className="your-order w-100">
-                    <span>{/* Price: <span>$250.00</span> */}</span>
-                    <span>{/* SubTotal: <span>$250.00</span> */}</span>
-                    <span>{/* Shipping: <span>Free</span> */}</span>
+                    <span>
+                      Price: <span>$250.00</span>
+                    </span>
+                    <span>
+                      SubTotal: <span>$250.00</span>
+                    </span>
+                    <span>
+                      Shipping: <span>Free</span>
+                    </span>
                     <span className="total-price">
                       <span className="mx-auto">New Event</span>
-                      {/* Total: <span>$250.00</span> */}
+                      Total: <span>$250.00</span>
                     </span>
                   </div>
                   <div className="payment-methods w-100">
-                    {/* <h4 className="mb-0">Payment Method</h4> */}
+                    <h4 className="mb-0">Payment Method</h4>
                     <ul className="mb-0 list-unstyled w-100">
                       <li>
-                        {/* <input type="radio" name="method" id="radio1" />{" "} */}
-                        {/* <label for="radio1">Bank Payment</label> */}
+                        <input type="radio" name="method" id="radio1" />{" "}
+                        <label for="radio1">Bank Payment</label>
                       </li>
                       <li>
-                        {/* <input type="radio" name="method" id="radio2" />{" "} */}
-                        {/* <label for="radio2">Check Payment</label> */}
+                        <input type="radio" name="method" id="radio2" />{" "}
+                        <label for="radio2">Check Payment</label>
                       </li>
                       <li>
-                        {/* <input type="radio" name="method" id="radio3" />{" "} */}
+                        <input type="radio" name="method" id="radio3" />{" "}
                         <label for="radio3">
-                          {/* PayPal */}
-                          {/* <img
-                              className="img-fluid"
-                              src="assets/images/currency.png"
-                              alt="Currency"
-                            /> */}
+                          PayPal
+                          <img
+                            className="img-fluid"
+                            src="assets/images/currency.png"
+                            alt="Currency"
+                          />
                         </label>
                       </li>
                     </ul>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

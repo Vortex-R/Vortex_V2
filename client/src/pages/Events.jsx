@@ -1,8 +1,11 @@
 import React from "react";
+import OldFooter from "../components/OldFooter";
+import OldHeader from "../components/OldHeader";
 
 function Events() {
   return (
     <>
+      <OldHeader />
       <section>
         <div className="w-100 pt-180 pb-180 page-title-wrap text-center black-layer opc5 position-relative">
           <div
@@ -495,6 +498,7 @@ function Events() {
           </div>
         </div>
       </section>
+      <OldFooter />
     </>
   );
 }

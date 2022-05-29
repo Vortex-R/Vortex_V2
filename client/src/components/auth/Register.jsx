@@ -12,10 +12,25 @@ function Register() {
     password2: "",
     gender: "",
     phone: "",
+    naissance: "",
+    situation: "",
+    job: "",
+    income: "",
   });
 
-  const { firstName, lastName, email, password, password2, gender, phone } =
-    formData;
+  const {
+    firstName,
+    lastName,
+    email,
+    password,
+    password2,
+    gender,
+    phone,
+    naissance,
+    situation,
+    job,
+    income,
+  } = formData;
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -56,9 +71,14 @@ function Register() {
         password,
         gender,
         phone,
+        naissance,
+        situation,
+        job,
+        income,
       };
-      dispatch(register(userData));
-      navigate("/event-details");
+      console.log("done");
+      // dispatch(register(userData));
+      // navigate("/event-details");
     }
   };
   if (isLoading) {
@@ -67,73 +87,136 @@ function Register() {
 
   return (
     <>
-      <div className="register-popup-wrap position-fixed h-100 text-center d-flex flex-wrap align-items-center justify-content-center w-100">
-        <div className="register-popup-inner d-inline-block w-100">
-          <h3 className="mb-0">Sign Up</h3>
+      <div className="register-popup-wrap position-fixed h-100 text-center d-flex flex-wrap align-items-center justify-content-center w-100  ">
+        <div className="register-popup-inner  w-100 ">
+          {/* <h3 className="mb-0">Sign Up</h3> */}
           <form onSubmit={onSubmit}>
             <input
-              className="w-100"
+              className="w-48 mr-16 my-1"
               type="text"
               name="firstName"
               value={firstName}
               onChange={onChange}
-              placeholder="First Name"
+              placeholder="First Name *"
+              required
+              minLength={3}
             />
             <input
-              className="w-100"
+              className="w-48 my-1"
               type="text"
               name="lastName"
               value={lastName}
               onChange={onChange}
-              placeholder="Last Name"
+              placeholder="Last Name *"
+              required
+              minLength={3}
             />
             <input
-              className="w-100"
+              className="w-100 my-1"
               type="email"
               name="email"
               value={email}
               onChange={onChange}
-              placeholder="Email Address"
+              placeholder="Email Address *"
+              required
+              minLength={9}
             />
             <input
-              className="w-100"
+              className="w-100 my-1"
               type="password"
               name="password"
               value={password}
               onChange={onChange}
-              placeholder="Password"
+              placeholder="Password *"
+              required
+              minLength={6}
             />
             <input
-              className="w-100"
+              className="w-100 my-1"
               type="password"
               name="password2"
               value={password2}
               onChange={onChange}
-              placeholder="Confirm Password"
-            />
+              placeholder="Confirm Password *"
+              required
+              minLength={6}
+            />{" "}
             <input
-              className="w-100"
-              type="text"
-              name="gender"
-              value={gender}
-              onChange={onChange}
-              placeholder="Gender"
-            />
-            <input
-              className="w-100"
-              type="number"
+              className="w-100 my-1"
+              type="tel"
               name="phone"
               value={phone}
               onChange={onChange}
-              placeholder="Phone"
+              placeholder="Phone *"
+              required
+              minLength={8}
             />
+            <select
+              name="gender"
+              value={gender}
+              className="w-48 mr-16 text-center my-1"
+              onChange={onChange}
+              required
+            >
+              <option>- Gender - *</option>
+              <option value="MALE">MALE</option>
+              <option value="FEMAL">FEMAL</option>
+            </select>
+            <input
+              className="w-48 mt-0"
+              type="date"
+              name="naissance"
+              value={naissance}
+              onChange={onChange}
+              placeholder="Date of Birth"
+              required
+            />
+            <select
+              name="situation"
+              value={situation}
+              className="w-100  text-center my-3"
+              onChange={onChange}
+            >
+              <option>- Family Situation - *</option>
+              <option value="Single">Single</option>
+              <option value="Maried">Maried</option>
+              <option value="Divorced">Divorced</option>
+            </select>
+            <select
+              name="job"
+              value={job}
+              className="w-100  text-center my-3"
+              onChange={onChange}
+              required
+            >
+              <option>- You are - *</option>
+              <option value="Student">Student</option>
+              <option value="Employee">Employee</option>
+              <option value="Business/manager">
+                Business Executive/ Manager
+              </option>
+
+              <option value="Other">Other</option>
+            </select>
+            <select
+              name="income"
+              value={income}
+              className="w-100 text-center my-3"
+              onChange={onChange}
+            >
+              <option>- Income -</option>
+              <option value="less than 250">Less than 250</option>
+              <option value="between 250 & 500">Between 250 & 500</option>
+              <option value="between 500 & 750">Between 500 & 750</option>
+              <option value="between 750 & 1000">Between 750 & 1000</option>
+              <option value="greater than 1000">Greater than 1000</option>
+            </select>
             <button className="thm-btn fill-btn" type="submit">
               Sign Up<span></span>
             </button>
             {/* <a className="user-btn" href="">
             <i className="flaticon-user mx-1">Sign In</i>
           </a> */}
-
             {/* <a className="user-btn" href="">
               <i className="flaticon-user">Sign In</i>
             </a> */}

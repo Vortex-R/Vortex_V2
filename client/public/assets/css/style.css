@@ -2129,11 +2129,13 @@ header.style3.sticky .header-right-btns>a {
 }
 
 .feat-caro>button.slick-prev {
-  left: 0;
+  left: -2.5rem;
+    background-color: transparent;
 }
 
 .feat-caro>button.slick-next {
-  right: 0;
+  right: -2.5rem;
+    background-color: transparent;
 }
 
 .feat-caro>button.slick-prev i {
@@ -8222,6 +8224,7 @@ hr {
 
 .gallery-caro2>button.slick-prev {
   left: 1.25rem;
+  
 }
 
 .gallery-caro2>button.slick-next {
