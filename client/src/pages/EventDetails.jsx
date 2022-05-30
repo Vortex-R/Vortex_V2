@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import OldFooter from "../components/OldFooter";
 import OldHeader from "../components/OldHeader";
 
@@ -174,7 +175,7 @@ function EventDetails() {
                         className="register-btn thm-btn fill-btn"
                         onClick={() => {
                           dispatch(chooseEvent(goals[0]?._id));
-                          alert("Enjoy The Event");
+                          toast("Enjoy The Event !");
                         }}
                       >
                         Get your Ticket Now{" "}
@@ -187,6 +188,7 @@ function EventDetails() {
                         onClick={() => {
                           localStorage.removeItem("user");
                           window.location.reload();
+                          toast("Please check your email and login again !");
                         }}
                       >
                         Verify your Email{" "}

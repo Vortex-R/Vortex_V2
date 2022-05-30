@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { contact } from "../features/auth/authSlice";
+import { toast } from "react-toastify";
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -28,6 +29,7 @@ function ContactForm() {
       messages,
     };
     dispatch(contact(messageData));
+    toast("The message has been sent successfully");
   };
 
   return (

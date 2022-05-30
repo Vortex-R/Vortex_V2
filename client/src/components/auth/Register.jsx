@@ -76,9 +76,8 @@ function Register() {
         job,
         income,
       };
-      console.log("done");
-      // dispatch(register(userData));
-      // navigate("/event-details");
+      dispatch(register(userData));
+      navigate("/event-details");
     }
   };
   if (isLoading) {
