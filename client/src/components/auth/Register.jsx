@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { MdOutlineCancel } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { register, reset } from "../../features/auth/authSlice";
 import Spinner from "../Spinner";
 function Register() {
-  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -90,7 +90,18 @@ function Register() {
     <>
       <div className="register-popup-wrap position-fixed h-100 text-center d-flex flex-wrap align-items-center justify-content-center w-100 h-300px overflow-auto ">
         <div className="register-popup-inner  w-100 ">
+          <span className="mt-2">
+            <a
+              type="button"
+              href="/"
+              className="text-xl rounded-full hover:bg-light-gray block md:hidden"
+            >
+              <MdOutlineCancel />
+            </a>
+          </span>
+
           <h3 className="mb-0">Sign Up</h3>
+
           <form onSubmit={onSubmit}>
             <input
               className="md:lg:w-48  md:lg:mr-16 my-1"
