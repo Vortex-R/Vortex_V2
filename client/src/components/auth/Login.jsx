@@ -47,6 +47,7 @@ function Login() {
 
     dispatch(login(userData));
     navigate("/event-details");
+    window.close();
   };
 
   return (

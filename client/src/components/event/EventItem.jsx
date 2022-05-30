@@ -7,7 +7,7 @@ function EventItem() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // const { user } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
   const { goals, isLoading, isError, message } = useSelector(
     (state) => state.goals
   );
@@ -50,14 +50,25 @@ function EventItem() {
                   <div className="row justify-content-between align-items-end">
                     <div className="col-md-12 col-sm-12 col-lg-5 order-lg-1">
                       <span className="d-block text-right">
-                        <a
-                          className="thm-btn lft-icon brd-btn register-btn "
-                          href="/event-details"
-                          title=""
-                        >
-                          <i className="flaticon-coupon "></i>Buy Ticket
-                          <span></span>
-                        </a>
+                        {!user ? (
+                          <a
+                            className="thm-btn lft-icon brd-btn register-btn "
+                            href="/event-details"
+                            title=""
+                          >
+                            <i className="flaticon-coupon "></i>Buy Ticket
+                            <span></span>
+                          </a>
+                        ) : (
+                          <a
+                            className="thm-btn lft-icon brd-btn"
+                            href="/event-details"
+                            title=""
+                          >
+                            <i className="flaticon-coupon "></i>Event Details
+                            <span></span>
+                          </a>
+                        )}
                       </span>
                     </div>
                     <div className="col-md-12 col-sm-12 col-lg-7">
@@ -65,8 +76,8 @@ function EventItem() {
                         <i className="text-white">
                           Join Us <strong> Now</strong>
                         </i>
-                        <h3 className="mb-0 text-white">
-                          <a className=" " href="/event-details" title="">
+                        <h3 className=" mb-0 text-white">
+                          <a className="  " href="#" title="">
                             {goals[0]?.name}
                           </a>
                         </h3>
@@ -118,7 +129,7 @@ function EventItem() {
                 </div>
               </div>
             </div>
-            <div className="feat-item-wrap">
+            {/* <div className="feat-item-wrap">
               <div className="feat-item pb-240 d-flex flex-wrap align-items-end">
                 <div
                   className="feat-img position-absolute w-100"
@@ -130,14 +141,25 @@ function EventItem() {
                   <div className="row justify-content-between align-items-end">
                     <div className="col-md-12 col-sm-12 col-lg-5 order-lg-1">
                       <span className="d-block text-right">
-                        <a
-                          className="thm-btn lft-icon brd-btn register-btn "
-                          href="/event-details"
-                          title=""
-                        >
-                          <i className="flaticon-coupon "></i>Buy Ticket
-                          <span></span>
-                        </a>
+                        {!user ? (
+                          <a
+                            className="thm-btn lft-icon brd-btn register-btn "
+                            href="/event-details"
+                            title=""
+                          >
+                            <i className="flaticon-coupon "></i>Buy Ticket
+                            <span></span>
+                          </a>
+                        ) : (
+                          <a
+                            className="thm-btn lft-icon brd-btn"
+                            href="/event-details"
+                            title=""
+                          >
+                            <i className="flaticon-coupon "></i>Buy Ticket
+                            <span></span>
+                          </a>
+                        )}
                       </span>
                     </div>
                     <div className="col-md-12 col-sm-12 col-lg-7">
@@ -146,7 +168,7 @@ function EventItem() {
                           Join Us <strong> Now</strong>
                         </i>
                         <h3 className="mb-0 text-white">
-                          <a className="" href="/event-details" title="">
+                          <a className="" href="#" title="">
                             {goals[0]?.name}
                           </a>
                         </h3>
@@ -210,14 +232,25 @@ function EventItem() {
                   <div className="row justify-content-between align-items-end">
                     <div className="col-md-12 col-sm-12 col-lg-5 order-lg-1">
                       <span className="d-block text-right">
-                        <a
-                          className="thm-btn lft-icon brd-btn register-btn "
-                          href="/event-details"
-                          title=""
-                        >
-                          <i className="flaticon-coupon "></i>Buy Ticket
-                          <span></span>
-                        </a>
+                        {!user ? (
+                          <a
+                            className="thm-btn lft-icon brd-btn register-btn "
+                            href="/event-details"
+                            title=""
+                          >
+                            <i className="flaticon-coupon "></i>Buy Ticket
+                            <span></span>
+                          </a>
+                        ) : (
+                          <a
+                            className="thm-btn lft-icon brd-btn"
+                            href="/event-details"
+                            title=""
+                          >
+                            <i className="flaticon-coupon "></i>Buy Ticket
+                            <span></span>
+                          </a>
+                        )}
                       </span>
                     </div>
                     <div className="col-md-12 col-sm-12 col-lg-7">
@@ -226,7 +259,7 @@ function EventItem() {
                           Join Us <strong> Now</strong>
                         </i>
                         <h3 className="mb-0 text-white">
-                          <a className="" href="/event-details" title="">
+                          <a className="" href="#" title="">
                             {goals[0]?.name}
                           </a>
                         </h3>
@@ -277,7 +310,7 @@ function EventItem() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

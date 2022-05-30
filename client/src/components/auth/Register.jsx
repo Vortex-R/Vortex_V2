@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { register, reset } from "../../features/auth/authSlice";
 import Spinner from "../Spinner";
 function Register() {
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -78,6 +79,7 @@ function Register() {
       };
       dispatch(register(userData));
       navigate("/event-details");
+      window.close();
     }
   };
   if (isLoading) {
@@ -86,12 +88,12 @@ function Register() {
 
   return (
     <>
-      <div className="register-popup-wrap position-fixed h-100 text-center d-flex flex-wrap align-items-center justify-content-center w-100  ">
+      <div className=" register-popup-wrap position-fixed h-100 text-center d-flex flex-wrap align-items-center justify-content-center w-100 h-300px overflow-auto ">
         <div className="register-popup-inner  w-100 ">
-          {/* <h3 className="mb-0">Sign Up</h3> */}
+          <h3 className="mb-0">Sign Up</h3>
           <form onSubmit={onSubmit}>
             <input
-              className="w-48 mr-16 my-1"
+              className="md:lg:w-48  md:lg:mr-16 my-1"
               type="text"
               name="firstName"
               value={firstName}
@@ -101,7 +103,7 @@ function Register() {
               minLength={3}
             />
             <input
-              className="w-48 my-1"
+              className="md:lg:w-48 my-1"
               type="text"
               name="lastName"
               value={lastName}
@@ -149,20 +151,9 @@ function Register() {
               placeholder="Phone *"
               required
               minLength={8}
-            />
-            <select
-              name="gender"
-              value={gender}
-              className="w-48 mr-16 text-center my-1"
-              onChange={onChange}
-              required
-            >
-              <option>- Gender - *</option>
-              <option value="MALE">MALE</option>
-              <option value="FEMAL">FEMAL</option>
-            </select>
+            />{" "}
             <input
-              className="w-48 mt-0"
+              className=" md:lg:w-48  md:lg:mr-16  mt-0"
               type="date"
               name="naissance"
               value={naissance}
@@ -171,9 +162,20 @@ function Register() {
               required
             />
             <select
+              name="gender"
+              value={gender}
+              className=" md:lg:w-48 text-center my-4"
+              onChange={onChange}
+              required
+            >
+              <option>- Gender - *</option>
+              <option value="MALE">MALE</option>
+              <option value="FEMAL">FEMAL</option>
+            </select>
+            <select
               name="situation"
               value={situation}
-              className="w-100  text-center my-3"
+              className="w-100  text-center my-4"
               onChange={onChange}
             >
               <option>- Family Situation - *</option>
@@ -184,7 +186,7 @@ function Register() {
             <select
               name="job"
               value={job}
-              className="w-100  text-center my-3"
+              className="w-100  text-center my-4"
               onChange={onChange}
               required
             >
@@ -200,7 +202,7 @@ function Register() {
             <select
               name="income"
               value={income}
-              className="w-100 text-center my-3"
+              className="w-100 text-center my-4"
               onChange={onChange}
             >
               <option>- Income -</option>
