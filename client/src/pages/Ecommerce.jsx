@@ -1,5 +1,5 @@
-import React from "react";
-import { BsCurrencyDollar } from "react-icons/bs";
+import React, { useEffect } from "react";
+import { BsBoxSeam, BsCurrencyDollar } from "react-icons/bs";
 import { GoPrimitiveDot } from "react-icons/go";
 import { IoIosMore } from "react-icons/io";
 import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
@@ -16,6 +16,14 @@ import {
 } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
 import product9 from "../data/product9.jpg";
+import { MdOutlineSupervisorAccount } from "react-icons/md";
+import { FiBarChart } from "react-icons/fi";
+import { HiOutlineRefresh } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getUsers, reset } from "../features/profiles/profileSlice";
+import { getGoals } from "../features/goals/goalSlice";
+import { getContacts } from "../features/contacts/contactSlice";
 
 const DropDown = ({ currentMode }) => (
   <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
@@ -33,6 +41,70 @@ const DropDown = ({ currentMode }) => (
 
 const Ecommerce = () => {
   const { currentColor, currentMode } = useStateContext();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { profiles, isLoading, isError, message } = useSelector(
+    (state) => state.profiles
+  );
+  const { goals } = useSelector((state) => state.goals);
+  const { contacts } = useSelector((state) => state.contacts);
+  useEffect(() => {
+    if (isError) {
+      console.log(message);
+    }
+
+    // if (!user) {
+    //   navigate("/login");
+    // }
+
+    dispatch(getUsers());
+    dispatch(getGoals());
+    dispatch(getContacts());
+
+    return () => {
+      dispatch(reset());
+    };
+  }, [navigate, isError, message, dispatch]);
+
+  const earningData = [
+    {
+      icon: <MdOutlineSupervisorAccount />,
+      amount: profiles.length,
+      percentage: "+10",
+      title: "Attendees",
+      iconColor: "#03C9D7",
+      iconBg: "#E5FAFB",
+      pcColor: "green-400",
+    },
+    {
+      icon: <BsBoxSeam />,
+      amount: goals.length,
+      percentage: "+1",
+      title: "Events",
+      iconColor: "rgb(255, 244, 229)",
+      iconBg: "rgb(254, 201, 15)",
+      pcColor: "rgb(255, 244, 229)",
+    },
+    {
+      icon: <FiBarChart />,
+      amount: contacts.length,
+      percentage: "-2%",
+      title: "Contacts",
+      iconColor: "rgb(228, 106, 118)",
+      iconBg: "red-600",
+
+      pcColor: "red-600",
+    },
+    {
+      icon: <HiOutlineRefresh />,
+      amount: "39,354",
+      percentage: "-12%",
+      title: "Refunds",
+      iconColor: "rgb(0, 194, 146)",
+      iconBg: "rgb(235, 250, 242)",
+      pcColor: "red-600",
+    },
+  ];
 
   return (
     <div className="mt-24">

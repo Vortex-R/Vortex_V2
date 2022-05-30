@@ -650,7 +650,7 @@ export const chatData = [
   },
 ];
 
-export const earningData = [
+export const earningData11 = [
   {
     icon: <MdOutlineSupervisorAccount />,
     amount: "39,354",
