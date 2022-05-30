@@ -18,7 +18,7 @@ function Contact() {
               <h1 className="mb-0">Contact Us</h1>
               <ol className="breadcrumb">
                 <li className="breadcrumb-item">
-                  <a href="index.html" title="">
+                  <a href="/" title="">
                     Home
                   </a>
                 </li>

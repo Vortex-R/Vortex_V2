@@ -21,9 +21,9 @@ function EventDetails() {
       console.log(message);
     }
 
-    // if (!user) {
-    //   navigate("/login");
-    // }
+    if (!user) {
+      navigate("/");
+    }
 
     dispatch(getGoals());
 
@@ -50,16 +50,15 @@ function EventDetails() {
               <h1 className="mb-0">Event Detail</h1>
               <ol className="breadcrumb">
                 <li className="breadcrumb-item">
-                  <a href="index.html" title="">
+                  <a href="/" title="">
                     Home
                   </a>
                 </li>
                 <li className="breadcrumb-item">
-                  <a href="events.html" title="">
-                    Events
+                  <a href="/event-details" title="">
+                    Event Detail
                   </a>
                 </li>
-                <li className="breadcrumb-item active">Event Detail</li>
               </ol>
             </div>
           </div>

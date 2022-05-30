@@ -29,7 +29,7 @@ function EventBig() {
                     </span>
                     <a
                       className="thm-btn fill-btn"
-                      href="event-detail.html"
+                      href="/event-details"
                       title=""
                     >
                       Book Now<span></span>
@@ -37,7 +37,7 @@ function EventBig() {
                   </div>
                   <div className="event-grid-info w-100">
                     <h3 className="mb-0">
-                      <a href="event-detail.html" title="">
+                      <a href="/event-details" title="">
                         Sziget Festival 2020
                       </a>
                     </h3>
@@ -76,7 +76,7 @@ function EventBig() {
                     </span>
                     <a
                       className="thm-btn fill-btn"
-                      href="event-detail.html"
+                      href="/event-details"
                       title=""
                     >
                       Book Now<span></span>
@@ -84,7 +84,7 @@ function EventBig() {
                   </div>
                   <div className="event-grid-info w-100">
                     <h3 className="mb-0">
-                      <a href="event-detail.html" title="">
+                      <a href="/event-details" title="">
                         Crankworx World Tour
                       </a>
                     </h3>
@@ -123,7 +123,7 @@ function EventBig() {
                     </span>
                     <a
                       className="thm-btn fill-btn"
-                      href="event-detail.html"
+                      href="/event-details"
                       title=""
                     >
                       Book Now<span></span>
@@ -131,7 +131,7 @@ function EventBig() {
                   </div>
                   <div className="event-grid-info w-100">
                     <h3 className="mb-0">
-                      <a href="event-detail.html" title="">
+                      <a href="/event-details" title="">
                         Mad Cool Festival 2020
                       </a>
                     </h3>

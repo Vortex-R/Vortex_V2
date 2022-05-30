@@ -23,7 +23,7 @@ function OldFooter() {
             <div className="footer-inner d-inline-block">
               <div className="logo d-inline-block">
                 <h1 className="mb-0">
-                  <a href="index.html" title="">
+                  <a href="/" title="">
                     <img
                       className="img-fluid"
                       src={require("../assets/images/logo2.png")}

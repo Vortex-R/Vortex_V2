@@ -88,7 +88,7 @@ function Register() {
 
   return (
     <>
-      <div className=" register-popup-wrap position-fixed h-100 text-center d-flex flex-wrap align-items-center justify-content-center w-100 h-300px overflow-auto ">
+      <div className="register-popup-wrap position-fixed h-100 text-center d-flex flex-wrap align-items-center justify-content-center w-100 h-300px overflow-auto ">
         <div className="register-popup-inner  w-100 ">
           <h3 className="mb-0">Sign Up</h3>
           <form onSubmit={onSubmit}>
