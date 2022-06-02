@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { MdOutlineCancel } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
@@ -5,7 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { register, reset } from "../../features/auth/authSlice";
 import Spinner from "../Spinner";
+
 function Register() {
+  const [repo, setRepo] = useState([]);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,7 +20,7 @@ function Register() {
     naissance: "",
     situation: "",
     job: "",
-    income: "",
+    genre: "",
   });
 
   const {
@@ -30,7 +34,7 @@ function Register() {
     naissance,
     situation,
     job,
-    income,
+    genre,
   } = formData;
 
   const navigate = useNavigate();
@@ -75,16 +79,27 @@ function Register() {
         naissance,
         situation,
         job,
-        income,
+        genre,
       };
+      console.log({ userData });
       dispatch(register(userData));
       navigate("/event-details");
       window.close();
     }
   };
-  if (isLoading) {
-    return <Spinner />;
-  }
+
+  useEffect(() => {
+    const getRepo = async () => {
+      try {
+        const response = await axios.get("https://api.deezer.com/genre");
+        const myRepo = response.data;
+        setRepo(myRepo.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getRepo();
+  }, []);
 
   return (
     <>
@@ -193,6 +208,7 @@ function Register() {
               <option value="Single">Single</option>
               <option value="Maried">Maried</option>
               <option value="Divorced">Divorced</option>
+              <option value="WIDOWER/ WIDOW">WIDOWER/ WIDOW </option>
             </select>
             <select
               name="job"
@@ -202,26 +218,27 @@ function Register() {
               required
             >
               <option>- You are - *</option>
-              <option value="Student">Student</option>
-              <option value="Employee">Employee</option>
-              <option value="Business/manager">
-                Business Executive/ Manager
-              </option>
+              <option value="student">Student</option>
+              <option value="employee">Employee</option>
+              <option value="business-executive">Business Executive</option>
+              <option value="manager">Manager</option>
+              <option value="freelancer">Freelancer</option>
 
               <option value="Other">Other</option>
             </select>
             <select
-              name="income"
-              value={income}
+              name="genre"
+              value={gender}
               className="w-100 text-center my-4"
               onChange={onChange}
             >
-              <option>- Income -</option>
-              <option value="less than 250">Less than 250</option>
-              <option value="between 250 & 500">Between 250 & 500</option>
-              <option value="between 500 & 750">Between 500 & 750</option>
-              <option value="between 750 & 1000">Between 750 & 1000</option>
-              <option value="greater than 1000">Greater than 1000</option>
+              <option>- Music Genres -</option>
+              {repo.map((g) => (
+                <option key={g.id} value={g.name}>
+                  {" "}
+                  {g.name}{" "}
+                </option>
+              ))}
             </select>
             <button className="thm-btn fill-btn" type="submit">
               Sign Up<span></span>

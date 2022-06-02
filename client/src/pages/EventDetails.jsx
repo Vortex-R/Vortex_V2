@@ -31,7 +31,7 @@ function EventDetails() {
       dispatch(reset());
     };
   }, [user, navigate, isError, message, dispatch]);
-  console.log({ user });
+  // console.log({ user });
   // if (isLoading) {
   //   return <Spinner />;
   // }

@@ -96,7 +96,7 @@ export const signup = async (req, res) => {
     naissance,
     situation,
     job,
-    income,
+    genre,
   } = req.body;
 
   try {
@@ -117,7 +117,7 @@ export const signup = async (req, res) => {
       naissance,
       situation,
       job,
-      income,
+      genre,
     });
 
     const profile = await userP.create({ user: result._id });

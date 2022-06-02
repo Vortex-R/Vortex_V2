@@ -46,7 +46,7 @@ const userSchema = mongoose.Schema({
     type: String,
     required: false,
   },
-  income: {
+  genre: {
     type: String,
     required: false,
   },

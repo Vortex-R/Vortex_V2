@@ -7,6 +7,7 @@ import Pricing from "../components/event/Pricing";
 import OldFooter from "../components/OldFooter";
 import OldHeader from "../components/OldHeader";
 import VrExperience from "../components/VrExperience";
+
 function Home() {
   return (
     <>
