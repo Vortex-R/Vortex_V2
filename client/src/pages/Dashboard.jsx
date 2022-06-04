@@ -37,6 +37,9 @@ const Dashboard = () => {
       console.log(message);
     }
 
+    // if (user && user.role !== 2) {
+    //   navigate("/");
+    // }
     if (user && user.result.role !== 2) {
       navigate("/");
     }

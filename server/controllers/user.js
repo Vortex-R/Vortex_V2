@@ -97,6 +97,7 @@ export const signup = async (req, res) => {
     situation,
     job,
     genre,
+    country,
   } = req.body;
 
   try {
@@ -118,6 +119,7 @@ export const signup = async (req, res) => {
       situation,
       job,
       genre,
+      country,
     });
 
     const profile = await userP.create({ user: result._id });
@@ -156,6 +158,21 @@ export const getProfile = async (req, res) => {
     res.status(404).json({ message: error });
   }
 };
+
+
+export const getUserData = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // const allProfiles = await userP.findById().populate('user')
+    const Profile = await UserModal.findById(id);
+
+    res.status(200).send(Profile);
+  } catch (error) {
+    res.status(404).json({ message: error });
+  }
+};
+
 
 export const affectUserToEvent = async (req, res) => {
   try {

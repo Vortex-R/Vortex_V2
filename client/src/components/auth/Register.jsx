@@ -4,11 +4,14 @@ import { MdOutlineCancel } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Countries } from "../../data/countries";
+import { Genres } from "../../data/genres";
 import { register, reset } from "../../features/auth/authSlice";
 import Spinner from "../Spinner";
 
 function Register() {
   const [repo, setRepo] = useState([]);
+  const [city, setCity] = useState([]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -21,6 +24,7 @@ function Register() {
     situation: "",
     job: "",
     genre: "",
+    country: "",
   });
 
   const {
@@ -35,6 +39,7 @@ function Register() {
     situation,
     job,
     genre,
+    country,
   } = formData;
 
   const navigate = useNavigate();
@@ -52,8 +57,9 @@ function Register() {
     // if (isSuccess || user) {
     //   navigate("/event-details");
     // }
-
-    dispatch(reset());
+    return () => {
+      dispatch(reset());
+    };
   }, [user, isError, isSuccess, message, navigate, dispatch]);
 
   const onChange = (e) => {
@@ -80,26 +86,13 @@ function Register() {
         situation,
         job,
         genre,
+        country,
       };
-      console.log({ userData });
       dispatch(register(userData));
       navigate("/event-details");
       window.close();
     }
   };
-
-  useEffect(() => {
-    const getRepo = async () => {
-      try {
-        const response = await axios.get("https://api.deezer.com/genre");
-        const myRepo = response.data;
-        setRepo(myRepo.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getRepo();
-  }, []);
 
   return (
     <>
@@ -179,7 +172,7 @@ function Register() {
               minLength={8}
             />{" "}
             <input
-              className=" md:lg:w-48  md:lg:mr-16  mt-0"
+              className=" md:lg:w-48  md:lg:mr-16 my-1 "
               type="date"
               name="naissance"
               value={naissance}
@@ -190,9 +183,10 @@ function Register() {
             <select
               name="gender"
               value={gender}
-              className=" md:lg:w-48 text-center my-4"
+              className=" h-16 md:lg:w-48 text-center my-1"
               onChange={onChange}
               required
+              style={{ backgroundColor: "#f6f7fb" }}
             >
               <option>- Gender - *</option>
               <option value="MALE">MALE</option>
@@ -201,8 +195,9 @@ function Register() {
             <select
               name="situation"
               value={situation}
-              className="w-100  text-center my-4"
+              className="  h-16 w-100  text-center my-1"
               onChange={onChange}
+              style={{ backgroundColor: "#f6f7fb" }}
             >
               <option>- Family Situation - *</option>
               <option value="Single">Single</option>
@@ -213,9 +208,10 @@ function Register() {
             <select
               name="job"
               value={job}
-              className="w-100  text-center my-4"
+              className="w-100  h-16 text-center my-1"
               onChange={onChange}
               required
+              style={{ backgroundColor: "#f6f7fb" }}
             >
               <option>- You are - *</option>
               <option value="student">Student</option>
@@ -228,15 +224,31 @@ function Register() {
             </select>
             <select
               name="genre"
-              value={gender}
-              className="w-100 text-center my-4"
+              value={genre}
+              className=" h-16 w-100 text-center my-1"
               onChange={onChange}
+              style={{ backgroundColor: "#f6f7fb" }}
             >
               <option>- Music Genres -</option>
-              {repo.map((g) => (
+              {Genres.map((g) => (
                 <option key={g.id} value={g.name}>
                   {" "}
                   {g.name}{" "}
+                </option>
+              ))}
+            </select>
+            <select
+              name="country"
+              value={country}
+              className=" h-16 w-100 text-center my-1"
+              onChange={onChange}
+              style={{ backgroundColor: "#f6f7fb" }}
+            >
+              <option>- Country -</option>
+              {Countries.map((c) => (
+                <option key={c.code} value={c.name}>
+                  {" "}
+                  {c.name}{" "}
                 </option>
               ))}
             </select>

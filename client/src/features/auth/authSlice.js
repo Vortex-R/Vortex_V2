@@ -4,14 +4,24 @@ import authService from './authService'
 //get user from localStorage if connected
 const user = JSON.parse(localStorage.getItem('user'))
 
+// //get user from localStorage if connected
+// let user = JSON.parse(localStorage.getItem("user"));
+// if (user) {
+//   authService.getUserData(user.result._id).then((response) => {
+//     return localStorage.setItem("user2", JSON.stringify(response.data));
+//   });
+// }
+// user = JSON.parse(localStorage.getItem("user2"));
 
 const initialState = {
-    user: user ? user : null,
-    isError: false,
-    isSuccess: false,
-    isLoading: false,
-    message: ''
-}
+  user: user ? user : null,
+  isError: false,
+  isSuccess: false,
+  isLoading: false,
+  message: "",
+};
+
+
 
 // Register user
 export const register = createAsyncThunk('auth/register', 

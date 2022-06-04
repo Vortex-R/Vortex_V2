@@ -23,7 +23,7 @@ function OldHeader() {
     <>
       <header className="stick style1 w-100">
         <div className="container">
-          <div className="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
+          <div className="logo-menu-wrap w-100 d-flex flex-wrap justify-content-around align-items-start">
             <div className="logo">
               <h1 className="mb-0">
                 <a href="/" title="Home">
@@ -44,6 +44,13 @@ function OldHeader() {
                       Home
                     </a>
                   </li>
+                  {user && (
+                    <li>
+                      <a href="/streaming" title="">
+                        Streaming
+                      </a>
+                    </li>
+                  )}
                   {/* <li>
                     <a href="/events" title="">
                       Events
@@ -119,6 +126,13 @@ function OldHeader() {
               Home
             </a>
           </li>
+          {user && (
+            <li>
+              <a href="/streaming" title="">
+                Streaming
+              </a>
+            </li>
+          )}
           {user && user.result.role === 2 && (
             <li>
               <a href="/dashboard" title="">

@@ -1,10 +1,9 @@
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import React, { useEffect } from "react";
 import { FiSettings } from "react-icons/fi";
-import { Ecommerce } from ".";
 import "../App.css";
 import { Footer, Navbar, Sidebar, ThemeSettings } from "../components";
-import EventFom from "../components/event/EventFom";
+import EventForm from "../components/event/EventForm";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const Event = () => {
@@ -63,7 +62,7 @@ const Event = () => {
           </div>
           <div>
             {themeSettings && <ThemeSettings />}
-            <EventFom />
+            <EventForm />
           </div>
           <Footer />
         </div>

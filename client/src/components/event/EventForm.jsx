@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Navigate, useNavigate } from "react-router-dom";
 import { createGoal } from "../../features/goals/goalSlice";
 
-function EventFom() {
+function EventForm() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: "",
     attendees: "",
-    date: "",
+    startDate: "",
+    endDate: "",
     link: "",
 
     price: "",
@@ -15,8 +19,17 @@ function EventFom() {
     location: "",
   });
 
-  const { name, attendees, date, link, price, parking, overview, location } =
-    formData;
+  const {
+    name,
+    attendees,
+    startDate,
+    endDate,
+    link,
+    price,
+    parking,
+    overview,
+    location,
+  } = formData;
 
   const dispatch = useDispatch();
 
@@ -33,7 +46,8 @@ function EventFom() {
     const eventData = {
       name,
       attendees,
-      date,
+      startDate,
+      endDate,
       link,
       price,
       parking,
@@ -42,8 +56,7 @@ function EventFom() {
     };
 
     dispatch(createGoal(eventData));
-    console.log(formData);
-    // setFormData('')
+    navigate("/calendar");
   };
   return (
     <section>
@@ -86,23 +99,41 @@ function EventFom() {
                           onChange={onChange}
                         />
                       </div>
+
                       <div className="col-md-4 col-sm-12 col-lg-4">
-                        <input
-                          className="w-100"
-                          type="texte"
+                        <select
                           placeholder="Parking"
                           name="parking"
                           value={parking}
+                          className="mt-2 h-16 w-100 bg-gray-50"
+                          onChange={onChange}
+                          style={{
+                            backgroundColor: "#f6f7fb",
+                            fontFamily: "inherit",
+                          }}
+                        >
+                          <option>- Parking -</option>
+                          <option value="available">AVAILABLE </option>
+                          <option value="unavailable">UNAVAILABLE </option>
+                        </select>
+                      </div>
+                      <div className="col-md-6 col-sm-12 col-lg-6">
+                        <input
+                          className="w-100 text- "
+                          type="datetime-local"
+                          placeholder="Enter event StartDate"
+                          name="startDate"
+                          value={startDate}
                           onChange={onChange}
                         />
                       </div>
                       <div className="col-md-6 col-sm-12 col-lg-6">
                         <input
                           className="w-100"
-                          type="date"
-                          placeholder="Enter event date"
-                          name="date"
-                          value={date}
+                          type="datetime-local"
+                          placeholder="Enter event endDate"
+                          name="endDate"
+                          value={endDate}
                           onChange={onChange}
                         />
                       </div>
@@ -117,7 +148,7 @@ function EventFom() {
                         />
                       </div>
 
-                      <div className="col-md-12 col-sm-12 col-lg-12">
+                      <div className="col-md-6 col-sm-12 col-lg-6">
                         <input
                           className="w-100"
                           type="text"
@@ -199,4 +230,4 @@ function EventFom() {
   );
 }
 
-export default EventFom;
+export default EventForm;

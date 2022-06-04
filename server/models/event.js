@@ -3,7 +3,8 @@ import mongoose from 'mongoose'
 const eventSchema = mongoose.Schema({
   name: { type: String, required: true },
   attendees: { type: Number, required: true },
-  date: { type: Date, required: true },
+  startDate: { type: Date, required: true },
+  endDate: { type: Date, required: true },
   link: { type: String, required: false },
   price: { type: Number, required: true },
   parking: { type: String },

@@ -85,7 +85,7 @@ const Scheduler = () => {
       Id: goals[0]?._id,
       Subject: goals[0]?.name,
       Location: goals[0]?.location,
-      StartTime: goals[0]?.date,
+      StartTime: goals[0]?.startDate,
       EndTime: goals[0]?.endDate,
       CategoryColor: "#1aaa55",
     },
@@ -136,7 +136,7 @@ const Scheduler = () => {
                 selectedDate={new Date(2021, 0, 10)}
                 eventSettings={{ dataSource: scheduleData }}
                 dragStart={onDragStart}
-                readonly={true}
+                readonly={false}
                 // created={dispatch(createGoal()}
               >
                 <ViewsDirective>
@@ -164,7 +164,7 @@ const Scheduler = () => {
                     <tr style={{ height: "50px" }}>
                       <td style={{ width: "100%" }}>
                         <DatePickerComponent
-                          value={goals[0]?.date}
+                          value={goals[0]?.startDate}
                           showClearButton={false}
                           placeholder="Current Date"
                           floatLabelType="Always"

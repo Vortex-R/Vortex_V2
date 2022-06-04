@@ -9,6 +9,7 @@ import {
   userVerification,
   userParticipated,
   googleAuth,
+  getUserData,
 } from "../controllers/user.js";
 import { admin, auth } from "../middleware/auth.js";
 
@@ -22,7 +23,9 @@ router.get("/profiles", auth, admin, getProfile);
 router.patch("/affect", auth, affectUserToEvent);
 router.patch("/checkIfUserParticipated", auth, userParticipated);
 router.get("/verify/:confirmationCode", userVerification);
-router.patch("/profile/update", auth, updateProfile);
+router.get("/verify/:confirmationCode", userVerification);
+router.get("/getUserData/:id", getUserData);
+
 // router.put("/profile", updateUser);
 
 /* router.patch("/profile/update", auth, updateProfile); */

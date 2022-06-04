@@ -10,7 +10,7 @@ function OldFooter() {
             backgroundImage: `url("../assets/images/parallax2.jpg")`,
           }}
         ></div>
-        <div className="container position-relative">
+        <div className="container position-relative px-16 ">
           <div className="clrs-wrap d-flex position-absolute">
             <i className="bg-color6"></i>
             <i className="bg-color7"></i>

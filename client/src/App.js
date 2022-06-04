@@ -11,6 +11,7 @@ import Event from "./pages/Event";
 import EventDetails from "./pages/EventDetails";
 import Events from "./pages/Events";
 import Home from "./pages/Home";
+import Streaming from "./pages/Streaming";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/orders" element={<Orders />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/event-form" element={<Event />} />
+          <Route path="/streaming" element={<Streaming />} />
         </Routes>
         {/* <OldFooter /> */}
       </Router>

@@ -37,7 +37,7 @@ function EventItem() {
   return (
     <>
       <section>
-        <div className="w-100 position-relative">
+        <div className="w-100 position-relative ">
           <div className="feat-wrap position-relative w-100">
             <div className="feat-caro">
               <div className="feat-item-wrap">
@@ -50,10 +50,10 @@ function EventItem() {
                   ></div>
                   <div className="container">
                     <div className="row justify-content-between align-items-end">
-                      <div className="col-md-12 col-sm-12 col-lg-5 order-lg-1">
+                      <div className="col-md-12 col-sm-12 col-lg-5 order-lg-1 ">
                         {!user ? (
                           <a
-                            className="register-btn thm-btn lft-icon brd-btn"
+                            className="register-btn thm-btn lft-icon brd-btn "
                             onClick={() => {
                               toast("Sign UP Please !");
                             }}
@@ -90,7 +90,7 @@ function EventItem() {
                             <li>
                               <span className="days">
                                 {" "}
-                                {new Date(goals[0]?.date)
+                                {new Date(goals[0]?.startDate)
                                   .getDay()
                                   .toLocaleString("en-US")}
                               </span>
@@ -99,7 +99,7 @@ function EventItem() {
                             <li>
                               <span className="hours">
                                 {" "}
-                                {new Date(goals[0]?.date)
+                                {new Date(goals[0]?.startDate)
                                   .getHours()
                                   .toLocaleString("en-US")}
                               </span>
@@ -108,7 +108,7 @@ function EventItem() {
                             <li>
                               <span className="minutes">
                                 {" "}
-                                {new Date(goals[0]?.date)
+                                {new Date(goals[0]?.startDate)
                                   .getMinutes()
                                   .toLocaleString("en-US")}
                               </span>
@@ -117,7 +117,7 @@ function EventItem() {
                             <li>
                               <span className="seconds">
                                 {" "}
-                                {new Date(goals[0]?.date)
+                                {new Date(goals[0]?.startDate)
                                   .getSeconds()
                                   .toLocaleString("en-US")}
                               </span>

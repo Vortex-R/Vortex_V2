@@ -34,7 +34,8 @@ export const createEvent = async (req, res) => {
   var newEvent = new Event();
   newEvent.name = req.body.name;
   newEvent.attendees = req.body.attendees;
-  newEvent.date = req.body.date;
+  newEvent.startDate = req.body.startDate;
+  newEvent.endDate = req.body.endDate;
   newEvent.link = req.body.link;
   
   newEvent.price = req.body.price;

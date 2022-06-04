@@ -50,6 +50,10 @@ const userSchema = mongoose.Schema({
     type: String,
     required: false,
   },
+  country: {
+    type: String,
+    required: false,
+  },
 
   organizer: {
     type: mongoose.Schema.Types.ObjectId,
