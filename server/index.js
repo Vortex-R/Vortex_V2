@@ -15,7 +15,9 @@ import { auth, organizer } from "./middleware/auth.js";
 
 dotenv.config();
 
+const PORT = process.env.PORT || 4000;
 const app = express();
+app.set("port", PORT);
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
@@ -24,10 +26,9 @@ app.use(cors());
 app.use("/api/user", userRoute);
 app.use("/api/contact", auth, contactRoute);
 app.use("/api/event", eventRoute);
-app.use("/api/organizerP", auth, organizerPRoute);
-app.use("/api/userP", auth, userPRoute);
+// app.use("/api/organizerP", auth, organizerPRoute);
+// app.use("/api/userP", auth, userPRoute);
 
-const PORT = process.env.PORT || 4000;
 mongoose
   .connect(process.env.CONNECTION_URL, {
     useNewUrlParser: true,

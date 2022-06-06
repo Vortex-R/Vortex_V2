@@ -3443,7 +3443,6 @@ span.event-loc i {
   background-color: #000;
   opacity: 0;
   z-index: 1;
-  content: ;
 }
 
 .post-style1:hover .post-img>a::before {
