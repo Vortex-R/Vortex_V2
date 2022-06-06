@@ -58,62 +58,59 @@ const updateProfile = async (token,goalData) => {
 
  
   // show event by id
-const showEvent = async (token,id) => {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  
-    const response = await axios.get(API_URL_EVENT+"/show/"+id , config)
-  
-    return response.data
+const showEvent = async (token, id) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
 
-  }
+  const response = await axios.get(API_URL_EVENT + "show/" + id, config);
 
+  return response.data;
+};
 
-    // Get USERS
+// Get USERS
 const getUsers = async (token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
-  }
+  };
 
-  const response = await axios.get(API_URL+"/profiles", config)
+  const response = await axios.get(API_URL + "profiles", config);
 
-  return response.data
-}
-  // show Organizer data
-const getOrganizer = async (token,id) => {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  
-    const response = await axios.get(API_URL_ORGANIZER+"profile" , config)
-  
-    return response.data
-  }
+  return response.data;
+};
+// show Organizer data
+const getOrganizer = async (token, id) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
 
+  const response = await axios.get(API_URL_ORGANIZER + "profile", config);
 
-  // update user role to organizer
-  const updateUserToOrganizer = async (token, data) => {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-    const body = {
-      role: data.role,
-      event: data.event
-    }
-    const id = data.userId;
-    const response = await axios.patch(API_URL+"/role/"+id, body, config)
-  
-    return response.data
-  }
+  return response.data;
+};
+
+// update user role to organizer
+const updateUserToOrganizer = async (token, data) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  const body = {
+    role: data.role,
+    event: data.event,
+  };
+  const id = data.userId;
+  const response = await axios.patch(API_URL + "role/" + id, body, config);
+
+  return response.data;
+};
 
 const profileService = {
   updateProfile,
