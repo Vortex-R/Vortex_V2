@@ -23,20 +23,23 @@ function OldHeader() {
     <>
       <header className="stick style1 w-100">
         <div className="container">
-          <div className="logo-menu-wrap w-100 d-flex flex-wrap justify-content-around align-items-start">
+          <div className="logo-menu-wrap w-100 d-flex sm:flex-wrap align-items-center justify-content-between pr-4">
             <div className="logo">
               <h1 className="mb-0">
                 <a href="/" title="Home">
                   <img
                     className="img-fluid"
-                    src={require("../assets/images/logo.png")}
+                    src="assets/images/logo11.png"
                     alt="Logo"
-                    srcSet="../assets/images/retina-logo.png"
+                    srcSet="../assets/images/logo11.png"
                   />
                 </a>
               </h1>
             </div>
-            <nav className="d-inline-flex align-items-center">
+            <nav
+              className="d-inline-flex align-items-center"
+              style={{ marginLeft: "-4rem" }}
+            >
               <div className="header-left">
                 <ul className="mb-0 list-unstyled d-inline-flex">
                   <li className="menu-item-has-children">
@@ -105,9 +108,9 @@ function OldHeader() {
                     <i className="flaticon-user"></i>
                   </a>
                 )}
-                <a className="search-btn" href="" title="">
+                {/* <a className="search-btn" href="" title="">
                   <i className="flaticon-magnifying-glass"></i>
-                </a>
+                </a> */}
                 <a className="menu-btn" href="" title="">
                   <i className="flaticon-menu"></i>
                 </a>

@@ -20,7 +20,7 @@ function Digital() {
                     <div className="about-img-item">
                       <img
                         className="img-fluid w-100"
-                        src="assets/images/resources/about-img11.jpg"
+                        src="assets/images/resources/about-img111.jpg"
                         alt="About Image 1"
                         style={{ width: "540px", height: "364px" }}
                       />
@@ -28,7 +28,7 @@ function Digital() {
                     <div className="about-img-item">
                       <img
                         className="img-fluid w-100"
-                        src="assets/images/resources/about-img22.jpg"
+                        src="assets/images/resources/about-img112.jpg"
                         alt="About Image 2"
                         style={{ width: "540px", height: "364px" }}
                       />
@@ -36,16 +36,8 @@ function Digital() {
                     <div className="about-img-item">
                       <img
                         className="img-fluid w-100"
-                        src="assets/images/resources/about-img33.jpg"
+                        src="assets/images/resources/about-img113.jpg"
                         alt="About Image 3"
-                        style={{ width: "540px", height: "364px" }}
-                      />
-                    </div>
-                    <div className="about-img-item">
-                      <img
-                        className="img-fluid w-100"
-                        src="assets/images/resources/about-img44.jpg"
-                        alt="About Image 4"
                         style={{ width: "540px", height: "364px" }}
                       />
                     </div>
@@ -71,8 +63,8 @@ function Digital() {
                         <div className="about-info w-100">
                           <i className="thm-clr flaticon-tickets"></i>
                           <div className="about-info-inner">
-                            {/* <span>Live Streaming Access </span> */}
-                            <p className="mb-0">Live Streaming Access</p>
+                            <span>Live Streaming Access </span>
+                            {/* <p className="mb-0">Live Streaming Access</p> */}
                           </div>
                         </div>
                       </div>
@@ -80,8 +72,8 @@ function Digital() {
                         <div className="about-info w-100">
                           <i className="thm-clr far fa-calendar-alt"></i>
                           <div className="about-info-inner">
-                            {/* <span>Opening Times</span> */}
-                            <p className="mb-0">360° diffusion technology </p>
+                            <span>360° diffusion technology</span>
+                            {/* <p className="mb-0">360° diffusion technology </p> */}
                           </div>
                         </div>
                       </div>
@@ -89,8 +81,8 @@ function Digital() {
                         <div className="about-info w-100">
                           <i className="thm-clr flaticon-pin-1"></i>
                           <div className="about-info-inner">
-                            {/* <span>149 Pulaski Court</span> */}
-                            <p className="mb-0">Immersive ( VR box)</p>
+                            <span>Immersive ( VR box)</span>
+                            {/* <p className="mb-0">Immersive ( VR box)</p> */}
                           </div>
                         </div>
                       </div>
@@ -98,8 +90,8 @@ function Digital() {
                         <div className="about-info w-100">
                           <i className="thm-clr flaticon-parking-square-signal"></i>
                           <div className="about-info-inner">
-                            {/* <span>Your Parking:</span> */}
-                            <p className="mb-0">New kind of experience !</p>
+                            <span>New kind of experience !</span>
+                            {/* <p className="mb-0">New kind of experience !</p> */}
                           </div>
                         </div>
                       </div>

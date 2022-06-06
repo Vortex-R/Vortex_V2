@@ -27,7 +27,7 @@ function VrExperience() {
                   <div className="tab-pane fade show active" id="reason-img1">
                     <img
                       className="img-fluid w-100"
-                      src="assets/images/resources/about-img33.jpg"
+                      src="assets/images/resources/reason-img111.jpg"
                       alt="Reason Image 1"
                       style={{ width: "945px", height: "982px" }}
                     />
@@ -35,7 +35,7 @@ function VrExperience() {
                   <div className="tab-pane fade" id="reason-img2">
                     <img
                       className="img-fluid w-100"
-                      src="assets/images/resources/about-img44.jpg"
+                      src="assets/images/resources/reason-img112.jpg"
                       alt="Reason Image 2"
                       style={{ width: "945px", height: "982px" }}
                     />
@@ -43,7 +43,7 @@ function VrExperience() {
                   <div className="tab-pane fade" id="reason-img3">
                     <img
                       className="img-fluid w-100"
-                      src="assets/images/resources/about-img11.jpg"
+                      src="assets/images/resources/reason-img113.jpg"
                       alt="Reason Image 3"
                       style={{ width: "945px", height: "982px" }}
                     />

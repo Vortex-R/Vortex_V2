@@ -1848,7 +1848,7 @@ header.style2 {
 
 .social-links2>a {
   display: inline-block;
-  font-size: 1.125rem;
+  font-size: 0.125rem;
   color: #e7e7e7;
   margin: 0 0.9375rem;
   position: relative;
@@ -1858,7 +1858,7 @@ header.style2 {
   content: "";
   position: absolute;
   left: -1rem;
-  height: 0.8125rem;
+  height: 0.7125rem;
   width: 1px;
   background-color: #555;
   top: 50%;
@@ -3617,7 +3617,7 @@ span.event-loc i {
 }
 
 .footer-bottom>p i {
-  font-size: 3.125rem;
+  font-size: 2rem;
   margin-right: 0.625rem;
   line-height: 3.125rem;
   vertical-align: middle;
@@ -3631,8 +3631,8 @@ span.event-loc i {
 .social-links>a {
   display: inline-block;
   color: #fff;
-  height: 3.4375rem;
-  line-height: 3.4375rem;
+  height: 2.4375rem;
+    line-height: 2.4375rem;
   width: 3.4375rem;
   border-width: 2px;
   border-style: solid;

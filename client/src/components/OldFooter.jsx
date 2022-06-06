@@ -26,7 +26,7 @@ function OldFooter() {
                   <a href="/" title="">
                     <img
                       className="img-fluid"
-                      src={require("../assets/images/logo2.png")}
+                      src="assets/images/logo12.png"
                       alt="Logo"
                     />
                   </a>
@@ -71,7 +71,7 @@ function OldFooter() {
             <div className="footer-bottom d-flex flex-wrap justify-content-between w-100">
               <p className="mb-0">
                 <i className="thm-clr flaticon-headset"></i>Call Us By Email:
-                <strong>contact.vortex.reaction@gmail.com</strong>
+                <small>contact.vortex.reaction@gmail.com</small>
               </p>
               <div className="social-links d-inline-flex">
                 <a
