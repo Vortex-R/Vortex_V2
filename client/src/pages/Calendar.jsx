@@ -133,7 +133,8 @@ const Scheduler = () => {
               <ScheduleComponent
                 height="650px"
                 ref={(schedule) => setScheduleObj(schedule)}
-                selectedDate={new Date(2021, 0, 10)}
+                // selectedDate={new Date(2021, 0, 10)} i change the date
+                selectedDate={goals[0]?.startDate}
                 eventSettings={{ dataSource: scheduleData }}
                 dragStart={onDragStart}
                 readonly={false}
