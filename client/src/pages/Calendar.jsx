@@ -13,7 +13,7 @@ import {
   Week,
   WorkWeek,
 } from "@syncfusion/ej2-react-schedule";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { FiSettings } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -79,19 +79,24 @@ const Scheduler = () => {
     // eslint-disable-next-line no-param-reassign
     arg.navigation.enable = true;
   };
+  const scheduleData = useMemo(
+    () =>
+      goals
+        ? [
+            {
+              Id: goals[0]?._id,
+              Subject: goals[0]?.name,
+              Location: goals[0]?.location,
+              StartTime: goals[0]?.startDate,
+              EndTime: goals[0]?.endDate,
+              CategoryColor: "#1aaa55",
+            },
+          ]
+        : [],
+    [goals]
+  );
 
-  const scheduleData = [
-    {
-      Id: goals[0]?._id,
-      Subject: goals[0]?.name,
-      Location: goals[0]?.location,
-      StartTime: goals[0]?.startDate,
-      EndTime: goals[0]?.endDate,
-      CategoryColor: "#1aaa55",
-    },
-  ];
-
-  return (
+  return goals[0] ? (
     <div className={currentMode === "Dark" ? "dark" : ""}>
       <div className="flex relative dark:bg-main-dark-bg">
         <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
@@ -135,7 +140,7 @@ const Scheduler = () => {
                 ref={(schedule) => setScheduleObj(schedule)}
                 // selectedDate={new Date(2021, 0, 10)} i change the date
                 selectedDate={goals[0]?.startDate}
-                eventSettings={{ dataSource: scheduleData }}
+                eventSettings={{ dataSource: scheduleData || [] }}
                 dragStart={onDragStart}
                 readonly={false}
                 // created={dispatch(createGoal()}
@@ -182,7 +187,7 @@ const Scheduler = () => {
         </div>
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default Scheduler;
