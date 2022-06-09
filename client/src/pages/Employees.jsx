@@ -7,7 +7,7 @@ import {
   Search,
 } from "@syncfusion/ej2-react-grids";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { FiSettings } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -51,7 +51,6 @@ const Employees = () => {
       dispatch(reset());
     };
   }, [navigate, isError, message, dispatch]);
-  console.log({ profiles });
 
   useEffect(() => {
     const currentThemeColor = localStorage.getItem("colorMode");
@@ -66,19 +65,25 @@ const Employees = () => {
 
   const editing = { allowDeleting: false, allowEditing: false };
 
-  const employeesData = [
-    {
-      EmployeeID: profiles[0]?._id,
-      Name: profiles[0]?.name,
-      Title: profiles[0]?.email,
-      HireDate: profiles[0]?.gender,
-      Country: profiles[0]?.phone,
-      ReportsTo: profiles[0]?.situation,
-      EmployeeImage: avatar3,
-    },
-  ];
-  console.log({ employeesData });
-  return (
+  const employeesData = useMemo(
+    () =>
+      profiles
+        ? [
+            {
+              EmployeeID: profiles[0]?._id,
+              Name: profiles[0]?.name,
+              Title: profiles[0]?.email,
+              HireDate: profiles[0]?.gender,
+              Country: profiles[0]?.phone,
+              ReportsTo: profiles[0]?.situation,
+              EmployeeImage: avatar3,
+            },
+          ]
+        : [],
+    [profiles]
+  );
+
+  return profiles ? (
     <div className={currentMode === "Dark" ? "dark" : ""}>
       <div className="flex relative dark:bg-main-dark-bg">
         <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
@@ -139,6 +144,6 @@ const Employees = () => {
         </div>
       </div>
     </div>
-  );
+  ) : null;
 };
 export default Employees;
