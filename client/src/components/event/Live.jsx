@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { SiAirplayvideo } from "react-icons/si";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import live from "../../assets/images/resources/blog-detail-img.jpg";
+// import live from "assets/images/resources/blog-detail-img.jpg";
 import { getGoals, reset } from "../../features/goals/goalSlice";
 
 function Live() {
@@ -95,8 +95,7 @@ function Live() {
                           </a>
                           <img
                             className="img-fluid w-100"
-                            src={live}
-                            // src="assets/images/resources/blog-detail-img5.jpg"
+                            src={"../assets/images/resources/blog-detail-img.jpg"}
                             alt="Blog Detail Image 5"
                           />
                         </div>
