@@ -3,34 +3,35 @@ import User from "../models/user.js";
 
 const secret = "test";
 
-export const auth = async(req, res, next) => {
-    // console.log(req.user);
-    let token
+export const auth = async (req, res, next) => {
+  let token;
 
-    if (
-      req.headers.authorization &&
-      req.headers.authorization.startsWith("Bearer")
-    ) {
-      try {
-        token = req.headers.authorization.split(" ")[1];
-        if (!token) return "Not authorized, token failed";
-        const decoded = jwt.verify(token, secret);
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
+    try {
+      console.log({ token });
+      token = req.headers.authorization.split(" ")[1];
 
-        req.user = await User.findById(decoded.id)
-          .select("-password")
-          .populate("event");
+      if (!token) return "Not authorized, token failed";
+      const decoded = jwt.verify(token, secret);
 
-        next();
-      } catch (error) {
-        console.error(error);
-        return "Not authorized, token failed";
-      }
+      req.user = await User.findById(decoded.id)
+        .select("-password")
+        .populate("event");
+
+      next();
+    } catch (error) {
+      console.error(error);
+      return "Not authorized, token failed";
     }
+  }
 
-    if (!token) {
-      res.status(401);
-      return "Not authorized, no token";
-    }
+  if (!token) {
+    res.status(401);
+    return "Not authorized, no token";
+  }
 };
 
 
