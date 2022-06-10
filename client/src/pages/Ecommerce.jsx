@@ -67,7 +67,7 @@ const Ecommerce = () => {
   }, [navigate, isError, message, dispatch]);
 
 
-     earningData = [
+     const earningData = [
        {
          icon: <MdOutlineSupervisorAccount />,
          amount: profiles?.length,
