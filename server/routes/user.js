@@ -23,7 +23,6 @@ router.get("/profiles", getProfile);
 router.patch("/affect", auth, affectUserToEvent);
 router.patch("/checkIfUserParticipated", auth, userParticipated);
 router.get("/verify/:confirmationCode", userVerification);
-router.get("/verify/:confirmationCode", userVerification);
 router.get("/getUserData/:id", getUserData);
 
 // router.put("/profile", updateUser);

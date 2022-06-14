@@ -26,8 +26,8 @@ app.use(cors());
 app.use("/api/user", userRoute);
 app.use("/api/contact", contactRoute);
 app.use("/api/event", eventRoute);
-// app.use("/api/organizerP", auth, organizerPRoute);
-// app.use("/api/userP", auth, userPRoute);
+app.use("/api/organizerP", auth, organizerPRoute);
+app.use("/api/userP", auth, userPRoute);
 
 // Serve Old frontend
 // if (process.env.NODE_ENV === "production") {

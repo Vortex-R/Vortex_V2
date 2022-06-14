@@ -9,7 +9,7 @@ export const sendmail = async (user, qr) => {
     },
   });
   const mailOptions = {
-    from: "contact.vortex.reaction@gmail.com",
+    from: "vortexreaction@gmail.com",
     to: user.email,
     attachDataUrls: true,
     subject: "Event Ticket",
