@@ -509,7 +509,7 @@ header.style1 {padding-top: .9375rem;}
 header .logo img {max-width: 75%;}
 .feat-cap > h3 {
   font-size: 3rem;
-  line-height: 3.5rem;
+  line-height: 0.5rem;
 }
 .feat-cap ul.countdown {
   min-width: initial;
