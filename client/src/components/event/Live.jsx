@@ -64,7 +64,7 @@ function Live() {
                           <a
                             className="d-inline-block position-absolute play-btn"
                             data-fancybox
-                            href={goals[1]?.link}
+                            href={goals[0]?.link}
                             title="Video"
                           >
                             <svg

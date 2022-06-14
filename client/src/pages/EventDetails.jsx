@@ -147,7 +147,18 @@ return (
                 <h4 className="mb-0">Get In Touch</h4>
                 <div className="event-detail-getintouch-inner w-100">
                   <p className="mb-0">Start Registration Now</p>
-                  {user && user.verified ? (
+                  <a
+                    className="register-btn thm-btn fill-btn"
+                    onClick={() => {
+                      dispatch(chooseEvent(goals[0]?._id));
+                      toast("Enjoy The Event !");
+                    }}
+                  >
+                    Get your Ticket Now{" "}
+                    <i className="flaticon-trajectory register-btn"></i>
+                    <span></span>
+                  </a>
+                  {/* {user && user.verified ? (
                     <a
                       className="register-btn thm-btn fill-btn"
                       onClick={() => {
@@ -172,7 +183,7 @@ return (
                       <i className="flaticon-trajectory register-btn"></i>
                       <span></span>
                     </a>
-                  )}
+                  )} */}
                 </div>
                 {/* <div className="event-detail-loc mt-50 w-100">
                       <iframe src={goal.location + "&output=embed"}></iframe>
