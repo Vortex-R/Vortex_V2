@@ -1,4 +1,5 @@
 import React from "react";
+import { SiToggl } from "react-icons/si";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout, reset } from "../features/auth/authSlice";
@@ -99,9 +100,8 @@ function OldHeader() {
               </div>
               <div className="header-right-btns ">
                 {user ? (
-                  <a className="btn" onClick={onLogout}>
-                    LOG
-                    <i className="flaticon-dollar-coin">UT</i>
+                  <a className="btn " onClick={onLogout}>
+                    <SiToggl className="text-2xl" />
                   </a>
                 ) : (
                   <a className="user-btn" href="" title="">

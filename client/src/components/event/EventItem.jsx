@@ -89,39 +89,19 @@ function EventItem() {
                           </span>
                           <ul className="countdown d-inline-flex mb-0 list-unstyled">
                             <li>
-                              <span className="days">
-                                {" "}
-                                {new Date(goals[0]?.startDate)
-                                  .getDay()
-                                  .toLocaleString("en-US")}
-                              </span>
+                              <span className="days"> </span>
                               <p className="days_ref mb-0">Days</p>
                             </li>
                             <li>
-                              <span className="hours">
-                                {" "}
-                                {new Date(goals[0]?.startDate)
-                                  .getHours()
-                                  .toLocaleString("en-US")}
-                              </span>
+                              <span className="hours"> </span>
                               <p className="hours_ref mb-0">Hours</p>
                             </li>
                             <li>
-                              <span className="minutes">
-                                {" "}
-                                {new Date(goals[0]?.startDate)
-                                  .getMinutes()
-                                  .toLocaleString("en-US")}
-                              </span>
+                              <span className="minutes"> </span>
                               <p className="minutes_ref mb-0">Minutes</p>
                             </li>
                             <li>
-                              <span className="seconds">
-                                {" "}
-                                {new Date(goals[0]?.startDate)
-                                  .getSeconds()
-                                  .toLocaleString("en-US")}
-                              </span>
+                              <span className="seconds"> </span>
                               <p className="seconds_ref mb-0">Seconds</p>
                             </li>
                           </ul>
