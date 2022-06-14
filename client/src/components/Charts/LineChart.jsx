@@ -7,6 +7,9 @@ import { useStateContext } from '../../contexts/ContextProvider';
 const LineChart = () => {
   const { currentMode } = useStateContext();
 
+
+  
+
   return (
     <ChartComponent
       id="line-chart"

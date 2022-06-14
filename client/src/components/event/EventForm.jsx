@@ -179,49 +179,6 @@ function EventForm() {
                   </form>
                 </div>
               </div>
-              {/* <div className="col-md-12 col-sm-12 col-lg-4">
-                <div className="your-payment-method bg-color3 w-100">
-                  <div className="your-order w-100">
-                    <span>
-                      Price: <span>$250.00</span>
-                    </span>
-                    <span>
-                      SubTotal: <span>$250.00</span>
-                    </span>
-                    <span>
-                      Shipping: <span>Free</span>
-                    </span>
-                    <span className="total-price">
-                      <span className="mx-auto">New Event</span>
-                      Total: <span>$250.00</span>
-                    </span>
-                  </div>
-                  <div className="payment-methods w-100">
-                    <h4 className="mb-0">Payment Method</h4>
-                    <ul className="mb-0 list-unstyled w-100">
-                      <li>
-                        <input type="radio" name="method" id="radio1" />{" "}
-                        <label for="radio1">Bank Payment</label>
-                      </li>
-                      <li>
-                        <input type="radio" name="method" id="radio2" />{" "}
-                        <label for="radio2">Check Payment</label>
-                      </li>
-                      <li>
-                        <input type="radio" name="method" id="radio3" />{" "}
-                        <label for="radio3">
-                          PayPal
-                          <img
-                            className="img-fluid"
-                            src="assets/images/currency.png"
-                            alt="Currency"
-                          />
-                        </label>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>

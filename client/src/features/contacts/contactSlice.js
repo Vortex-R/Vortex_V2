@@ -33,8 +33,8 @@ export const getContacts = createAsyncThunk(
   'contacts/getAll',
   async (_, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token
-      return await contactService.getContacts(token)
+      
+      return await contactService.getContacts();
     } catch (error) {
       const message =
         (error.response &&

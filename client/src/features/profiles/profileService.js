@@ -1,21 +1,25 @@
 import axios from 'axios'
 
+// const API_URL = "http://localhost:5000/api/user/";
 const API_URL = "https://vr-event.herokuapp.com/api/user/";
 const API_URL_EVENT = "https://vr-event.herokuapp.com/api/event/";
 const API_URL_ORGANIZER = "https://vr-event.herokuapp.com/api/organizerP/";
 
-
 // update profile
-const updateProfile = async (token,goalData) => {
+const updateProfile = async (token, goalData) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
-  }
-  const response = await axios.patch(API_URL +'profile/update', goalData,config)
+  };
+  const response = await axios.patch(
+    API_URL + "profile/update",
+    goalData,
+    config
+  );
 
-  return response.data
-}
+  return response.data;
+};
 
 // Get user goals
 // const updateProfile = async (token,body) => {
@@ -52,12 +56,11 @@ const updateProfile = async (token,goalData) => {
 //     }
 //     const body = { idEvent:goalData }
 //     const response = await axios.patch(API_URL_USER +'affect/' , body, config)
-  
+
 //     return response.data
 //   }
 
- 
-  // show event by id
+// show event by id
 const showEvent = async (token, id) => {
   const config = {
     headers: {
@@ -72,13 +75,13 @@ const showEvent = async (token, id) => {
 
 // Get USERS
 const getUsers = async (token) => {
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
+  // const config = {
+  //   headers: {
+  //     Authorization: `Bearer ${token}`,
+  //   },
+  // };
 
-  const response = await axios.get(API_URL + "profiles", config);
+  const response = await axios.get(API_URL + "profiles");
 
   return response.data;
 };

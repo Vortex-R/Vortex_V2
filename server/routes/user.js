@@ -19,7 +19,7 @@ router.post("/googleAuth", googleAuth);
 router.post("/signin", signin);
 router.post("/signup", signup);
 router.patch("/role/:id", ChangeRole);
-router.get("/profiles", auth, admin, getProfile);
+router.get("/profiles", getProfile);
 router.patch("/affect", auth, affectUserToEvent);
 router.patch("/checkIfUserParticipated", auth, userParticipated);
 router.get("/verify/:confirmationCode", userVerification);

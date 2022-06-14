@@ -117,9 +117,9 @@ function Register() {
               name="firstName"
               value={firstName}
               onChange={onChange}
+              minLength={3}
               placeholder="First Name *"
               required
-              minLength={3}
             />
             <input
               className="md:lg:w-48 my-1"
@@ -137,9 +137,9 @@ function Register() {
               name="email"
               value={email}
               onChange={onChange}
+              minLength={9}
               placeholder="Email Address *"
               required
-              minLength={9}
             />
             <input
               className="w-100 my-1"
@@ -147,9 +147,9 @@ function Register() {
               name="password"
               value={password}
               onChange={onChange}
+              minLength={6}
               placeholder="Password *"
               required
-              minLength={6}
             />
             <input
               className="w-100 my-1"
@@ -157,9 +157,9 @@ function Register() {
               name="password2"
               value={password2}
               onChange={onChange}
+              minLength={6}
               placeholder="Confirm Password *"
               required
-              minLength={6}
             />{" "}
             <input
               className="w-100 my-1"

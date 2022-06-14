@@ -58,7 +58,6 @@ const Scheduler = () => {
       dispatch(reset());
     };
   }, [navigate, isError, message, dispatch]);
-  console.log({ goals });
 
   useEffect(() => {
     const currentThemeColor = localStorage.getItem("colorMode");
@@ -142,7 +141,7 @@ const Scheduler = () => {
                 selectedDate={goals[0]?.startDate}
                 eventSettings={{ dataSource: scheduleData || [] }}
                 dragStart={onDragStart}
-                readonly={false}
+                readonly={true}
                 // created={dispatch(createGoal()}
               >
                 <ViewsDirective>

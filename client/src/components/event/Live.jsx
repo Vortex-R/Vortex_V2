@@ -64,7 +64,7 @@ function Live() {
                           <a
                             className="d-inline-block position-absolute play-btn"
                             data-fancybox
-                            href={goals[0]?.link}
+                            href={goals[1]?.link}
                             title="Video"
                           >
                             <svg
@@ -95,7 +95,9 @@ function Live() {
                           </a>
                           <img
                             className="img-fluid w-100"
-                            src={"../assets/images/resources/blog-detail-img.jpg"}
+                            src={
+                              "../assets/images/resources/blog-detail-img.jpg"
+                            }
                             alt="Blog Detail Image 5"
                           />
                         </div>

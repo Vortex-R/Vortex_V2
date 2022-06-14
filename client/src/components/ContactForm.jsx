@@ -48,7 +48,15 @@ function ContactForm() {
             <div className="row align-items-center">
               <div className="col-md-12 col-sm-12 col-lg-6">
                 <div className="contact-map w-100" id="contact-map">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.1939479978228!2d-74.52790365348511!3d40.44884412026627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3c3be536bc55f%3A0xb5205b8c3ee9a93e!2sWhitehall%20Gardens!5e0!3m2!1sen!2s!4v1590228785408!5m2!1sen!2s"></iframe>
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6388.520908509601!2d10.185055264281232!3d36.81227824291445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd34640c80c0dd%3A0xf01b39a17160c6fb!2sCity%20of%20Culture!5e0!3m2!1sen!2stn!4v1655163835196!5m2!1sen!2stn"
+                    width="600"
+                    height="450"
+                    style={{ border: "0" }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
                 </div>
               </div>
               <div className="col-md-12 col-sm-12 col-lg-6">

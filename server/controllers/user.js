@@ -152,7 +152,7 @@ export const ChangeRole = async (req, res) => {
 
 export const getProfile = async (req, res) => {
   try {
-    const profile = await UserModal.find().populate("event");
+    const profile = await UserModal.find();
     res.status(200).send(profile);
   } catch (error) {
     res.status(404).json({ message: error });

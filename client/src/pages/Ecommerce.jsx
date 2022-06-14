@@ -46,6 +46,7 @@ const Ecommerce = () => {
   const { profiles, isLoading, isError, message } = useSelector(
     (state) => state.profiles
   );
+  const { user } = useSelector((state) => state.auth);
   const { goals } = useSelector((state) => state.goals);
   const { contacts } = useSelector((state) => state.contacts);
   useEffect(() => {
@@ -64,49 +65,48 @@ const Ecommerce = () => {
     return () => {
       dispatch(reset());
     };
-  }, [navigate, isError, message, dispatch]);
+  }, [user, navigate, isError, message, dispatch]);
 
+  const earningData = [
+    {
+      icon: <MdOutlineSupervisorAccount />,
+      amount: profiles.length,
+      percentage: "+10",
+      title: "Attendees",
+      iconColor: "#03C9D7",
+      iconBg: "#E5FAFB",
+      pcColor: "green-400",
+    },
 
-     const earningData = [
-       {
-         icon: <MdOutlineSupervisorAccount />,
-         amount: profiles?.length,
-         percentage: "+10",
-         title: "Attendees",
-         iconColor: "#03C9D7",
-         iconBg: "#E5FAFB",
-         pcColor: "green-400",
-       },
+    {
+      icon: <BsBoxSeam />,
+      amount: goals?.length,
+      percentage: "+1",
+      title: "Events",
+      iconColor: "rgb(255, 244, 229)",
+      iconBg: "rgb(254, 201, 15)",
+      pcColor: "rgb(255, 244, 229)",
+    },
+    {
+      icon: <FiBarChart />,
+      amount: contacts?.length,
+      percentage: "-2%",
+      title: "Contacts",
+      iconColor: "rgb(228, 106, 118)",
+      iconBg: "red-600",
 
-       {
-         icon: <BsBoxSeam />,
-         amount: goals?.length,
-         percentage: "+1",
-         title: "Events",
-         iconColor: "rgb(255, 244, 229)",
-         iconBg: "rgb(254, 201, 15)",
-         pcColor: "rgb(255, 244, 229)",
-       },
-       {
-         icon: <FiBarChart />,
-         amount: contacts?.length,
-         percentage: "-2%",
-         title: "Contacts",
-         iconColor: "rgb(228, 106, 118)",
-         iconBg: "red-600",
-
-         pcColor: "red-600",
-       },
-       {
-         icon: <HiOutlineRefresh />,
-         amount: "39,354",
-         percentage: "-12%",
-         title: "Refunds",
-         iconColor: "rgb(0, 194, 146)",
-         iconBg: "rgb(235, 250, 242)",
-         pcColor: "red-600",
-       },
-     ];
+      pcColor: "red-600",
+    },
+    {
+      icon: <HiOutlineRefresh />,
+      amount: "39,354",
+      percentage: "-12%",
+      title: "Refunds",
+      iconColor: "rgb(0, 194, 146)",
+      iconBg: "rgb(235, 250, 242)",
+      pcColor: "red-600",
+    },
+  ];
 
   return (
     <div className="mt-24">

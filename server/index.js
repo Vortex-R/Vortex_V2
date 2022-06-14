@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(express.json());
 app.use(cors());
 app.use("/api/user", userRoute);
-app.use("/api/contact", auth, contactRoute);
+app.use("/api/contact", contactRoute);
 app.use("/api/event", eventRoute);
 // app.use("/api/organizerP", auth, organizerPRoute);
 // app.use("/api/userP", auth, userPRoute);

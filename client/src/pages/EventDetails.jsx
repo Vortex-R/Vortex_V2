@@ -67,14 +67,14 @@ return (
     <section>
       <div className="w-100 pt-140 pb-120 position-relative">
         <div className="container">
-          <div className="event-detail w-100" key={goals[0]?._id}>
+          <div className="event-detail w-100 md:mx-4" key={goals[0]?._id}>
             <div className="event-detail-info w-100">
               <div className="row align-items-center">
                 <div className="col-md-12 col-sm-12 col-lg-6">
                   <span className="thm-clr d-block">
-                    Join Us <strong> Soon</strong>
+                    Join Us <strong> Now</strong>
                   </span>
-                  <h2 className="mv-0">{goals[0]?.name}</h2>
+                  <h2 className="mv-0  text-center ">{goals[0]?.name}</h2>
                 </div>
                 <div className="col-md-12 col-sm-12 col-lg-6">
                   <div className="about-info-wrap w-100">
@@ -111,7 +111,7 @@ return (
                           <i className="thm-clr flaticon-pin-1"></i>
                           <div className="about-info-inner">
                             <span>Location</span>
-                            <p className="mb-0">{goals[0]?.location}</p>
+                            <p className=" mb-0 ">{goals[0]?.location}</p>
                           </div>
                         </div>
                       </div>
@@ -128,43 +128,20 @@ return (
                   </div>
                 </div>
               </div>
-              <div className="event-detail-img position-relative w-100">
+              <div className="event-detail-img position-relative items-center md:ml-28 w-full">
                 <img
-                  className="img-fluid w-100"
-                  src="assets/images/resources/event-detail-img.jpg"
+                  className="img-fluid"
+                  src="assets/images/resources/invitation_live1.jpg"
                   alt="Event Detail Image"
+                  style={{ height: "1024px", width: "1024px" }}
                 />
               </div>
-              *
             </div>
             <div className="event-detail-content position-relative w-100">
               <div className="event-detail-desc position-relative w-100">
                 <h4 className="mb-0">Overview</h4>
-                <p className="mb-0">{goals[0]?.overview}</p>
+                <p className="mb-0 md:mr-8">{goals[0]?.overview}</p>
               </div>
-              {/* <div className="event-detail-feat position-relative w-100">
-                    <h4 className="mb-0">Features</h4>
-                    <ul className="event-detail-features-list mb-0 list-unstyled w-100">
-                      <li>
-                        <i className="far fa-calendar-check"></i>New People
-                        <span className="d-block">
-                          Technology, consumer, habits industry dynamic
-                        </span>
-                      </li>
-                      <li>
-                        <i className="flaticon-listen"></i>Great Speakers
-                        <span className="d-block">
-                          Transform your business as technology,
-                        </span>
-                      </li>
-                      <li>
-                        <i className="flaticon-ice-cream"></i>Have Fun
-                        <span className="d-block">
-                          Consumer, habits industry dynamic
-                        </span>
-                      </li>
-                    </ul>
-                  </div> */}
 
               <div className="event-detail-getintouch position-relative w-100">
                 <h4 className="mb-0">Get In Touch</h4>

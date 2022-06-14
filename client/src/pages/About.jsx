@@ -272,15 +272,15 @@ function About() {
                         <li>Data Analytics</li>
                         <li>Promotion</li>
                         <li>Tech Support</li>
+                        <li>
+                          Pilotage de la stratégie : Suivi en temps réel de
+                          l'ensemble de données
+                        </li>
+                        <li>
+                          CRM événementiel : Segmentation des invités et
+                          campagnes ciblées
+                        </li>
                       </ul>
-                      <a
-                        className="thm-btn lft-icon fill-btn"
-                        href="/contact"
-                        title=""
-                      >
-                        <i className="flaticon-coupon"></i>Buy Pass
-                        <span></span>
-                      </a>
                     </div>
                   </div>
                 </div>

@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+// const API_URL = "http://localhost:5000/api/contact/";
 const API_URL = "https://vr-event.herokuapp.com/api/contact/";
 
 
@@ -17,14 +18,10 @@ const API_URL = "https://vr-event.herokuapp.com/api/contact/";
 // }
 
 // Get user goals
-const getContacts = async (token) => {
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  }
+const getContacts = async () => {
+ 
 
-  const response = await axios.get(API_URL, config)
+  const response = await axios.get(API_URL)
   // console.log(response);
   return response.data
 }
