@@ -4,12 +4,12 @@ export const sendmail = async (user, qr) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "malekhaddar8@gmail.com",
-      pass: "hanover96",
+      user: "contact.vortex.reaction@gmail.com",
+      pass: "123456-Aa",
     },
   });
   const mailOptions = {
-    from: "malekhaddar8@gmail.com",
+    from: "contact.vortex.reaction@gmail.com",
     to: user.email,
     attachDataUrls: true,
     subject: "Event Ticket",
