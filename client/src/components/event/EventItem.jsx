@@ -78,7 +78,7 @@ function EventItem() {
                           <i className="text-white">
                             Join Us <strong> Now</strong>
                           </i>
-                          <h3 className=" mb-14 text-white">
+                          <h3 className=" mb-14 text-white items-center">
                             <a className="text-xl md:text-3xl">
                               {goals[0]?.name}
                             </a>

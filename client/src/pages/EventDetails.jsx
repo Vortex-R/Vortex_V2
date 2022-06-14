@@ -42,8 +42,10 @@ return (
     <section>
       <div className="w-100 pt-180 pb-180 page-title-wrap text-center black-layer opc5 position-relative">
         <div
-          className="fixed-bg"
-          style={{ backgroundImage: "url(assets/images/parallax8.jpg)" }}
+          className="fixed-bg "
+          style={{
+            backgroundImage: "url(assets/images/parallax8.jpg)",
+          }}
         ></div>
         <div className="container">
           <div className="page-title-inner d-inline-block">
@@ -151,7 +153,7 @@ return (
                     className="register-btn thm-btn fill-btn"
                     onClick={() => {
                       dispatch(chooseEvent(goals[0]?._id));
-                      toast("Enjoy The Event !");
+                      toast("👋 You have access to live streaming.. Enjoy 🎉");
                     }}
                   >
                     Get your Ticket Now{" "}

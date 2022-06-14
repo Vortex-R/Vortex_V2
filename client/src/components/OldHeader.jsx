@@ -24,12 +24,12 @@ function OldHeader() {
     <>
       <header className="stick style1 w-100">
         <div className="container">
-          <div className="logo-menu-wrap w-100 d-flex sm:flex-wrap align-items-center justify-content-between pr-4">
+          <div className="logo-menu-wrap w-100 d-flex sm:flex-wrap  align-items-center justify-content-between pr-4">
             <div className="logo">
               <h1 className="mb-0">
                 <a href="/" title="Home">
                   <img
-                    className="img-fluid"
+                    className="img-fluid w-1/2 md:w-3/4 h-1/2"
                     src="assets/images/logo11.png"
                     alt="Logo"
                     srcSet="../assets/images/logo11.png"
