@@ -4,7 +4,7 @@ export const sendmail = async (user, qr) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "contact.vortex.reaction@gmail.com",
+      user: "vortexreaction@gmail.com",
       pass: "123456-Aa",
     },
   });

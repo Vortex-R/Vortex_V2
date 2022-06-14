@@ -28,12 +28,12 @@ export const verifyEmail = async (user) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "contact.vortex.reaction@gmail.com",
+      user: "vortexreaction@gmail.com",
       pass: "123456-Aa",
     },
   });
   const mailOptions = {
-    from: "contact.vortex.reaction@gmail.com",
+    from: "vortexreaction@gmail.com",
     to: user.email,
     subject: "Event Ticket",
     html: `<h1>Email Confirmation</h1> <h2>Hello ${user.name}</h2><p>Thank you for subscribing. Please confirm your email by clicking on the following link</p><a href=https://vr-event.herokuapp.com/api/user/verify/${verificationToken}> Click here</a></div>`,
