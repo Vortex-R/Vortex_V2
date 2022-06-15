@@ -1,12 +1,35 @@
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import React, { useEffect } from "react";
 import { FiSettings } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "../App.css";
 import { Footer, Navbar, Sidebar, ThemeSettings } from "../components";
 import EventForm from "../components/event/EventForm";
 import { useStateContext } from "../contexts/ContextProvider";
+import { reset } from "../features/auth/authSlice";
 
 const Event = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { user, isLoading, isError, message } = useSelector(
+    (state) => state.auth
+  );
+  useEffect(() => {
+    if (isError) {
+      console.log(message);
+    }
+
+    if (!user || user.result.role !== 2) {
+      navigate("/");
+    }
+
+    return () => {
+      dispatch(reset());
+    };
+  }, [navigate, isError, message, dispatch]);
+
   const {
     setCurrentColor,
     setCurrentMode,

@@ -39,7 +39,7 @@ const Scheduler = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // const { user } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
   const { goals, isLoading, isError, message } = useSelector(
     (state) => state.goals
   );
@@ -51,6 +51,9 @@ const Scheduler = () => {
     // if (!user) {
     //   navigate("/login");
     // }
+    if (!user || user.result.role !== 2) {
+      navigate("/");
+    }
 
     dispatch(getGoals());
 

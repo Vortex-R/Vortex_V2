@@ -40,13 +40,11 @@ const Dashboard = () => {
     // if (user && user.role !== 2) {
     //   navigate("/");
     // }
-    // if (user && user.result.role !== 2) {
-    //   navigate("/");
-    // }
+    if (!user || user.result.role !== 2) {
+      navigate("/");
+    }
 
-    // if (!user) {
-    //   navigate("/login");
-    // }
+  
   }, [user, navigate, isError, message]);
 
   return (
