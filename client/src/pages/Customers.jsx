@@ -9,6 +9,8 @@ import {
   Toolbar,
   Sort,
   Filter,
+  PdfExport,
+  ExcelExport,
 } from "@syncfusion/ej2-react-grids";
 
 import { customersData, customersGrid } from "../data/dummy";
@@ -22,6 +24,10 @@ import { Navbar, Footer, Sidebar, ThemeSettings } from "../components";
 import "../App.css";
 
 import { useStateContext } from "../contexts/ContextProvider";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getUsers, reset } from "../features/profiles/profileSlice";
+import avatar3 from "../data/avatar3.png";
 
 const Customers = () => {
   const {
@@ -33,12 +39,45 @@ const Customers = () => {
     themeSettings,
     setThemeSettings,
   } = useStateContext();
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // const { user } = useSelector((state) => state.auth);
+  const { profiles, isLoading, isError, message } = useSelector(
+    (state) => state.profiles
+  );
+  useEffect(() => {
+    if (isError) {
+      console.log(message);
+    }
+
+    // if (!user) {
+    //   navigate("/login");
+    // }
+
+    dispatch(getUsers());
+
+    return () => {
+      dispatch(reset());
+    };
+  }, [navigate, isError, message, dispatch]);
   const selectionsettings = { persistSelection: true };
-  const toolbarOptions = ["Add", "Edit", "Delete", "Update", "Cancel"];
+  const toolbarOptions = [
+    "Add",
+    "Edit",
+    "Delete",
+    "Update",
+    "Cancel",
+    "PdfExport",
+    "ExcelExport",
+  ];
   const editing = {
     allowDeleting: true,
     allowEditing: true,
     allowAdding: true,
+    allowPdfExport: true,
+    allowExcelExport: true,
   };
 
   useEffect(() => {
@@ -49,6 +88,18 @@ const Customers = () => {
       setCurrentMode(currentThemeMode);
     }
   }, []);
+
+  const customersData = profiles.map((profile) => ({
+    CustomerID: profile?._id,
+    CustomerName: profile?.name,
+    CustomerEmail: profile?.email,
+    CustomerImage: avatar3,
+    ProjectName: profile?.phone,
+    Status: profile?.situation,
+    Weeks: "40",
+    Budget: "$2.4k",
+  }));
+
   return (
     <div className={currentMode === "Dark" ? "dark" : ""}>
       <div className="flex relative dark:bg-main-dark-bg">
@@ -88,14 +139,17 @@ const Customers = () => {
             <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
               <Header category="Page" title="Customers" />
               <GridComponent
+                id="grid"
                 dataSource={customersData}
-                enableHover={false}
+                enableHover
                 allowPaging
                 pageSettings={{ pageCount: 5 }}
                 selectionSettings={selectionsettings}
                 toolbar={toolbarOptions}
                 editSettings={editing}
-                allowSorting
+                allowSorting={true}
+                allowExcelExport={true}
+                allowPdfExport={true}
               >
                 <ColumnsDirective>
                   {/* eslint-disable-next-line react/jsx-props-no-spreading */}
@@ -104,7 +158,16 @@ const Customers = () => {
                   ))}
                 </ColumnsDirective>
                 <Inject
-                  services={[Page, Selection, Toolbar, Edit, Sort, Filter]}
+                  services={[
+                    Page,
+                    Selection,
+                    Toolbar,
+                    Edit,
+                    Sort,
+                    Filter,
+                    PdfExport,
+                    ExcelExport,
+                  ]}
                 />
               </GridComponent>
             </div>

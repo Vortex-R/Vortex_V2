@@ -25,8 +25,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          {/* <Route path="/customers" element={<Customers />} /> */}
-          <Route path="/employees" element={<Employees />} />
+          <Route path="/customers" element={<Customers />} />
+          {/* <Route path="/employees" element={<Employees />} /> */}
           {/* <Route path="/orders" element={<Orders />} /> */}
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/event-form" element={<Event />} />

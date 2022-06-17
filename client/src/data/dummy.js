@@ -531,10 +531,10 @@ export const links = [
       //   name: "employees",
       //   icon: <IoMdContacts />,
       // },
-      // {
-      //   name: "customers",
-      //   icon: <RiContactsLine />,
-      // },
+      {
+        name: "customers",
+        icon: <RiContactsLine />,
+      },
       {
         name: "calendar",
         icon: <AiOutlineCalendar />,

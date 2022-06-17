@@ -65,149 +65,17 @@ const Employees = () => {
 
   const editing = { allowDeleting: false, allowEditing: false };
 
-  const employeesData = useMemo(
-    () =>
-      profiles
-        ? [
-            {
-              EmployeeID: profiles[0]?._id,
-              Name: profiles[0]?.name,
-              Title: profiles[0]?.email,
-              HireDate: profiles[0]?.gender,
-              Country: profiles[0]?.phone,
-              ReportsTo: profiles[0]?.situation,
-              EmployeeImage: avatar3,
-            },
-            {
-              EmployeeID: profiles[1]?._id,
-              Name: profiles[1]?.name,
-              Title: profiles[1]?.email,
-              HireDate: profiles[1]?.gender,
-              Country: profiles[1]?.phone,
-              ReportsTo: profiles[1]?.situation,
-              EmployeeImage: avatar3,
-            },
-            {
-              EmployeeID: profiles[2]?._id,
-              Name: profiles[2]?.name,
-              Title: profiles[2]?.email,
-              HireDate: profiles[2]?.gender,
-              Country: profiles[2]?.phone,
-              ReportsTo: profiles[2]?.situation,
-              EmployeeImage: avatar3,
-            },
-            {
-              EmployeeID: profiles[3]?._id,
-              Name: profiles[3]?.name,
-              Title: profiles[3]?.email,
-              HireDate: profiles[3]?.gender,
-              Country: profiles[3]?.phone,
-              ReportsTo: profiles[3]?.situation,
-              EmployeeImage: avatar3,
-            },
-            {
-              EmployeeID: profiles[4]?._id,
-              Name: profiles[4]?.name,
-              Title: profiles[4]?.email,
-              HireDate: profiles[4]?.gender,
-              Country: profiles[4]?.phone,
-              ReportsTo: profiles[4]?.situation,
-              EmployeeImage: avatar3,
-            },
-            {
-              EmployeeID: profiles[5]?._id,
-              Name: profiles[5]?.name,
-              Title: profiles[5]?.email,
-              HireDate: profiles[5]?.gender,
-              Country: profiles[5]?.phone,
-              ReportsTo: profiles[5]?.situation,
-              EmployeeImage: avatar3,
-            },
-            {
-              EmployeeID: profiles[6]?._id,
-              Name: profiles[6]?.name,
-              Title: profiles[6]?.email,
-              HireDate: profiles[6]?.gender,
-              Country: profiles[6]?.phone,
-              ReportsTo: profiles[6]?.situation,
-              EmployeeImage: avatar3,
-            },
-            {
-              EmployeeID: profiles[7]?._id,
-              Name: profiles[7]?.name,
-              Title: profiles[7]?.email,
-              HireDate: profiles[7]?.gender,
-              Country: profiles[7]?.phone,
-              ReportsTo: profiles[7]?.situation,
-              EmployeeImage: avatar3,
-            },
-            {
-              EmployeeID: profiles[8]?._id,
-              Name: profiles[8]?.name,
-              Title: profiles[8]?.email,
-              HireDate: profiles[8]?.gender,
-              Country: profiles[8]?.phone,
-              ReportsTo: profiles[8]?.situation,
-              EmployeeImage: avatar3,
-            },
-            {
-              EmployeeID: profiles[10]?._id,
-              Name: profiles[10]?.name,
-              Title: profiles[10]?.email,
-              HireDate: profiles[10]?.gender,
-              Country: profiles[10]?.phone,
-              ReportsTo: profiles[10]?.situation,
-              EmployeeImage: avatar3,
-            },
-            {
-              EmployeeID: profiles[11]?._id,
-              Name: profiles[11]?.name,
-              Title: profiles[11]?.email,
-              HireDate: profiles[11]?.gender,
-              Country: profiles[11]?.phone,
-              ReportsTo: profiles[11]?.situation,
-              EmployeeImage: avatar3,
-            },
-            {
-              EmployeeID: profiles[12]?._id,
-              Name: profiles[12]?.name,
-              Title: profiles[12]?.email,
-              HireDate: profiles[12]?.gender,
-              Country: profiles[12]?.phone,
-              ReportsTo: profiles[12]?.situation,
-              EmployeeImage: avatar3,
-            },
-            {
-              EmployeeID: profiles[13]?._id,
-              Name: profiles[13]?.name,
-              Title: profiles[13]?.email,
-              HireDate: profiles[13]?.gender,
-              Country: profiles[13]?.phone,
-              ReportsTo: profiles[13]?.situation,
-              EmployeeImage: avatar3,
-            },
-            {
-              EmployeeID: profiles[14]?._id,
-              Name: profiles[14]?.name,
-              Title: profiles[14]?.email,
-              HireDate: profiles[14]?.gender,
-              Country: profiles[14]?.phone,
-              ReportsTo: profiles[14]?.situation,
-              EmployeeImage: avatar3,
-            },
-            {
-              EmployeeID: profiles[15]?._id,
-              Name: profiles[15]?.name,
-              Title: profiles[15]?.email,
-              HireDate: profiles[15]?.gender,
-              Country: profiles[15]?.phone,
-              ReportsTo: profiles[15]?.situation,
-              EmployeeImage: avatar3,
-            },
-          ]
-        : [],
-    [profiles]
-  );
+
+
+  const employeesData = profiles.map((profile) => ({
+    EmployeeID: profile?._id,
+    Name: profile?.name,
+    Title: profile?.email,
+    HireDate: profile?.gender,
+    Country: profile?.phone,
+    ReportsTo: profile?.situation,
+    EmployeeImage: avatar3,
+  }));
 
   return profiles ? (
     <div className={currentMode === "Dark" ? "dark" : ""}>
