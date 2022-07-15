@@ -128,6 +128,7 @@ const Planification = () => {
     dependency: "Predecessor",
   };
   const editSettings = {
+    allowTaskbarEditing: true,
     allowEditing: true,
     mode: "Auto",
   };
