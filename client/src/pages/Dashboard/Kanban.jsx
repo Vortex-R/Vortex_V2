@@ -1,14 +1,26 @@
-import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import React, { useEffect } from "react";
-import { FiSettings } from "react-icons/fi";
-import { useSelector } from "react-redux";
-import { Ecommerce } from ".";
-import "../App.css";
-import { Footer, Navbar, Sidebar, ThemeSettings } from "../components";
-import { useStateContext } from "../contexts/ContextProvider";
-import { useNavigate } from "react-router-dom";
+import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
-const Dashboard = () => {
+import {
+  KanbanComponent,
+  ColumnsDirective,
+  ColumnDirective,
+} from "@syncfusion/ej2-react-kanban";
+
+import { kanbanData, kanbanGrid } from "../../data/dummy";
+import {
+  Footer,
+  Header,
+  Navbar,
+  Sidebar,
+  ThemeSettings,
+} from "../../components";
+import { useStateContext } from "../../contexts/ContextProvider";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { FiSettings } from "react-icons/fi";
+
+const Kanban = () => {
   const navigate = useNavigate();
   const { user, isLoading, isError, message } = useSelector(
     (state) => state.auth
@@ -43,8 +55,6 @@ const Dashboard = () => {
     if (!user || user.result.role !== 2) {
       navigate("/");
     }
-
-  
   }, [user, navigate, isError, message]);
 
   return (
@@ -83,7 +93,22 @@ const Dashboard = () => {
           </div>
           <div>
             {themeSettings && <ThemeSettings />}
-            <Ecommerce />
+            <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
+              <Header category="Page" title="Execution" />
+              <KanbanComponent
+                id="kanban"
+                keyField="Status"
+                dataSource={kanbanData}
+                cardSettings={{ contentField: "Summary", headerField: "Id" }}
+              >
+                <ColumnsDirective>
+                  {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+                  {kanbanGrid.map((item, index) => (
+                    <ColumnDirective key={index} {...item} />
+                  ))}
+                </ColumnsDirective>
+              </KanbanComponent>
+            </div>
           </div>
           <Footer />
         </div>
@@ -92,4 +117,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Kanban;

@@ -4,7 +4,7 @@ import { GoPrimitiveDot } from "react-icons/go";
 import { IoIosMore } from "react-icons/io";
 import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
 
-import { Stacked, Pie, Button, LineChart, SparkLine } from "../components";
+import { Stacked, Pie, Button, LineChart, SparkLine } from "../../components";
 import {
   earningData,
   medicalproBranding,
@@ -13,17 +13,20 @@ import {
   dropdownData,
   SparklineAreaData,
   ecomPieChartData,
-} from "../data/dummy";
-import { useStateContext } from "../contexts/ContextProvider";
-import product9 from "../data/product9.jpg";
+} from "../../data/dummy";
+import { useStateContext } from "../../contexts/ContextProvider";
+import product9 from "../../data/profilage_client1.png";
+import product10 from "../../data/profilage_client2.png";
+import product11 from "../../data/profilage_client3.png";
+import product12 from "../../data/profilage_client4.png";
 import { MdOutlineSupervisorAccount } from "react-icons/md";
 import { FiBarChart } from "react-icons/fi";
 import { HiOutlineRefresh } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsers, reset } from "../features/profiles/profileSlice";
-import { getGoals } from "../features/goals/goalSlice";
-import { getContacts } from "../features/contacts/contactSlice";
+import { getUsers, reset } from "../../features/profiles/profileSlice";
+import { getGoals } from "../../features/goals/goalSlice";
+import { getContacts } from "../../features/contacts/contactSlice";
 
 const DropDown = ({ currentMode }) => (
   <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
@@ -99,9 +102,9 @@ const Ecommerce = () => {
     },
     {
       icon: <HiOutlineRefresh />,
-      amount: "39,354",
-      percentage: "-12%",
-      title: "Refunds",
+      amount: "0,0",
+      percentage: "+0%",
+      title: "Organizer",
       iconColor: "rgb(0, 194, 146)",
       iconBg: "rgb(235, 250, 242)",
       pcColor: "red-600",
@@ -115,7 +118,7 @@ const Ecommerce = () => {
           <div className="flex justify-between items-center">
             <div>
               <p className="font-bold text-gray-400">Earnings</p>
-              <p className="text-2xl">$63,448.78</p>
+              <p className="text-2xl">$0,0.0</p>
             </div>
             <button
               type="button"
@@ -158,8 +161,30 @@ const Ecommerce = () => {
           ))}
         </div>
       </div>
-
-      <div className="flex gap-10 flex-wrap justify-center">
+      <div className="w-full bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
+        {/* <div className="flex justify-center ">
+          <p className="text-xl font-semibold">Profilage Client</p>
+        </div> */}
+        <div className="flex justify-around">
+          <div className="mt-10">
+            <img className="md:w-100 h-72 " src={product9} alt="" />
+          </div>
+          <div className="mt-10">
+            <img className="md:w-100 h-72 " src={product10} alt="" />
+          </div>
+        </div>
+      </div>{" "}
+      <div className="w-full bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
+        <div className="flex justify-around">
+          <div className="mt-10">
+            <img className="md:w-100 h-72 " src={product11} alt="" />
+          </div>
+          <div className="mt-10">
+            <img className="md:w-100 h-72 " src={product12} alt="" />
+          </div>
+        </div>
+      </div>{" "}
+      {/* <div className="flex gap-10 flex-wrap justify-center">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780  ">
           <div className="flex justify-between">
             <p className="font-semibold text-xl">Revenue Updates</p>
@@ -464,7 +489,7 @@ const Ecommerce = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

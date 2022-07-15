@@ -13,21 +13,21 @@ import {
   ExcelExport,
 } from "@syncfusion/ej2-react-grids";
 
-import { customersData, customersGrid } from "../data/dummy";
-import { Header } from "../components";
+import { customersData, customersGrid } from "../../data/dummy";
+import { Header } from "../../components";
 
 import React, { useEffect } from "react";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
-import { Navbar, Footer, Sidebar, ThemeSettings } from "../components";
-import "../App.css";
+import { Navbar, Footer, Sidebar, ThemeSettings } from "../../components";
+import "../../App.css";
 
-import { useStateContext } from "../contexts/ContextProvider";
+import { useStateContext } from "../../contexts/ContextProvider";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsers, reset } from "../features/profiles/profileSlice";
-import avatar3 from "../data/avatar3.png";
+import { getUsers, reset } from "../../features/profiles/profileSlice";
+import avatar3 from "../../data/avatar3.png";
 
 const Customers = () => {
   const {

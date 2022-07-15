@@ -1,26 +1,18 @@
-import {
-  ColumnDirective,
-  ColumnsDirective,
-  ContextMenu,
-  Edit,
-  ExcelExport,
-  Filter,
-  GridComponent,
-  Inject,
-  Page,
-  PdfExport,
-  Resize,
-  Sort,
-} from "@syncfusion/ej2-react-grids";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import React, { useEffect } from "react";
 import { FiSettings } from "react-icons/fi";
-import "../App.css";
-import { Footer, Header, Navbar, Sidebar, ThemeSettings } from "../components";
-import { useStateContext } from "../contexts/ContextProvider";
-import { contextMenuItems, ordersData, ordersGrid } from "../data/dummy";
+import { useSelector } from "react-redux";
+import Ecommerce from "./Ecommerce";
+import "../../App.css";
+import { Footer, Navbar, Sidebar, ThemeSettings } from "../../components";
+import { useStateContext } from "../../contexts/ContextProvider";
+import { useNavigate } from "react-router-dom";
 
-const Orders = () => {
+const Dashboard = () => {
+  const navigate = useNavigate();
+  const { user, isLoading, isError, message } = useSelector(
+    (state) => state.auth
+  );
   const {
     setCurrentColor,
     setCurrentMode,
@@ -39,7 +31,20 @@ const Orders = () => {
       setCurrentMode(currentThemeMode);
     }
   }, []);
-  const editing = { allowDeleting: true, allowEditing: true };
+
+  useEffect(() => {
+    if (isError) {
+      console.log(message);
+    }
+
+    // if (user && user.role !== 2) {
+    //   navigate("/");
+    // }
+    if (!user || user.result.role !== 2) {
+      navigate("/");
+    }
+  }, [user, navigate, isError, message]);
+
   return (
     <div className={currentMode === "Dark" ? "dark" : ""}>
       <div className="flex relative dark:bg-main-dark-bg">
@@ -76,38 +81,7 @@ const Orders = () => {
           </div>
           <div>
             {themeSettings && <ThemeSettings />}
-            <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-              <Header category="Page" title="Orders" />
-              <GridComponent
-                id="gridcomp"
-                dataSource={ordersData}
-                allowPaging
-                allowSorting
-                allowExcelExport
-                allowPdfExport
-                contextMenuItems={contextMenuItems}
-                editSettings={editing}
-              >
-                <ColumnsDirective>
-                  {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-                  {ordersGrid.map((item, index) => (
-                    <ColumnDirective key={index} {...item} />
-                  ))}
-                </ColumnsDirective>
-                <Inject
-                  services={[
-                    Resize,
-                    Sort,
-                    ContextMenu,
-                    Filter,
-                    Page,
-                    ExcelExport,
-                    Edit,
-                    PdfExport,
-                  ]}
-                />
-              </GridComponent>
-            </div>
+            <Ecommerce />
           </div>
           <Footer />
         </div>
@@ -115,4 +89,5 @@ const Orders = () => {
     </div>
   );
 };
-export default Orders;
+
+export default Dashboard;

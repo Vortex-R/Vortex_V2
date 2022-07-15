@@ -17,11 +17,17 @@ import React, { useEffect, useState, useMemo } from "react";
 import { FiSettings } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import "../App.css";
-import { Footer, Header, Navbar, Sidebar, ThemeSettings } from "../components";
-import { useStateContext } from "../contexts/ContextProvider";
-import { scheduleData } from "../data/dummy";
-import { createGoal, getGoals, reset } from "../features/goals/goalSlice";
+import "../../App.css";
+import {
+  Footer,
+  Header,
+  Navbar,
+  Sidebar,
+  ThemeSettings,
+} from "../../components";
+import { useStateContext } from "../../contexts/ContextProvider";
+import { scheduleData } from "../../data/dummy";
+import { createGoal, getGoals, reset } from "../../features/goals/goalSlice";
 
 // eslint-disable-next-line react/destructuring-assignment
 const PropertyPane = (props) => <div className="mt-5">{props.children}</div>;

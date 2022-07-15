@@ -3,15 +3,19 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import OldFooter from "./components/OldFooter";
 import OldHeader from "./components/OldHeader";
-import { Calendar, Customers, Employees, Orders } from "./pages";
+
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Kanban from "./pages/Dashboard/Kanban";
+import Customers from "./pages/Dashboard/Customers";
+import Calendar from "./pages/Dashboard/Calendar";
 import Event from "./pages/Event";
 import EventDetails from "./pages/EventDetails";
 import Events from "./pages/Events";
 import Home from "./pages/Home";
 import Streaming from "./pages/Streaming";
+import Planification from "./pages/Dashboard/Planification";
 
 function App() {
   return (
@@ -31,6 +35,8 @@ function App() {
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/event-form" element={<Event />} />
           <Route path="/streaming" element={<Streaming />} />
+          <Route path="/execution" element={<Kanban />} />
+          <Route path="/planification" element={<Planification />} />
         </Routes>
         {/* <OldFooter /> */}
       </Router>
