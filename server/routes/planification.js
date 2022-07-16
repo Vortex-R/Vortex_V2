@@ -1,4 +1,4 @@
-import { createPlanification } from "../controllers/planification"
+import { createPlanification } from "../controllers/planification.js"
 import express from 'express'
 
 const router = express.Router()

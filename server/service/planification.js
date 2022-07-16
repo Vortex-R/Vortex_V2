@@ -1,4 +1,4 @@
-import planification from '../models/planification'
+import planification from '../models/planification.js'
 
 export default class PlanificationService {
 
@@ -8,12 +8,6 @@ export default class PlanificationService {
     duration,
     progress,
     userId,
-  }: {
-    name: String
-    startDate: Date
-    duration: string
-    progress: string
-    userId: string
   }) {
     const newPlanification = {
       name,

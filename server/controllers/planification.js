@@ -1,7 +1,6 @@
-import { Request, Response } from 'express'
-import PlanificationService from '../service/planification'
+import PlanificationService from '../service/planification.js'
 
-export const createPlanification = async (req: Request, res: Response) => {
+export const createPlanification = async (req, res) => {
   const planificationService = new PlanificationService()
   const {
     name,

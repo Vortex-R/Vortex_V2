@@ -7,7 +7,7 @@ import { auth } from "./middleware/auth.js";
 import contactRoute from "./routes/contact.js";
 import eventRoute from "./routes/event.js";
 import organizerPRoute from "./routes/organizerProfile.js";
-import { planificationRouter } from "./routes/planification.js";
+import {planificationRouter} from "./routes/planification.js";
 import userRoute from "./routes/user.js";
 import userPRoute from "./routes/userProfile.js";
 const __dirname = path.resolve();
