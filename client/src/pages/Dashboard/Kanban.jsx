@@ -6,6 +6,8 @@ import {
   ColumnsDirective,
   ColumnDirective,
 } from "@syncfusion/ej2-react-kanban";
+import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
+
 
 import { kanbanData, kanbanGrid } from "../../data/dummy";
 import {
@@ -56,7 +58,24 @@ const Kanban = () => {
       navigate("/");
     }
   }, [user, navigate, isError, message]);
-
+  const add = (e) => {
+    e.preventDefault()
+    let data = {
+      Id: "Task Mehdi Hrairi",
+      Title: "Task - 29001",
+      Status: "Open",
+      Summary: "Analyze the new requirements gathered from the customer.",
+      Type: "Story",
+      Priority: "Low",
+      Tags: "Analyze,Customer",
+      Estimate: 3.5,
+      Assignee: "Nancy Davloio",
+      RankId: 1,
+      Color: "#02897B",
+      ClassName: "e-story, e-low, e-nancy-davloio",
+    }
+    kanbanData.push(data)
+  }
   return (
     <div className={currentMode === "Dark" ? "dark" : ""}>
       <div className="flex relative dark:bg-main-dark-bg">
@@ -100,7 +119,9 @@ const Kanban = () => {
                 keyField="Status"
                 dataSource={kanbanData}
                 cardSettings={{ contentField: "Summary", headerField: "Id" }}
+
               >
+                <ButtonComponent cssClass='e-flat' onClick={e => add(e)}>Add</ButtonComponent>
                 <ColumnsDirective>
                   {/* eslint-disable-next-line react/jsx-props-no-spreading */}
                   {kanbanGrid.map((item, index) => (

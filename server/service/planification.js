@@ -3,17 +3,23 @@ import planification from '../models/planification.js'
 export default class PlanificationService {
 
   async createPlanification({
-    name,
-    startDate,
-    duration,
-    progress,
+    title,
+    status,
+    summary,
+    type,
+    priority,
+    tags,
+    estimate,
     userId,
   }) {
     const newPlanification = {
-      name,
-      startDate,
-      duration,
-      progress,
+      title,
+      status,
+      summary,
+      type,
+      priority,
+      tags,
+      estimate,
       userId,
     }
     return planification.create(newPlanification)

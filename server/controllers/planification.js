@@ -3,12 +3,24 @@ import PlanificationService from '../service/planification.js'
 export const createPlanification = async (req, res) => {
   const planificationService = new PlanificationService()
   const {
-    name,
-    startDate,
-    duration,
-    progress,
+    title,
+    status,
+    summary,
+    type,
+    priority,
+    tags,
+    estimate,
     userId,
   } = req.body
-  const planificationCreated = await planificationService.createPlanification({ name, startDate, duration, progress, userId })
+  const planificationCreated = await planificationService.createPlanification({ 
+    title,
+    status,
+    summary,
+    type,
+    priority,
+    tags,
+    estimate,
+    userId, 
+  })
   res.status(201).send(planificationCreated)
 }

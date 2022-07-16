@@ -1,10 +1,14 @@
 import mongoose from 'mongoose'
 
 const planificationSchema = mongoose.Schema({
-  name: { type: String, required: true },
-  startDate: { type: Date, required: true },
-  duration: { type: Number, required: false },
-  progress: { type: Number, required: false },
+  title: { type: String, required: true },
+  status: { type: String, required: true },
+  summary: { type: String, required: false },
+  type: { type: String, required: false },
+  priority: { type: String, required: false },
+  tags: { type: String, required: false },
+  estimate: { type: Number, required: false },
+
   userId: 
     {
       type: mongoose.Schema.Types.ObjectId,
