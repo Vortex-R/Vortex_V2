@@ -2,7 +2,7 @@ import axios from "axios"
 
 const local_url = 'http://localhost:5000/api/'
 
-export const addPlanifications = async (data) => {
+export const addPlanification = async (data) => {
     const addedplanification = await axios.post(local_url+'planifications', data)
     return addedplanification
 }
