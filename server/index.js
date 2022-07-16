@@ -28,7 +28,7 @@ app.use("/api/contact", contactRoute);
 app.use("/api/event", eventRoute);
 app.use("/api/organizerP", auth, organizerPRoute);
 app.use("/api/userP", auth, userPRoute);
-app.use("/api/planifications", auth, planificationRouter);
+app.use("/api/planifications", planificationRouter);
 
 
 // Serve Old frontend

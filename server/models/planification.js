@@ -5,13 +5,12 @@ const planificationSchema = mongoose.Schema({
   startDate: { type: Date, required: true },
   duration: { type: Number, required: false },
   progress: { type: Number, required: false },
-  users: [
+  userId: 
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
     },
-  ],
 });
 
 export default mongoose.model("Planification", planificationSchema);
