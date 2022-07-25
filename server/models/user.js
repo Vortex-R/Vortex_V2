@@ -10,6 +10,8 @@ const userSchema = mongoose.Schema({
   martialStatus: { type: String, required: false },
   password: { type: String, required: true },
   gender: { type: String, required: true },
+  state: { type: String, required: true },
+
   phone: { type: String, required: true },
   role: { type: Number, required: true, default: 0 },
   spendingScore: { type: Number, required: true, default: 0 },
