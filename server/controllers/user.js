@@ -91,6 +91,11 @@ export const signup = async (req, res) => {
     password,
     firstName,
     lastName,
+    type,
+    musicGenres,
+    hobbies,
+    income,
+    martialStatus,
     gender,
     phone,
     naissance,
@@ -113,7 +118,11 @@ export const signup = async (req, res) => {
       name: `${firstName} ${lastName}`,
       gender,
       phone,
-
+      type,
+      musicGenres,
+      hobbies,
+      income,
+      martialStatus,
       naissance,
       situation,
       job,
@@ -158,7 +167,6 @@ export const getProfile = async (req, res) => {
   }
 };
 
-
 export const getUserData = async (req, res) => {
   try {
     const { id } = req.params;
@@ -171,7 +179,6 @@ export const getUserData = async (req, res) => {
     res.status(404).json({ message: error });
   }
 };
-
 
 export const affectUserToEvent = async (req, res) => {
   try {
