@@ -2,11 +2,19 @@ import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema({
   name: { type: String, required: true },
+  type: { type: String, required: true },
   email: { type: String, required: true },
+  musicGenres: [{ type: String, required: false }],
+  hobbies: [{ type: String, required: false }],
+  income: { type: Number, required: false },
+  martialStatus: { type: String, required: false },
   password: { type: String, required: true },
-  gender: { type: String },
-  phone: { type: Number },
+  gender: { type: String, required: true },
+  state: { type: String, required: true },
+
+  phone: { type: String, required: true },
   role: { type: Number, required: true, default: 0 },
+  spendingScore: { type: Number, required: true, default: 0 },
   verified: { type: Boolean, default: false },
   confirmationCode: { type: String },
   nickname: {
@@ -25,16 +33,11 @@ const userSchema = mongoose.Schema({
     type: String,
     required: false,
   },
-  hobbies: {
-    type: String,
-    required: false,
-  },
   VrHead: {
-    type: String,
+    type: Boolean,
     required: false,
   },
-
-  naissance: {
+  dateOfBirth: {
     type: Date,
     required: false,
   },
@@ -63,6 +66,18 @@ const userSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "organizerP",
     required: false,
+  },
+
+  location: {
+    type: {
+      type: String,
+      enum: ["Point"],
+      required: true,
+    },
+    coordinates: {
+      type: [Number],
+      required: true,
+    },
   },
 
   event: [
