@@ -63,7 +63,8 @@ function Events() {
                       <div className="event-grid-img w-100 overflow-hidden position-relative">
                         <img
                           className="img-fluid w-100"
-                          src="assets/images/resources/event-img1-1.jpg"
+                          src="assets/images/resources/festival.jpg"
+                          // src="assets/images/resources/event-img1-1.jpg"
                           alt="Event Image 1"
                         />
                         <span className="position-absolute">

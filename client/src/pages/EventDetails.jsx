@@ -130,14 +130,14 @@ return (
                   </div>
                 </div>
               </div>
-              {/* <div className="event-detail-img position-relative items-center md:ml-28 w-full">
+              <div className="event-detail-img position-relative items-center md:ml-28 w-full">
                 <img
                   className="img-fluid"
-                  src="assets/images/resources/invitation_live1.jpg"
+                  src="assets/images/resources/festival.jpg"
                   alt="Event Detail Image"
                   style={{ height: "1024px", width: "1024px" }}
                 />
-              </div> */}
+              </div>
             </div>
             <div className="event-detail-content position-relative w-100">
               <div className="event-detail-desc position-relative w-100">

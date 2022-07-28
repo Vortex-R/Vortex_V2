@@ -119,7 +119,7 @@ function EventItem() {
                       // backgroundImage: `url("../assets/images/resources/meta2.jpg")`,
                       // backgroundImage: `url(${Background})`,
 
-                      backgroundImage: `url("../assets/images/resources/slide1.jpg")`,
+                      backgroundImage: `url("../assets/images/resources/festival.jpg")`,
                       // backgroundImage: `url("../assets/images/resources/invitation_live1.jpg")`,
                     }}
                     // }}
