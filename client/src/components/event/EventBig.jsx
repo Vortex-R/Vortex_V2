@@ -50,8 +50,8 @@ function EventBig() {
                         <strong>8:00pm</strong>
                       </li>
                       <li>
-                        <i className="fas fa-tags"></i>From:{" "}
-                        <strong>$12.00</strong>
+                        <i className="fas fa-tags"></i>
+                        <strong>Free!!</strong>
                       </li>
                     </ul>
                     <span className="event-loc d-block">
