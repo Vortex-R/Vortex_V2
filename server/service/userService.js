@@ -26,20 +26,20 @@ export const verifyEmail = async (user) => {
     { confirmationCode: verificationToken }
   );
   const transporter = nodemailer.createTransport({
-    host: "smtp-mail.outlook.com", // hostname
-    secureConnection: false, // TLS requires secureConnection to be false
-    port: 587, // port for secure SMTP
-    tls: {
-      ciphers: "SSLv3",
-    },
+    host: "smtp.gmail.com", // hostname
+    service: "gmail",
+    secure: true, // TLS requires secureConnection to be false
+    port: 2525, // port for secure SMTP
+
     auth: {
-      user: "vortex-reaction@outlook.fr",
-      pass: "vortex@reaction",
+      user: "contact.vortex.reaction@gmail.com",
+      pass: "pgflbwldqlplnkur",
     },
   });
   const mailOptions = {
-    from: "vortex-reaction@outlook.fr",
+    from: "contact.vortex.reaction@gmail.com",
     to: user.email,
+    attachDataUrls: true,
     subject: "Email confirmation",
     html: `<h1>Email Confirmation</h1> <h2>Hello Mr.  ${user.name}</h2><p>Thank you for your registration on Vortex_Reaction.</p> <p>In order for us to offer you the best possible service, confirm your account and to allow you to subscribe to the newsletter, you must confirm receipt of this mail by clicking on the link below</p> <a href=https://vr-event.herokuapp.com/api/user/verify/${verificationToken}> Click here</a>
     <p>If you have received this email by mistake, please ignore it.</p>

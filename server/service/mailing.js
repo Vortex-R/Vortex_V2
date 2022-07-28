@@ -2,22 +2,22 @@ import nodemailer from "nodemailer";
 export const sendmail = async (user, qr) => {
   //TODO: make this function general/standard
   const transporter = nodemailer.createTransport({
-    host: "smtp-mail.outlook.com", // hostname
-    secureConnection: false, // TLS requires secureConnection to be false
-    port: 587, // port for secure SMTP
-    tls: {
-      ciphers: "SSLv3",
-    },
+    host: "smtp.gmail.com", // hostname
+    service: "gmail",
+    secure: true, // TLS requires secureConnection to be false
+    port: 2525, // port for secure SMTP
+
     auth: {
-      user: "vortex-reaction@outlook.fr",
-      pass: "vortex@reaction",
+      user: "contact.vortex.reaction@gmail.com",
+      pass: "pgflbwldqlplnkur",
     },
   });
   const mailOptions = {
-    from: "vortex-reaction@outlook.fr",
+    from: "contact.vortex.reaction@gmail.com",
+
     to: user.email,
     attachDataUrls: true,
-    subject: "Your tickets for event",
+    subject: "Event Ticket",
     text: "Hello, " + user.name,
     html: 'This is your QRCode, Have fun!</br> <img src="' + qr + '">',
   };
