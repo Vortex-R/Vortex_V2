@@ -155,12 +155,12 @@ function EventItem() {
                           </i>
                           <h3 className=" mb-14 text-white items-center">
                             <a className="text-xl md:text-3xl">
-                              {goals[1]?.name}
+                              {goals[0]?.name}
                             </a>
                           </h3>
                           <span className="d-block text-white">
                             <i className="fas fa-map-marker-alt"></i>
-                            <strong>Location:</strong> {goals[1]?.location}
+                            <strong>Location:</strong> {goals[0]?.location}
                           </span>
                           <ul className="countdown d-inline-flex mb-0 list-unstyled">
                             <li>
