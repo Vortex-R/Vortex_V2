@@ -1,5 +1,4 @@
 import axios from "axios";
-const LOCAL_URL = "http://localhost:5000/api/contact/";
 
 const API_URL = "https://vr-event.herokuapp.com/api/user/";
 // const API_URL = "http://localhost:5000/api/user/";
@@ -76,5 +75,4 @@ const authService = {
   getUserData,
 };
 
-
-export default authService
+export default authService;
