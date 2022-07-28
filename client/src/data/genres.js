@@ -1,50 +1,98 @@
 export const Genres = [
   {
     id: "132",
-    name: "Rock",
-  },
-  {
-    id: "116",
-    name: "Jazz",
-  },
-  {
-    id: "152",
-    name: "Electronic Dance Music",
-  },
-  {
-    id: "113",
-    name: "Dubstep",
-  },
-  {
-    id: "165",
-    name: "Techno",
-  },
-  {
-    id: "85",
-    name: "Rhythm and Blues (R&B)",
-  },
-  {
-    id: "106",
-    name: "Country",
-  },
-  {
-    id: "466",
     name: "Pop",
   },
   {
+    id: "116",
+    name: "Rap/Hip Hop",
+  },
+  {
+    id: "152",
+    name: "Rock",
+  },
+  {
+    id: "113",
+    name: "Dance",
+  },
+  {
+    id: "165",
+    name: "R&B",
+  },
+  {
+    id: "85",
+    name: "Alternative",
+  },
+  {
+    id: "106",
+    name: "Electro",
+  },
+  {
+    id: "466",
+    name: "Folk",
+  },
+  {
     id: "144",
-    name: "Arabica",
+    name: "Reggae",
   },
   {
     id: "129",
-    name: "rock",
+    name: "Jazz",
   },
   {
     id: "52",
-    name: "rap",
+    name: "Chanson française",
   },
   {
     id: "98",
-    name: "Electro",
+    name: "Classique",
+  },
+  {
+    id: "173",
+    name: "Films/Jeux vidéo",
+  },
+  {
+    id: "464",
+    name: "Metal",
+  },
+  {
+    id: "169",
+    name: "Soul & Funk",
+  },
+  {
+    id: "153",
+    name: "Blues",
+  },
+  {
+    id: "95",
+    name: "Jeunesse",
+  },
+  {
+    id: "197",
+    name: "Latino",
+  },
+  {
+    id: "2",
+    name: "Musique africaine",
+  },
+  {
+    id: "12",
+    name: "Musique arabe",
+  },
+  {
+    id: "16",
+    name: "Musique asiatique",
+  },
+  {
+    id: "75",
+    name: "Musique brésilienne",
+  },
+  {
+    id: "81",
+    name: "Musique indienne",
+  },
+  {
+    id: "0",
+    name: "Other",
   },
 ];

@@ -57,7 +57,8 @@ function Events() {
           <div className="container">
             <div className="event-grid-wrap w-100">
               <div className="row flex items-center justify-center">
-                {goals.map((event) => (
+                {/* {goals.map((event) => ( */}
+                <>
                   <div className="col-md-6 col-sm-6 col-lg-4">
                     <div className="event-grid-box mb-30 w-100">
                       <div className="event-grid-img w-100 overflow-hidden position-relative">
@@ -83,11 +84,11 @@ function Events() {
                       <div className="event-grid-info w-100">
                         <h3 className="mb-0">
                           <a href="/event-details" title="">
-                            {event.name.slice(0, 20)}
+                            {goals[0]?.name.slice(0, 20)}
                           </a>
                         </h3>
                         <span className="event-date thm-clr d-block">
-                          {new Date(event.startDate).toLocaleDateString(
+                          {new Date(goals[0]?.startDate).toLocaleDateString(
                             "en-US"
                           )}
                         </span>
@@ -95,7 +96,7 @@ function Events() {
                           <li>
                             <i className="far fa-clock"></i>Time:{" "}
                             <strong>
-                              {new Date(event.startDate).toLocaleTimeString(
+                              {new Date(goals[0]?.startDate).toLocaleTimeString(
                                 "en-US"
                               )}
                             </strong>
@@ -107,12 +108,67 @@ function Events() {
                         </ul>
                         <span className="event-loc d-block">
                           <i className="fas fa-map-pin"></i>
-                          {event.location.slice(0, 35)}
+                          {goals[0]?.location.slice(0, 35)}
                         </span>
                       </div>
                     </div>
                   </div>
-                ))}
+                  <div className="col-md-6 col-sm-6 col-lg-4">
+                    <div className="event-grid-box mb-30 w-100">
+                      <div className="event-grid-img w-100 overflow-hidden position-relative">
+                        <img
+                          className="img-fluid w-100"
+                          // src="assets/images/resources/festival.jpg"
+                          src="assets/images/resources/invitation_live1.jpg"
+                          alt="Event Image 1"
+                        />
+                        <span className="position-absolute">
+                          <a className="rounded-circle" href="" title="">
+                            <i className="fas fa-heart"></i>
+                          </a>
+                        </span>
+                        <a
+                          className="thm-btn fill-btn"
+                          href="/event-details"
+                          title=""
+                        >
+                          Book Now<span></span>
+                        </a>
+                      </div>
+                      <div className="event-grid-info w-100">
+                        <h3 className="mb-0">
+                          <a href="/event-details" title="">
+                            {goals[1]?.name.slice(0, 20)}
+                          </a>
+                        </h3>
+                        <span className="event-date thm-clr d-block">
+                          {new Date(goals[1]?.startDate).toLocaleDateString(
+                            "en-US"
+                          )}
+                        </span>
+                        <ul className="event-grid-meta mb-0 list-unstyled d-flex flex-wrap">
+                          <li>
+                            <i className="far fa-clock"></i>Time:{" "}
+                            <strong>
+                              {new Date(goals[1]?.startDate).toLocaleTimeString(
+                                "en-US"
+                              )}
+                            </strong>
+                          </li>
+                          <li>
+                            <i className="fas fa-tags"></i>
+                            <strong>Free</strong>
+                          </li>
+                        </ul>
+                        <span className="event-loc d-block">
+                          <i className="fas fa-map-pin"></i>
+                          {goals[1]?.location.slice(0, 35)}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </>
+                {/* ))} */}
               </div>
             </div>
             {/* 

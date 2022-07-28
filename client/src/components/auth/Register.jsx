@@ -112,7 +112,7 @@ function Register() {
             </a>
           </span>
 
-          <h3 className="mb-0">Sign Up</h3>
+          {/* <h3 className="mb-0">Sign Up</h3> */}
 
           <form onSubmit={onSubmit}>
             <input
@@ -202,6 +202,7 @@ function Register() {
               className="  h-16 w-100  text-center my-1"
               onChange={onChange}
               style={{ backgroundColor: "#f6f7fb" }}
+              required
             >
               <option>- Family Situation - *</option>
               <option value="Single">Single</option>
@@ -232,6 +233,7 @@ function Register() {
               className=" h-16 w-100 text-center my-1"
               onChange={onChange}
               style={{ backgroundColor: "#f6f7fb" }}
+              required
             >
               <option>- Music Genres -</option>
               {Genres.map((g) => (
@@ -247,6 +249,7 @@ function Register() {
               className=" h-16 w-100 text-center my-1"
               onChange={onChange}
               style={{ backgroundColor: "#f6f7fb" }}
+              required
             >
               <option>- hobbies -</option>
               {Hobbies.map((c) => (
@@ -262,6 +265,7 @@ function Register() {
               className=" h-16 w-100 text-center my-1"
               onChange={onChange}
               style={{ backgroundColor: "#f6f7fb" }}
+              required
             >
               <option>- Country -</option>
               {Countries.map((c) => (

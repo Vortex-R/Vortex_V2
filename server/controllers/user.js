@@ -91,17 +91,13 @@ export const signup = async (req, res) => {
     password,
     firstName,
     lastName,
-    type,
-    musicGenres,
-    hobbies,
-    income,
-    martialStatus,
     gender,
     phone,
     naissance,
     situation,
     job,
     genre,
+    hobbies,
     country,
   } = req.body;
 
@@ -176,6 +172,7 @@ export const getUserData = async (req, res) => {
     res.status(404).json({ message: error });
   }
 };
+
 
 export const affectUserToEvent = async (req, res) => {
   try {
