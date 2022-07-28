@@ -40,8 +40,12 @@ export const verifyEmail = async (user) => {
   const mailOptions = {
     from: "vortex-reaction@outlook.fr",
     to: user.email,
-    subject: "Event Ticket",
-    html: `<h1>Email Confirmation</h1> <h2>Hello ${user.name}</h2><p>Thank you for subscribing. Please confirm your email by clicking on the following link</p><a href=https://vr-event.herokuapp.com/api/user/verify/${verificationToken}> Click here</a></div>`,
+    subject: "Email confirmation",
+    html: `<h1>Email Confirmation</h1> <h2>Hello Mr.  ${user.name}</h2><p>Thank you for your registration on Vortex_Reaction.</p> <p>In order for us to offer you the best possible service, confirm your account and to allow you to subscribe to the newsletter, you must confirm receipt of this mail by clicking on the link below</p> <a href=https://vr-event.herokuapp.com/api/user/verify/${verificationToken}> Click here</a>
+    <p>If you have received this email by mistake, please ignore it.</p>
+    <p>Sincerely yours,</p>
+    <p>Vortex_Reaction’s team </p>
+    </div>`,
   };
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {

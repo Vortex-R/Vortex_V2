@@ -1,7 +1,7 @@
 import React from "react";
 import { SiToggl } from "react-icons/si";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logout, reset } from "../features/auth/authSlice";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
@@ -27,14 +27,14 @@ function OldHeader() {
           <div className="logo-menu-wrap w-100 d-flex sm:flex-wrap  align-items-center justify-content-between pr-4">
             <div className="logo">
               <h1 className="mb-0">
-                <a href="/" title="Home">
+                <Link to="/" title="Home">
                   <img
                     className="img-fluid w-1/2 md:w-3/4 h-1/2"
                     src="assets/images/logo11.png"
                     alt="Logo"
                     srcSet="../assets/images/logo11.png"
                   />
-                </a>
+                </Link>
               </h1>
             </div>
             <nav
@@ -44,16 +44,23 @@ function OldHeader() {
               <div className="header-left">
                 <ul className="mb-0 list-unstyled d-inline-flex">
                   <li className="menu-item-has-children">
-                    <a href="/" title="">
+                    <Link to="/" title="">
                       Home
-                    </a>
+                    </Link>
                   </li>
                   {user && (
-                    <li>
-                      <a href="/streaming" title="">
-                        Streaming
-                      </a>
-                    </li>
+                    <>
+                      <li>
+                        <Link to="/events" title="">
+                          Events
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/streaming" title="">
+                          Streaming
+                        </Link>
+                      </li>
+                    </>
                   )}
                   {/* <li>
                     <a href="/events" title="">
@@ -80,21 +87,21 @@ function OldHeader() {
 
                   {user && user.result.role === 2 && (
                     <li>
-                      <a href="/dashboard" title="">
+                      <Link to="/dashboard" title="">
                         Dashboard
-                      </a>
+                      </Link>
                     </li>
                   )}
 
                   <li>
-                    <a href="/about" title="">
+                    <Link to="/about" title="">
                       About
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="/contact" title="">
+                    <Link to="/contact" title="">
                       Contact
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -104,9 +111,9 @@ function OldHeader() {
                     <SiToggl className="text-2xl" />
                   </a>
                 ) : (
-                  <a className="user-btn" href="" title="">
+                  <Link className="user-btn" to="" title="">
                     <i className="flaticon-user"></i>
-                  </a>
+                  </Link>
                 )}
                 {/* <a className="search-btn" href="" title="">
                   <i className="flaticon-magnifying-glass"></i>

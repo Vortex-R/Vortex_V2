@@ -50,6 +50,10 @@ const userSchema = mongoose.Schema({
     type: String,
     required: false,
   },
+  hobbies: {
+    type: String,
+    required: false,
+  },
   country: {
     type: String,
     required: false,

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Countries } from "../../data/countries";
+import { Hobbies } from "../../data/hobbies";
 import { Genres } from "../../data/genres";
 import { register, reset } from "../../features/auth/authSlice";
 import Spinner from "../Spinner";
@@ -25,6 +26,7 @@ function Register() {
     job: "",
     genre: "",
     country: "",
+    hobbies: "",
   });
 
   const {
@@ -40,6 +42,7 @@ function Register() {
     job,
     genre,
     country,
+    hobbies,
   } = formData;
 
   const navigate = useNavigate();
@@ -87,6 +90,7 @@ function Register() {
         job,
         genre,
         country,
+        hobbies,
       };
       dispatch(register(userData));
       navigate("/event-details");
@@ -234,6 +238,21 @@ function Register() {
                 <option key={g.id} value={g.name}>
                   {" "}
                   {g.name}{" "}
+                </option>
+              ))}
+            </select>
+            <select
+              name="hobbies"
+              value={hobbies}
+              className=" h-16 w-100 text-center my-1"
+              onChange={onChange}
+              style={{ backgroundColor: "#f6f7fb" }}
+            >
+              <option>- hobbies -</option>
+              {Hobbies.map((c) => (
+                <option key={c.name} value={c.name}>
+                  {" "}
+                  {c.name}{" "}
                 </option>
               ))}
             </select>

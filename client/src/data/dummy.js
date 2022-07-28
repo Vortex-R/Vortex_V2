@@ -543,14 +543,15 @@ export const links = [
         name: "event-form",
         icon: <FiEdit />,
       },
-      {
-        name: "planification",
-        icon: <RiContactsLine />,
-      },
-      {
-        name: "execution",
-        icon: <AiOutlineCalendar />,
-      },
+      // ,
+      // {
+      //   name: "planification",
+      //   icon: <RiContactsLine />,
+      // },
+      // {
+      //   name: "execution",
+      //   icon: <AiOutlineCalendar />,
+      // },
     ],
   },
   // {

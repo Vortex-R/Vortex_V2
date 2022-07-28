@@ -17,7 +17,7 @@ export const sendmail = async (user, qr) => {
     from: "vortex-reaction@outlook.fr",
     to: user.email,
     attachDataUrls: true,
-    subject: "Event Ticket",
+    subject: "Your tickets for event",
     text: "Hello, " + user.name,
     html: 'This is your QRCode, Have fun!</br> <img src="' + qr + '">',
   };

@@ -97,6 +97,7 @@ export const signup = async (req, res) => {
     situation,
     job,
     genre,
+    hobbies,
     country,
   } = req.body;
 
@@ -113,11 +114,12 @@ export const signup = async (req, res) => {
       name: `${firstName} ${lastName}`,
       gender,
       phone,
-
+      password: hashedPassword,
       naissance,
       situation,
       job,
       genre,
+      hobbies,
       country,
     });
 

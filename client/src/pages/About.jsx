@@ -184,7 +184,7 @@ function About() {
           </div>
         </div>
       </section>
-      <section>
+      {/* <section>
         <div className="w-100 pt-110 gray-layer opc9 position-relative">
           <div
             className="fixed-bg patern-bg"
@@ -203,7 +203,6 @@ function About() {
                 <div className="col-md-4 col-sm-6 col-lg-4">
                   <div className="package-box2 mb-40 position-relative h-4/5 w-100">
                     <div className="package-head2 w-100">
-                      {/* <h5 className="mb-0">Basic'O</h5> */}
                       <span className="d-block">
                         <sup>B</sup>asic'O
                       </span>
@@ -214,21 +213,13 @@ function About() {
                         <li>Profile</li>
                         <li>Mini Communities</li>
                       </ul>
-                      {/* <a
-                        className="thm-btn lft-icon fill-btn "
-                        href=""
-                        title=""
-                      >
-                        <i className="flaticon-coupon"></i>Buy Ticket
-                        <span></span>
-                      </a> */}
+                     
                     </div>
                   </div>
                 </div>
                 <div className="col-md-4 col-sm-6 col-lg-4">
                   <div className="package-box2 mb-40 position-relative h-4/5 w-100">
                     <div className="package-head2 w-100">
-                      {/* <h5 className="mb-0">Ultumi'O</h5> */}
                       <span className="d-block">
                         <sup>U</sup>ltumi'O
                       </span>
@@ -246,21 +237,13 @@ function About() {
                         <li>Event autographs </li>
                         <li>Relive the XP </li>
                       </ul>
-                      {/* <a
-                        className="thm-btn lft-icon brd-btn mb-0"
-                        href=""
-                        title=""
-                      >
-                        <i className="flaticon-coupon"></i>Buy Ticket
-                        <span></span>
-                      </a> */}
+                    
                     </div>
                   </div>
                 </div>
                 <div className="col-md-4 col-sm-6 col-lg-4">
                   <div className="package-box2 mb-40 position-relative h-4/5 w-100">
                     <div className="package-head2 w-100">
-                      {/* <h5 className="mb-0">Partner's plan</h5> */}
                       <span className="d-block">
                         <sup>P</sup>artner's plan
                       </span>
@@ -288,7 +271,7 @@ function About() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <OldFooter />
     </>

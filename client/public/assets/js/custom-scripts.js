@@ -190,10 +190,11 @@ $(document).ready(function () {
   //===== Count Down =====//
   if ($.isFunction($.fn.downCount)) {
     $(".countdown").downCount({
-      date: "06/15/2022 18:30:00",
+      date: "08/15/2022 20:30:00",
       offset: +1,
     });
   }
+
 
   //===== LightBox =====//
   if ($.isFunction($.fn.fancybox)) {
