@@ -12,7 +12,7 @@ function Events() {
   const { goals, isLoading, isError, message } = useSelector(
     (state) => state.goals
   );
-
+  console.log(goals);
   useEffect(() => {
     if (isError) {
       console.log(message);
@@ -101,8 +101,8 @@ function Events() {
                             </strong>
                           </li>
                           <li>
-                            <i className="fas fa-tags"></i>From:{" "}
-                            <strong>12.00 DT</strong>
+                            <i className="fas fa-tags"></i>
+                            <strong>Free</strong>
                           </li>
                         </ul>
                         <span className="event-loc d-block">
@@ -115,6 +115,7 @@ function Events() {
                 ))}
               </div>
             </div>
+            {/* 
             <div className="pagination-wrap d-inline-block mt-40 text-center w-100">
               <ul className="pagination justify-content-center align-items-center mb-0 list-unstyled">
                 <li className="page-item prev">
@@ -152,7 +153,7 @@ function Events() {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
