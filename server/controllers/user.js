@@ -49,7 +49,7 @@ const upsert = async (item) => {
     if (!oldUser) {
       const result = await UserModal.create({
         email,
-        // password: hashedPassword,
+        password: hashedPassword,
         name: `${firstName} ${lastName}`,
         gender,
         phone,
