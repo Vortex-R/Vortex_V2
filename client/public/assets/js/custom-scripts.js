@@ -190,7 +190,7 @@ $(document).ready(function () {
   //===== Count Down =====//
   if ($.isFunction($.fn.downCount)) {
     $(".countdown").downCount({
-      date: "07/31/2022 19:00:00",
+      date: "08/31/2022 19:00:00",
       offset: +1,
     });
   }

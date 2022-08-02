@@ -1,5 +1,5 @@
 import React from "react";
-import { SiToggl } from "react-icons/si";
+import { SiOpsgenie, SiToggl } from "react-icons/si";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout, reset } from "../features/auth/authSlice";
@@ -16,9 +16,7 @@ function OldHeader() {
 
   const onLogout = () => {
     dispatch(logout());
-    dispatch(reset());
-
-    navigate("/");
+    window.location.reload();
   };
   return (
     <>
@@ -105,15 +103,15 @@ function OldHeader() {
                   </li>
                 </ul>
               </div>
-              <div className="header-right-btns ">
+              <div className="header-right-btns flex items-center ">
                 {user ? (
-                  <a className="btn " onClick={onLogout}>
+                  <a className="btn " onClick={onLogout} href="/">
                     <SiToggl className="text-2xl" />
                   </a>
                 ) : (
-                  <Link className="user-btn" to="" title="">
-                    <i className="flaticon-user"></i>
-                  </Link>
+                  <a className="user-btn" to="" title="">
+                    <SiOpsgenie className="text-2xl" />
+                  </a>
                 )}
                 {/* <a className="search-btn" href="" title="">
                   <i className="flaticon-magnifying-glass"></i>
