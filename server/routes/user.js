@@ -1,4 +1,6 @@
 import express from "express";
+import { upload } from "../middleware/upload.js";
+
 import {
   signin,
   signup,
@@ -10,6 +12,8 @@ import {
   userParticipated,
   googleAuth,
   getUserData,
+  changePassword,
+  updatePicture,
 } from "../controllers/user.js";
 import { admin, auth } from "../middleware/auth.js";
 
@@ -24,9 +28,14 @@ router.patch("/affect", auth, affectUserToEvent);
 router.patch("/checkIfUserParticipated", auth, userParticipated);
 router.get("/verify/:confirmationCode", userVerification);
 router.get("/getUserData/:id", getUserData);
+router.patch("/changepassword", auth, changePassword);
+
+// router.get("/currentUser", currentUser);
 
 // router.put("/profile", updateUser);
 
-/* router.patch("/profile/update", auth, updateProfile); */
+router.patch("/profile/update", auth, updateProfile);
+
+router.put("/picture", auth, upload("picture", "users/image/"), updatePicture);
 
 export default router;

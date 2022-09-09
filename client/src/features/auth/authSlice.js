@@ -35,6 +35,61 @@ export const register = createAsyncThunk('auth/register',
         return thunkAPI.rejectWithValue(message)
     }
 })
+// update profile 
+export const updateProfile = createAsyncThunk(
+    "auth/updateProfile",
+    async (data, thunkAPI) => {
+      try {
+        const token = thunkAPI.getState().auth.user.token;
+        return await authService.updateProfile(data, token);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+        return thunkAPI.rejectWithValue(message);
+      }
+    }
+  );
+// update picture 
+export const updatePicture = createAsyncThunk(
+    "auth/updatePicture",
+    async (data, thunkAPI) => {
+      try {
+        const token = thunkAPI.getState().auth.user.token;
+        return await authService.updatePicture(data, token);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+        return thunkAPI.rejectWithValue(message);
+      }
+    }
+  );
+// update password 
+export const changePassword = createAsyncThunk(
+    "auth/changePassword",
+    async ( data, thunkAPI) => {
+      try {
+        const token = thunkAPI.getState().auth.user.token;
+        return await authService.changePassword(data, token);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+        return thunkAPI.rejectWithValue(message);
+      }
+    }
+  );
+
 
 // Login user
 export const login = createAsyncThunk('auth/login', 
@@ -141,6 +196,19 @@ export const authSlice = createSlice ({
             .addCase(logout.fulfilled, (state) => {
                 state.user = null
             })
+
+         
+          .addCase(changePassword.fulfilled, (state, action) => {
+              state.isLoading = false
+              state.isSuccess = true
+              state.user = action.payload
+          })
+          .addCase(updatePicture.fulfilled, (state, action) => {
+              state.isLoading = false
+              state.isSuccess = true
+              state.user = action.payload
+          })
+         
     }       
 })
 

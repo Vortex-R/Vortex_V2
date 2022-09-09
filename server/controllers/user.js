@@ -11,12 +11,10 @@ import { IfUserParticipated } from "../service/userService.js";
 import qrcode from "qrcode";
 const secret = "test";
 import { verifyEmail } from "../service/userService.js";
-import { OAuth2Client } from "google-auth-library";
 import dotenv from "dotenv";
-
+import fs from "fs";
+import { resolve } from "path";
 dotenv.config();
-
-const client = new OAuth2Client(process.env.REACT_APP_GOOGLE_CLIENT_ID);
 
 export const signin = async (req, res) => {
   const { email, password } = req.body;
@@ -151,6 +149,22 @@ export const ChangeRole = async (req, res) => {
   res.status(200).send(organizer);
 };
 
+export const changePassword = async (req, res) => {
+  try {
+    const user = await UserModal.findById(req.user.id);
+    console.log(req.body.password, user.password);
+    const match = await bcrypt.compare(req.body.password, user.password);
+    console.log("here", +match);
+    if (!match) return res.status(400).json({ error: "worng password" });
+    const password = await bcrypt.hash(req.body.newPassword, 10);
+    UserModal.findByIdAndUpdate(req.user.id, { password })
+      .then(() => res.status(200).json("password changed"))
+      .catch((err) => res.status(400).json(err));
+  } catch (err) {
+    return res.status(500).json(err);
+  }
+};
+
 export const getProfile = async (req, res) => {
   try {
     const profile = await UserModal.find();
@@ -172,7 +186,6 @@ export const getUserData = async (req, res) => {
     res.status(404).json({ message: error });
   }
 };
-
 
 export const affectUserToEvent = async (req, res) => {
   try {
@@ -217,72 +230,66 @@ export const userVerification = async (req, res) => {
   if (!verifiedUser) throw new Error("didn't find user");
   res.status(200).send();
 };
-export const updateProfile = async (req, res) => {
-  // console.log("hello");
-  const id = req.user.id;
-  // console.log(id);
 
-  const { nickname, age, education, status, hobbies, VrHead } = req.body;
-  //   console.log(req.body);
-  // console.log("body: "+req.body);
+/* edit user profile */
+export const updateProfile = async (req, res) => {
+  const id = req.user.id;
+  console.log(id);
+
+  const {
+    firstName,
+    lastName,
+    gender,
+    phone,
+    naissance,
+    situation,
+    job,
+    genre,
+    country,
+    hobbies,
+  } = req.body;
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No Profile Found ! ");
 
   const updatedProfile = {
-    nickname,
-    age,
-    education,
-    status,
+    name: `${firstName} ${lastName}`,
+    gender,
+    phone,
+    naissance,
+    situation,
+    job,
+    genre,
+    country,
     hobbies,
-    VrHead,
-    _id: id,
   };
 
-  const profile = await user.findByIdAndUpdate(id, updatedProfile, {
+  const profile = await UserModal.findByIdAndUpdate(id, updatedProfile, {
     new: true,
   });
 
   profile.save();
 
-  res.status(200).send(profile);
+  res.status(200).json(profile);
 };
 
-// export const updateUser = async (req, res) => {
-
-// //   const idUser = req.params.id;
-//   // const id = req.user.id;
-
-// console.log(req);
-// // console.log();
-
-//   if (!mongoose.Types.ObjectId.isValid(req.params.id))
-//     return res.status(400).send("ID unknown : " + req.params.id);
-//   try {
-//     user.findOneAndUpdate(
-//       { _id: req.params.id },
-//       { $set: { nickname: req.body.nickname } },
-//       { new: true, upsert: true, setDefaultsOnInsert: true },
-//       (err, docs) => {
-//         if (!err) return res.send(docs);
-//         if (err) return res.status(500).send({ message: err });
-//       }
-//     );
-//   } catch (err) {
-//     return res.status(500).json({ message: err });
-//   }
-// };
-
-/* 
- const output = `
-    <p>You have a new contact request</p>
-    <h3>Contact Details</h3>
-    <ul>  
-      <li>Name: ${req.user.name}</li>
-      <li>Email: ${req.user.email}</li>
-      <li>Phone: ${req.user.phone}</li>
-    </ul>
-    <h3>Message</h3>
-    
-  `;
-
-/*/
+/* update user picture */
+export const updatePicture = async (req, res) => {
+  try {
+    const id = req.user.id;
+    console.log({ id });
+    const user = await UserModal.findById(id);
+    if (!user.picture) {
+      user.picture = req.file.filename;
+      await user.save();
+      return res.status(200).json(req.file.filename);
+    }
+    fs.unlink(resolve(`./public/users/image/${user.picture}`), (err) => {
+      if (err) return res.status(500).json({ error: err.message });
+    });
+    user.picture = req.file.filename;
+    await user.save();
+    return res.status(200).json(req.file.filename);
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
+};

@@ -58,6 +58,7 @@ const userSchema = mongoose.Schema({
     type: String,
     required: false,
   },
+  picture: { type: String },
 
   organizer: {
     type: mongoose.Schema.Types.ObjectId,
