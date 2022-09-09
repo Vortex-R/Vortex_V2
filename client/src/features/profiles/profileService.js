@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from "../axios";
 
 // const API_URL = "http://localhost:5000/api/user/";
 const API_URL = "https://vr-event.herokuapp.com/api/user/";
@@ -13,7 +13,7 @@ const updateProfile = async (token, goalData) => {
     },
   };
   const response = await axios.patch(
-    API_URL + "profile/update",
+    "api/user/profile/update",
     goalData,
     config
   );
@@ -68,7 +68,7 @@ const showEvent = async (token, id) => {
     },
   };
 
-  const response = await axios.get(API_URL_EVENT + "show/" + id, config);
+  const response = await axios.get("api/event/show/" + id, config);
 
   return response.data;
 };
@@ -81,7 +81,7 @@ const getUsers = async (token) => {
   //   },
   // };
 
-  const response = await axios.get(API_URL + "profiles");
+  const response = await axios.get("api/user/profiles");
 
   return response.data;
 };
@@ -93,7 +93,7 @@ const getOrganizer = async (token, id) => {
     },
   };
 
-  const response = await axios.get(API_URL_ORGANIZER + "profile", config);
+  const response = await axios.get("api/organizerP/profile", config);
 
   return response.data;
 };
@@ -110,20 +110,20 @@ const updateUserToOrganizer = async (token, data) => {
     event: data.event,
   };
   const id = data.userId;
-  const response = await axios.patch(API_URL + "role/" + id, body, config);
+  const response = await axios.patch("api/user/role/" + id, body, config);
 
   return response.data;
 };
 
 const profileService = {
   updateProfile,
-//   createGoal,
-//   deleteGoal,
-//   chooseEvent,
+  //   createGoal,
+  //   deleteGoal,
+  //   chooseEvent,
   getUsers,
   updateUserToOrganizer,
   showEvent,
-  getOrganizer
-}
+  getOrganizer,
+};
 
-export default profileService
+export default profileService;

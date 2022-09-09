@@ -1,12 +1,8 @@
-import axios from "axios";
-
-const API_URL = "https://vr-event.herokuapp.com/api/user/";
-// const API_URL = "http://localhost:5000/api/user/";
-const API_URL_CONTACT = "https://vr-event.herokuapp.com/api/contact/";
+import axios from "../axios";
 
 // Register user
 const register = async (userData) => {
-  const response = await axios.post(API_URL + "signup", userData);
+  const response = await axios.post("api/user/signup", userData);
 
   if (response.data) {
     localStorage.setItem("user", JSON.stringify(response.data));
@@ -14,9 +10,44 @@ const register = async (userData) => {
   return response.data;
 };
 
+// edit profile
+const updateProfile = async (data, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  const response = await axios.patch("api/user/profile/update", data, config);
+
+  return response.data;
+};
+
+// edit profile
+const changePassword = async (data, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  const response = await axios.patch("api/user/changePassword", data, config);
+
+  return response.data;
+};
+// updatePicture
+const updatePicture = async (data, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  const response = await axios.patch("api/user/picture", data, config);
+
+  return response.data;
+};
+
 // login user
 const login = async (userData) => {
-  const response = await axios.post(API_URL + "signin", userData);
+  const response = await axios.post("api/user/signin", userData);
 
   if (response.data) {
     localStorage.setItem("user", JSON.stringify(response.data));
@@ -25,7 +56,7 @@ const login = async (userData) => {
 };
 
 const getUserData = (userId) => {
-  const response = axios.get(API_URL + "getUserData/" + userId);
+  const response = axios.get("api/user/getUserData/" + userId);
   return new Promise((resolve, reject) => {
     resolve(response);
     reject("error");
@@ -45,11 +76,7 @@ const contact = async (contactData, token) => {
     },
   };
 
-  const response = await axios.post(
-    API_URL_CONTACT + "add",
-    contactData,
-    config
-  );
+  const response = await axios.post("api/contact/add", contactData, config);
 
   return response.data;
 };
@@ -73,6 +100,9 @@ const authService = {
   login,
   contact,
   getUserData,
+  updateProfile,
+  changePassword,
+  updatePicture,
 };
 
 export default authService;

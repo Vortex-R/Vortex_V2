@@ -1,8 +1,4 @@
-import axios from 'axios'
-
-// const API_URL = "http://localhost:5000/api/contact/";
-const API_URL = "https://vr-event.herokuapp.com/api/contact/";
-
+import axios from "../axios";
 
 // Create new goal
 // const createGoal = async (goalData, token) => {
@@ -19,12 +15,10 @@ const API_URL = "https://vr-event.herokuapp.com/api/contact/";
 
 // Get user goals
 const getContacts = async () => {
- 
-
-  const response = await axios.get(API_URL)
+  const response = await axios.get("api/contact");
   // console.log(response);
-  return response.data
-}
+  return response.data;
+};
 
 // // Delete user goal
 // const deleteGoal = async (goalId, token) => {
@@ -48,7 +42,7 @@ const getContacts = async () => {
 //     }
 //     const body = { idEvent:goalData }
 //     const response = await axios.patch(API_URL_USER +'affect/' , body, config)
-  
+
 //     return response.data
 //   }
 
@@ -59,18 +53,18 @@ const getContacts = async () => {
 //         Authorization: `Bearer ${token}`,
 //       },
 //     }
-  
+
 //     const response = await axios.get(API_URL_CONTACT, config)
-  
+
 //     return response.data
 //   }
 
 const contactService = {
-    getContacts,
-//   createGoal,
-//   deleteGoal,
-//   chooseEvent,
-//   getContacts,
-}
+  getContacts,
+  //   createGoal,
+  //   deleteGoal,
+  //   chooseEvent,
+  //   getContacts,
+};
 
-export default contactService
+export default contactService;
