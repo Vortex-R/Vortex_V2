@@ -31,7 +31,7 @@ class Helpbox extends Component {
                                     <div className="card w-100 border-0 p-0 rounded-3 overflow-hidden bg-image-contain bg-image-center" 
                                     style={{backgroundImage: `url("assets/images/help-bg.png")`}}>
                                         <div className="card-body p-md-5 p-4 text-center" style={{backgroundColor:'rgba(0,85,255,0.8)'}}>
-                                            <h2 className="fw-700 display2-size text-white display2-md-size lh-2">Welcome to the Sociala Commuinity!</h2>
+                                            <h2 className="fw-700 display2-size text-white display2-md-size lh-2">Welcome to the Vortex Commuinity!</h2>
                                             <p className="font-xsss ps-lg-5 pe-lg-5 lh-28 text-grey-200">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nulla dolor, ornare at commodo non, feugiat non nisi. Phasellus faucibus mollis pharetra. Proin blandit ac massa sed rhoncus </p>
                                             <div className="form-group w-lg-75 mt-4 border-light border p-1 bg-white rounded-3 ms-auto me-auto">
                                                 <div className="row">

@@ -198,7 +198,7 @@ class Demo extends Component {
             <div className="header-wrapper demo-style">
                 <div className="container max-container">
                     <div className="row">
-                        <div className="col-lg-3 col-md-6 col-sm-3 col-xs-6"><a href="/" className="logo"><i className="feather-zap text-success display2-size me-3 ms-0"></i><span className="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">Sociala. </span> </a></div>
+                        <div className="col-lg-3 col-md-6 col-sm-3 col-xs-6"><a href="/" className="logo"><i className="feather-zap text-success display2-size me-3 ms-0"></i><span className="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">Vortex. </span> </a></div>
                         <div className="col-lg-6 col-md-6 col-sm-6 d-none d-lg-block">
                             <ul className="list-inline text-center mb-0 mt-2 pt-1">
                                 <li className="list-inline-item pe-4 ps-4"><a className="scroll-tiger" href="#feature">Features</a></li>
@@ -245,7 +245,7 @@ class Demo extends Component {
                             <img src="assets/images/demo/com-1.png" alt="com" className="img-fluid" />
                         </div>
                         <div className="col-lg-5 offset-lg-1">
-                            <h2 className="title-text2 mb-4 mt-5"><b>Awesome Components Ready Elements and Templates.</b></h2>				<p>Sociala powers thousands of apps at some of the smartest companies around the world. Be a part of professional community.</p>
+                            <h2 className="title-text2 mb-4 mt-5"><b>Awesome Components Ready Elements and Templates.</b></h2>				<p>Vortex powers thousands of apps at some of the smartest companies around the world. Be a part of professional community.</p>
                             <a href="#demo" className="btn btn-lg btn-primary mr-4 text-uppercase mt-4">Components</a>
                         </div>
                     </div>

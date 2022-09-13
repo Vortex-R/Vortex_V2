@@ -73,7 +73,7 @@ class Analytics extends Component {
                                                 <img src="https://via.placeholder.com/420x270.png" alt="banner" className="w-100" />
                                             </div>
                                             <div className="col-lg-6 ps-lg-5">
-                                                <h2 className="display1-size d-block mb-2 text-grey-900 fw-700">Set up your Social website with Sociala</h2>
+                                                <h2 className="display1-size d-block mb-2 text-grey-900 fw-700">Set up your Social website with Vortex</h2>
                                                 <p className="font-xssss fw-500 text-grey-500 lh-26">After completing this course you'll be confident to create any subtle to complex animation that will turn any project a professional work.</p>
                                                 <a href="/defaultanalytics" className="btn w200 border-0 bg-primary-gradiant p-3 text-white fw-600 rounded-3 d-inline-block font-xssss">Analysis</a>
                                             </div>

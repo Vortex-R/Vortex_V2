@@ -49,6 +49,8 @@ import Analytics from "./pages/Analytics";
 // import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 import * as serviceWorker from "./serviceWorker";
 

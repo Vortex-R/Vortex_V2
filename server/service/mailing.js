@@ -9,7 +9,7 @@ export const sendmail = async (user, qr) => {
 
     auth: {
       user: "contact.vortex.reaction@gmail.com",
-      pass: "pgflbwldqlplnkur",
+      pass: "fypfmzcdhpbfeexn",
     },
   });
   const mailOptions = {
@@ -23,7 +23,7 @@ export const sendmail = async (user, qr) => {
     html:
       'Here’s your virtual ticket !</br> <h1>VR_backstage_FIH56, Orchestre National de Barbès (ONB)</h1> <img src="' +
       qr +
-      '"> </br> 1 x ticket </br>Total order : Free </br><h3>sunday, july 31, 2022 at 19:00 (time: Tunisia) </h3> </br>you will receive the redirection link 1 hour before the event starts. </br>Enjoy watching :).</br>View event details: </br> https://vr-event.herokuapp.com/event-details',
+      '"> </br> 1 x ticket </br>Total order : Free </br><h3>sunday, july 31, 2022 at 19:00 (time: Tunisia) </h3> </br>you will receive the redirection link 1 hour before the event starts. </br>Enjoy watching :).</br>View event details: </br> https://vortexreaction.cyclic.app/event-details',
   };
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {

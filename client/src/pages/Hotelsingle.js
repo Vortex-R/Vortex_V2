@@ -63,6 +63,7 @@ function Hotelsingle() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const { user } = useSelector((state) => state.auth);
   const { goals, isLoading, isError, message } = useSelector(
     (state) => state.goals
   );
@@ -71,9 +72,9 @@ function Hotelsingle() {
       console.log(message);
     }
 
-    // if (!user) {
-    //   navigate("/login");
-    // }
+    if (!user) {
+      navigate("/login");
+    }
 
     dispatch(getGoals());
 
@@ -202,15 +203,30 @@ function Hotelsingle() {
                   >
                     <i className="feather-bookmark font-sm text-white"></i>{" "}
                   </a>
-                  <a
-                    className="bg-primary-gradiant border-0 text-white fw-600 text-uppercase font-xssss float-left rounded-3 d-inline-block mt-0 p-2 lh-34 text-center ls-3 w200"
-                    onClick={() => {
-                      dispatch(chooseEvent(goals[0]?._id));
-                      toast("Enjoy The Event !");
-                    }}
-                  >
-                    BOOK NOW
-                  </a>
+                  {user && user.result?.verified ? (
+                    <a
+                      className="bg-primary-gradiant border-0 text-white fw-600 text-uppercase font-xssss float-left rounded-3 d-inline-block mt-0 p-2 lh-34 text-center ls-3 w200"
+                      type="submit"
+                      onClick={() => {
+                        dispatch(chooseEvent(goals[0]?._id));
+                        toast("Enjoy The Event !");
+                      }}
+                    >
+                      BOOK NOW
+                    </a>
+                  ) : (
+                    <a
+                      className="bg-primary-gradiant border-0 text-white fw-600 text-uppercase font-xssss float-left rounded-3 d-inline-block mt-0 p-2 lh-34 text-center ls-3 w200"
+                      type="submit"
+                      onClick={() => {
+                        localStorage.removeItem("user");
+                        window.location.reload();
+                        toast("Please check your email and login again !");
+                      }}
+                    >
+                      Verify your Email
+                    </a>
+                  )}
                 </div>
 
                 <div className="card d-block border-0 rounded-3 overflow-hidden p-4 shadow-xss mt-4 alert-success">

@@ -24,9 +24,14 @@ class Header extends Component {
       <div className="nav-header bg-white shadow-xs border-0">
         <div className="nav-top">
           <Link to="/home">
-            <i className="feather-zap text-success display2-size me-3 ms-0"></i>
-            <span className="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">
-              Sociala.{" "}
+            {" "}
+            <img
+              src="assets/images/logo.png"
+              alt="logo"
+              className="w100 position-relative left-0"
+            />
+            <span className="d-inline-block fredoka-font ls-3 fw-600 text-current font-md logo-text mb-0">
+              eaction.{" "}
             </span>{" "}
           </Link>
           <Link
@@ -268,7 +273,7 @@ class Header extends Component {
                       className="nav-content-bttn open-font"
                     >
                       <i className="font-xl text-current feather-home me-3"></i>
-                      <span>Near Hotel</span>
+                      <span>Near Events</span>
                     </Link>
                   </li>
                   <li>

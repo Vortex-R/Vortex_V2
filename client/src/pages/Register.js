@@ -64,10 +64,14 @@ function Register() {
         <div className="nav-header bg-transparent shadow-none border-0">
           <div className="nav-top w-100">
             <a href="/home">
-              <i className="feather-zap text-success display1-size me-2 ms-0"></i>
-              <span className="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">
-                Vortex.{" "}
-              </span>{" "}
+              <img
+                src="assets/images/logo2.png"
+                alt="logo"
+                className="w100 position-relative left-0"
+              />
+              <span className="d-inline-block fredoka-font ls-3 fw-600 text-current font-md logo-text mb-0">
+                eaction.{" "}
+              </span>
             </a>
             <button className="nav-menu me-0 ms-auto"></button>
 
