@@ -39,6 +39,8 @@
   right: 0;
   top: 0;
   z-index: 1;
+  display: flex;
+    justify-content: center;
 
 }
 
@@ -46,9 +48,9 @@
   background: #fff;
   border-radius: 5px;
   max-width: 100%;
-  margin: 50px auto;
+  margin: auto;
   padding: 15px;
-  width: 50%;
+  width: 100%;
 
 }
 
