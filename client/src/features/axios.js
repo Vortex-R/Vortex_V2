@@ -7,4 +7,4 @@ const instance = axios.create({
   // baseURL: "https://fine-ruby-bunny-shoe.cyclic.app/",
 });
 
-export default instance;
+export default instance;    

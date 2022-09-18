@@ -9,24 +9,25 @@ const initialState = {
   message: '',
 }
 
-// Create new goal
-// export const createGoal = createAsyncThunk(
-//   'goals/create',
-//   async (goalData, thunkAPI) => {
-//     try {
-//       const token = thunkAPI.getState().auth.user.token
-//       return await goalService.createGoal(goalData, token)
-//     } catch (error) {
-//       const message =
-//         (error.response &&
-//           error.response.data &&
-//           error.response.data.message) ||
-//         error.message ||
-//         error.toString()
-//       return thunkAPI.rejectWithValue(message)
-//     }
-//   }
-// )
+// add contact by user
+export const createContact = createAsyncThunk(
+  'contact/createContact',
+  async (contactData, thunkAPI) => {
+    try {
+      // const token = thunkAPI.getState().auth.user.token
+      return await contactService.createContact(contactData)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
 
 // Get user goals
 export const getContacts = createAsyncThunk(
@@ -47,65 +48,6 @@ export const getContacts = createAsyncThunk(
   }
 )
 
-// // Delete user goal
-// export const deleteGoal = createAsyncThunk(
-//   'goals/delete',
-//   async (id, thunkAPI) => {
-//     try {
-//       const token = thunkAPI.getState().auth.user.token
-//       return await goalService.deleteGoal(id, token)
-//     } catch (error) {
-//       const message =
-//         (error.response &&
-//           error.response.data &&
-//           error.response.data.message) ||
-//         error.message ||
-//         error.toString()
-//       return thunkAPI.rejectWithValue(message)
-//     }
-//   }
-// )
-
-// // user participate to event
-// export const chooseEvent = createAsyncThunk(
-//   'goals/choose',
-//   async (id, thunkAPI) => {
-//     try {
-//       const token = thunkAPI.getState().auth.user.token
-//       return await goalService.chooseEvent(id, token)
-      
-//     } catch (error) {
-//       const message =
-//         (error.response &&
-//           error.response.data &&
-//           error.response.data.message) ||
-//         error.message ||
-//         error.toString()
-//       return thunkAPI.rejectWithValue(message)
-//     }
-//   }
-
-// )
-
-//   // get all contacts
-//   export const getContacts = createAsyncThunk(
-//     'goals/getAll',
-//     async (_, thunkAPI) => {
-//       try {
-//         const token = thunkAPI.getState().auth.user.token
-//         return await goalService.getContacts(token)
-//       } catch (error) {
-//         const message =
-//           (error.response &&
-//             error.response.data &&
-//             error.response.data.message) ||
-//           error.message ||
-//           error.toString()
-//         return thunkAPI.rejectWithValue(message)
-//       }
-//     }
-//   )
-
 export const contactSlice = createSlice({
   name: 'contact',
   initialState,
@@ -114,19 +56,13 @@ export const contactSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-    //   .addCase(createGoal.pending, (state) => {
-    //     state.isLoading = true
-    //   })
-    //   .addCase(createGoal.fulfilled, (state, action) => {
-    //     state.isLoading = false
-    //     state.isSuccess = true
-    //     state.goals.push(action.payload)
-    //   })
-    //   .addCase(createGoal.rejected, (state, action) => {
-    //     state.isLoading = false
-    //     state.isError = true
-    //     state.message = action.payload
-    //   })
+
+      .addCase(createContact.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.contacts.push(action.payload)
+      })
+  
       .addCase(getContacts.pending, (state) => {
         state.isLoading = true
       })
@@ -140,38 +76,6 @@ export const contactSlice = createSlice({
         state.isError = true
         state.message = action.payload
       })
-    //   .addCase(deleteGoal.pending, (state) => {
-    //     state.isLoading = true
-    //   })
-    //   .addCase(deleteGoal.fulfilled, (state, action) => {
-    //     state.isLoading = false
-    //     state.isSuccess = true
-    //     state.goals = state.goals.filter(
-    //       (goal) => goal._id !== action.payload.id
-    //     )
-    //   })
-    //   .addCase(deleteGoal.rejected, (state, action) => {
-    //     state.isLoading = false
-    //     state.isError = true
-    //     state.message = action.payload
-    //   })
-
-    //   .addCase(chooseEvent.pending, (state) => {
-    //     state.isLoading = true
-    //   })
-    //   .addCase(chooseEvent.fulfilled, (state, action) => {
-    //     state.isLoading = false
-    //     state.isSuccess = true
-    //     state.goals = state.goals.filter(
-    //       (goal) => goal._id !== action.payload.id
-    //     )
-    //   })
-    //   .addCase(chooseEvent.rejected, (state, action) => {
-    //     state.isLoading = false
-    //     state.isError = true
-    //     state.message = action.payload
-    //   })
-
     
       
   },

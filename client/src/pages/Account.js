@@ -39,10 +39,9 @@ function Account() {
     country,
     hobbies,
   } = formData;
-  console.log({ formData });
 
   const { user } = useSelector((state) => state.auth);
-  console.log(user.result.picture);
+  // console.log(user.result.picture);
   const dispatch = useDispatch();
 
   const onChange = (e) => {

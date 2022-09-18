@@ -243,7 +243,7 @@ function App() {
           />
           <Route
             exact
-            path={`${process.env.PUBLIC_URL}/comingsoon`}
+            path={`${process.env.PUBLIC_URL}/`}
             element={<Comingsoon />}
           />
           <Route

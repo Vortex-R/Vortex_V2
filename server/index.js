@@ -33,14 +33,14 @@ app.use("/api/userP", auth, userPRoute);
 app.use("/api/planifications", planificationRouter);
 
 // Serve Old frontend
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.resolve(process.cwd(), "client/build")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(process.cwd(), "client/build/index.html"));
-  });
-} else {
-  app.get("/", (req, res) => res.send("Please set to production"));
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.resolve(process.cwd(), "client/build")));
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(process.cwd(), "client/build/index.html"));
+//   });
+// } else {
+//   app.get("/", (req, res) => res.send("Please set to production"));
+// }
 
 // Serve frontend
 if (process.env.NODE_ENV === "production") {

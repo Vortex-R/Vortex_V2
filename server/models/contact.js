@@ -1,10 +1,10 @@
 import mongoose from 'mongoose'
 
 const contactSchema = mongoose.Schema({
-    email: { type: String, required: true },
-    subject: { type: String, required: true },
-    messages: { type: String, required: true },
-
+  email: { type: String, required: true },
+  category: { type: String, required: false },
+  subject: { type: String, required: false },
+  messages: { type: String, required: false },
 });
 
 export default mongoose.model("Contact", contactSchema);
