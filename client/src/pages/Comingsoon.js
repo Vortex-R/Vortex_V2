@@ -80,12 +80,12 @@ function Comingsoon() {
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowfullscreen="true"
             ></iframe>
           </div>
           <button
             type="button"
-            className="close__button"
+            className="close__button  text-uppercase"
             onClick={onRequestClose}
           >
             Close
@@ -172,23 +172,31 @@ function Comingsoon() {
         </div>
       </div> */}
 
-      <div className="main-content pt-0 bg-white ps-0 pe-0">
+      <div className="main-content p-0 d-flex align-items-center justify-content-center ">
         <div className="container">
-          <div className="row d-flex">
+          <div className=" d-flex flex-nowrap">
             <div
-              className="col-xl-6 d-xl-block p-0 vh-100 bg-image-contain bg-image-center bg-no-repeat"
+              className="col-xl-6 p-0  bg-image-contain bg-image-center bg-no-repeat"
               style={{
                 backgroundImage: `url("assets/images/coming.jpg")`,
               }}
             ></div>
 
-            <div className="col-xl-6 vh-100  align-items-center d-flex bg-white rounded-3 overflow-hidden">
+            <div className="justify-content-center  align-items-center  bg-white rounded-3 overflow-hidden">
               <div className="card shadow-none border-0 ps-lg--5 me-auto coming-soon-card">
-                <div className="card-body rounded-0 text-left pt-md-5  ps-0 pe-0">
-                  <h2 className="fw-700 text-grey-900 display3-size display4-md-size lh-2">
+                <div className="card-body rounded-0 text-center text-lg-left pt-md-5  ps-0 pe-0">
+                  <div
+                    className="mx-auto bg-image-contain bg-image-center bg-no-repeat"
+                    style={{
+                      backgroundImage: `url("assets/images/blogo.png")`,
+                      width: "200px",
+                      height: "150px",
+                    }}
+                  ></div>
+                  <h2 className="fw-600 text-grey-900 display2-size display4-md-size lh-2">
                     We're under{" "}
-                    <span className="text-primary">construction.</span> Check
-                    back for an update soon.
+                    <span className="txt-notify">construction.</span> Check back
+                    for an update soon.
                   </h2>
                   <form onSubmit={onSubmit}>
                     <div className="form-group mt-4 p-1 border p-2 bg-white rounded-3">
@@ -230,7 +238,7 @@ function Comingsoon() {
                         <div className="col-lg-2">
                           <button
                             type="submit"
-                            className="w-100 d-block btn bg-current text-white font-xsssss fw-600 ls-3 style1-input p-0 border-0 text-uppercase "
+                            className="w-100 d-block btn bg-notify text-white font-xsssss fw-600 ls-3 style1-input p-0 border-0 text-uppercase "
                           >
                             Notify
                           </button>
