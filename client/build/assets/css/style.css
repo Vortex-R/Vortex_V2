@@ -50,21 +50,25 @@
   max-width: 100%;
   margin: auto;
   padding: 15px;
-  width: 100%;
-
-}
-
+  width: 50%;
+  
+  }
+        @media (max-width: 560px) {
+          .modal__container {
+            width: 100%;
+          }
+        }
 .modal__title {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 25px;
 }
-
+                                    
 .close__button {
-  background-color: #05f;
+  background-color: #af0e71;
   border: 0;
   border-radius: 5px;
-  color: #fff;
+  color: #ffffff;
   cursor: pointer;
   font-size: 16px;
   font-weight: 600;
@@ -294,6 +298,13 @@
 
 .bg-current {
   background-color: var(--theme-color) !important;
+}
+.bg-notify {
+  background-color: #af0e71 !important;
+}
+
+.txt-notify {
+  color: #af0e71 !important;
 }
 
 .bg-current-shade {
